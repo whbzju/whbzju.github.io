@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>TryOS on Wujia's Blog</title><link>https://www.wujia.io/tags/tryos/</link><description>Recent content in TryOS on Wujia's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 23 Feb 2013 15:57:00 +0800</lastBuildDate><atom:link href="https://www.wujia.io/tags/tryos/index.xml" rel="self" type="application/rss+xml"/><item><title>Orange's一个操作系统的实现---心得与体会</title><link>https://www.wujia.io/posts/tryos-xindetihui/</link><pubDate>Sat, 23 Feb 2013 15:57:00 +0800</pubDate><guid>https://www.wujia.io/posts/tryos-xindetihui/</guid><description>&lt;p>#前言
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>TryOS on Wujia's Blog</title><link>https://whbzju.github.io/tags/tryos/</link><description>Recent content in TryOS on Wujia's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 23 Feb 2013 15:57:00 +0800</lastBuildDate><atom:link href="https://whbzju.github.io/tags/tryos/index.xml" rel="self" type="application/rss+xml"/><item><title>Orange's一个操作系统的实现---心得与体会</title><link>https://whbzju.github.io/posts/tryos-xindetihui/</link><pubDate>Sat, 23 Feb 2013 15:57:00 +0800</pubDate><guid>https://whbzju.github.io/posts/tryos-xindetihui/</guid><description>&lt;p>#前言
 本科的时候，室友有一本《自己动手写操作系统》，曾拿来翻了一翻，觉得十分有趣，可惜当时要应付考研，没有时间好好看这本书。后来读研之后，马上入了一本，不过此时该书已经是第二版，叫《Orange&amp;rsquo;s 一个操作系统的实现》，却因自己畏难和拖延不决，一直到今天，马上要毕业了从把此书匆匆过了一遍。
 不得不说，佩服作者的功力和心态，作者像是一个小孩，认真的为大家讲述他心爱的玩具是如何搭建的。在如今，实现一个这样的操作系统，并没有什么使用价值，只能作为学习的demo。为了搭建这个玩具，作者需要去了解x86架构的运行原理，内存的分页分段实现机制，8259A中断控制的部分原理和使用方法，还有文件系统、硬盘等等，我想当当是阅读这些设备组件的文档，就要耗去许多功夫，更别说调试的功夫。故在这种没有外界事物驱动的项目，若非有极大的热忱，是无论如何也坚持不下去。而我却连读完这本书这件事情都拖了3年，想来真是惭愧。
 #内容概述
@@ -13,7 +13,7 @@
 &lt;li>让OS能够部署到真正的机器中
 本文变不打算重复书中的实现细节，因为文字没有代码讲的清楚，作者的代码带有大量的注释，所有的细节都在其中。&lt;/li>
 &lt;/ul>
-&lt;hr></description></item><item><title>ubuntu 12.04安装bochs 2.3.5</title><link>https://www.wujia.io/posts/bochs-config/</link><pubDate>Mon, 04 Feb 2013 23:37:00 +0800</pubDate><guid>https://www.wujia.io/posts/bochs-config/</guid><description>&lt;p>一直对操作系统本身抱有一定的崇拜心理，可是长久以来都没有好好专研下这本书。趁着工作之前的最后一个寒假，希望能顺利完成这本书，对操作系统的认识有一个新的认识。&lt;/p>
+&lt;hr></description></item><item><title>ubuntu 12.04安装bochs 2.3.5</title><link>https://whbzju.github.io/posts/bochs-config/</link><pubDate>Mon, 04 Feb 2013 23:37:00 +0800</pubDate><guid>https://whbzju.github.io/posts/bochs-config/</guid><description>&lt;p>一直对操作系统本身抱有一定的崇拜心理，可是长久以来都没有好好专研下这本书。趁着工作之前的最后一个寒假，希望能顺利完成这本书，对操作系统的认识有一个新的认识。&lt;/p>
 &lt;blockquote>
 &lt;p>工欲善其事，必先利其器
 首先，我们先要配置出书本中模拟实验的环境，即虚拟机bochs的配置。众所周知，bochs的安装包版本是不带有调试功能的，只有通过编译bochs源码，才能启用debug模式。&lt;/p>
