@@ -1,0 +1,42 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Mac OS 10.9 安装scikit--万恶的墙 | Wujia Blog</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="##前言
+工作以来，接触不少机器学习相关的知识，一直听说python在这方面有许多优秀的工具，顺便自己也想学习python。经google后，决定安装scikit-learn试试。在官网上找到安装教程后，开心的发现支持brew。 安装教程
+悲剧从此发生。。。brew需要安装的源许多都在SourceForge上，但是该网站被天朝强大的“墙”屏蔽了。没有办法一键安装。
+##源码安装 我也很纳闷为什么brew的源大部分在SourceForge上，为何不用GitHub的。既然不能一键安装，那我通过源码安装总可以吧。 scikit需要numpy和scipy两个重要的组件，在scipy官网找到安装教程.
+在安装scipy的提示
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo: can't open input file:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo: can't open input file: 在查阅了一些资料后，问题貌似是由于xcode 5版本和xcode 4在工具链上有不少调整导致的，试了几种方法后未能解决。
+##brew 撞墙怎么办 参考网上资料，只有自己把文件下好，放到 /Library/Caches/Homebrew/ ，但是如果文件很多，就悲剧了。
+##不要轻易更新系统 在解决了brew撞墙问题后，继续尝试brew安装，依旧没有成功，提示xcode5版本太新，
+make: *** [bootstrap] Error 2 Error: Homebrew doesn't know what compiler versions ship with your version of Xcode (5.0.2). ##未完待续"><meta name=generator content="Hugo 0.104.3"><meta name=robots content="noindex, nofollow"><link rel=stylesheet href=/ananke/css/main.min.css><meta property="og:title" content="Mac OS 10.9 安装scikit--万恶的墙"><meta property="og:description" content="##前言
+工作以来，接触不少机器学习相关的知识，一直听说python在这方面有许多优秀的工具，顺便自己也想学习python。经google后，决定安装scikit-learn试试。在官网上找到安装教程后，开心的发现支持brew。 安装教程
+悲剧从此发生。。。brew需要安装的源许多都在SourceForge上，但是该网站被天朝强大的“墙”屏蔽了。没有办法一键安装。
+##源码安装 我也很纳闷为什么brew的源大部分在SourceForge上，为何不用GitHub的。既然不能一键安装，那我通过源码安装总可以吧。 scikit需要numpy和scipy两个重要的组件，在scipy官网找到安装教程.
+在安装scipy的提示
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo: can't open input file:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo: can't open input file: 在查阅了一些资料后，问题貌似是由于xcode 5版本和xcode 4在工具链上有不少调整导致的，试了几种方法后未能解决。
+##brew 撞墙怎么办 参考网上资料，只有自己把文件下好，放到 /Library/Caches/Homebrew/ ，但是如果文件很多，就悲剧了。
+##不要轻易更新系统 在解决了brew撞墙问题后，继续尝试brew安装，依旧没有成功，提示xcode5版本太新，
+make: *** [bootstrap] Error 2 Error: Homebrew doesn't know what compiler versions ship with your version of Xcode (5.0.2). ##未完待续"><meta property="og:type" content="article"><meta property="og:url" content="https://whbzju.github.io/posts/wanerdeqiangheanzhuangscikit/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2013-12-29T14:26:00+08:00"><meta property="article:modified_time" content="2013-12-29T14:26:00+08:00"><meta itemprop=name content="Mac OS 10.9 安装scikit--万恶的墙"><meta itemprop=description content="##前言
+工作以来，接触不少机器学习相关的知识，一直听说python在这方面有许多优秀的工具，顺便自己也想学习python。经google后，决定安装scikit-learn试试。在官网上找到安装教程后，开心的发现支持brew。 安装教程
+悲剧从此发生。。。brew需要安装的源许多都在SourceForge上，但是该网站被天朝强大的“墙”屏蔽了。没有办法一键安装。
+##源码安装 我也很纳闷为什么brew的源大部分在SourceForge上，为何不用GitHub的。既然不能一键安装，那我通过源码安装总可以吧。 scikit需要numpy和scipy两个重要的组件，在scipy官网找到安装教程.
+在安装scipy的提示
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo: can't open input file:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo: can't open input file: 在查阅了一些资料后，问题貌似是由于xcode 5版本和xcode 4在工具链上有不少调整导致的，试了几种方法后未能解决。
+##brew 撞墙怎么办 参考网上资料，只有自己把文件下好，放到 /Library/Caches/Homebrew/ ，但是如果文件很多，就悲剧了。
+##不要轻易更新系统 在解决了brew撞墙问题后，继续尝试brew安装，依旧没有成功，提示xcode5版本太新，
+make: *** [bootstrap] Error 2 Error: Homebrew doesn't know what compiler versions ship with your version of Xcode (5.0.2). ##未完待续"><meta itemprop=datePublished content="2013-12-29T14:26:00+08:00"><meta itemprop=dateModified content="2013-12-29T14:26:00+08:00"><meta itemprop=wordCount content="47"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="Mac OS 10.9 安装scikit--万恶的墙"><meta name=twitter:description content="##前言
+工作以来，接触不少机器学习相关的知识，一直听说python在这方面有许多优秀的工具，顺便自己也想学习python。经google后，决定安装scikit-learn试试。在官网上找到安装教程后，开心的发现支持brew。 安装教程
+悲剧从此发生。。。brew需要安装的源许多都在SourceForge上，但是该网站被天朝强大的“墙”屏蔽了。没有办法一键安装。
+##源码安装 我也很纳闷为什么brew的源大部分在SourceForge上，为何不用GitHub的。既然不能一键安装，那我通过源码安装总可以吧。 scikit需要numpy和scipy两个重要的组件，在scipy官网找到安装教程.
+在安装scipy的提示
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo: can't open input file:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo: can't open input file: 在查阅了一些资料后，问题貌似是由于xcode 5版本和xcode 4在工具链上有不少调整导致的，试了几种方法后未能解决。
+##brew 撞墙怎么办 参考网上资料，只有自己把文件下好，放到 /Library/Caches/Homebrew/ ，但是如果文件很多，就悲剧了。
+##不要轻易更新系统 在解决了brew撞墙问题后，继续尝试brew安装，依旧没有成功，提示xcode5版本太新，
+make: *** [bootstrap] Error 2 Error: Homebrew doesn't know what compiler versions ship with your version of Xcode (5.0.2). ##未完待续"></head><body class="ma0 avenir bg-near-white"><header><div class=bg-black><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l justify-between items-center center"><a href=/ class="f3 fw2 hover-white no-underline white-90 dib">Wujia Blog</a><div class="flex-l items-center"><div class=ananke-socials></div></div></div></nav></div></header><main class=pb7 role=main><article class="flex-l flex-wrap justify-between mw8 center ph3"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked">POSTS</aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">Mac OS 10.9 安装scikit--万恶的墙</h1><time class="f6 mv4 dib tracked" datetime=2013-12-29T14:26:00+08:00>December 29, 2013</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>##前言</p><p>工作以来，接触不少机器学习相关的知识，一直听说python在这方面有许多优秀的工具，顺便自己也想学习python。经google后，决定安装scikit-learn试试。在官网上找到安装教程后，开心的发现支持brew。
+<a href=https://gist.github.com/stared/4730202>安装教程</a></p><p>悲剧从此发生。。。brew需要安装的源许多都在SourceForge上，但是该网站被天朝强大的“墙”屏蔽了。没有办法一键安装。</p><p>##源码安装
+我也很纳闷为什么brew的源大部分在SourceForge上，为何不用GitHub的。既然不能一键安装，那我通过源码安装总可以吧。
+scikit需要numpy和scipy两个重要的组件，在scipy官网找到<a href=http://www.scipy.org/scipylib/building/macosx.html>安装教程</a>.</p><p>在安装scipy的提示</p><pre><code>/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo: can't open input file:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo: can't open input file:
+</code></pre><p>在查阅了一些资料后，问题貌似是由于xcode 5版本和xcode 4在工具链上有不少调整导致的，试了几种方法后未能解决。</p><p>##brew 撞墙怎么办
+参考网上资料，只有自己把文件下好，放到 /Library/Caches/Homebrew/ ，但是如果文件很多，就悲剧了。</p><p>##不要轻易更新系统
+在解决了brew撞墙问题后，继续尝试brew安装，依旧没有成功，提示xcode5版本太新，</p><pre><code>make: *** [bootstrap] Error 2
+Error: Homebrew doesn't know what compiler versions ship with your version
+of Xcode (5.0.2).
+</code></pre><p>##未完待续</p><ul class=pa0></ul><div class="mt6 instapaper_ignoref"></div></div><aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links"><p class="f5 b mb3">What's in this posts</p><nav id=TableOfContents></nav></div></aside></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://whbzju.github.io/>&copy; Wujia Blog 2022</a><div><div class=ananke-socials></div></div></div></footer></body></html>

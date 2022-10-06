@@ -1,0 +1,107 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>octopress custom-configuration 个性化配置 | Wujia Blog</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="#概述
+我使用的octopress默认的主题，但是它的一些页面设置不能满足我的需求。比如：
+
+导航栏
+个人介绍页面
+分类Categories
+sina微薄分享
+评论
+
+好在octopress的可定制性非常强，其核心配置文件叫 `_config.yml,  基本上的配置都需要用到这个文件。它的逻辑比较简单，blog所有的配置都在这个文件，它的基本格式如下：
+# Disqus Comments
+disqus_short_name: 
+disqus_show_comment_count:
+这是一个第三方的评论插件，通过简单的设置即可实现blog中加入评论。注意，该文件是基于yaml语法，：后面的空格不能省略。该文件还有许多其他的参数可以配置，其中本文主要关注的是：
+
+# list each of the sidebar modules you want to include, in the order you want them to appear.
+# To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like 'custom/asides/custom_aside_name.html'
+default_asides: [asides/about.html, asides/weibo.html, asides/category_list.html, asides/recent_posts.html, asides/github.html, asides/twitter.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html]
+如注释中提到，asides的设置，关联的目录在/source/\_includes/custom/asides。比如想要在右侧边栏中加入about me框，则需要在/source/\_includes/custom/asides/中新建about.html。建议借用该目录下默认的about.html。
+<section>
+  <h1>About Me</h1>
+  <p>A little something about me.</p>
+</section>
+"><meta name=generator content="Hugo 0.104.3"><meta name=robots content="noindex, nofollow"><link rel=stylesheet href=/ananke/css/main.min.css><meta property="og:title" content="octopress custom-configuration 个性化配置"><meta property="og:description" content="#概述
+我使用的octopress默认的主题，但是它的一些页面设置不能满足我的需求。比如：
+
+导航栏
+个人介绍页面
+分类Categories
+sina微薄分享
+评论
+
+好在octopress的可定制性非常强，其核心配置文件叫 `_config.yml,  基本上的配置都需要用到这个文件。它的逻辑比较简单，blog所有的配置都在这个文件，它的基本格式如下：
+# Disqus Comments
+disqus_short_name: 
+disqus_show_comment_count:
+这是一个第三方的评论插件，通过简单的设置即可实现blog中加入评论。注意，该文件是基于yaml语法，：后面的空格不能省略。该文件还有许多其他的参数可以配置，其中本文主要关注的是：
+
+# list each of the sidebar modules you want to include, in the order you want them to appear.
+# To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like 'custom/asides/custom_aside_name.html'
+default_asides: [asides/about.html, asides/weibo.html, asides/category_list.html, asides/recent_posts.html, asides/github.html, asides/twitter.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html]
+如注释中提到，asides的设置，关联的目录在/source/\_includes/custom/asides。比如想要在右侧边栏中加入about me框，则需要在/source/\_includes/custom/asides/中新建about.html。建议借用该目录下默认的about.html。
+<section>
+  <h1>About Me</h1>
+  <p>A little something about me.</p>
+</section>
+"><meta property="og:type" content="article"><meta property="og:url" content="https://whbzju.github.io/posts/octopress-custom-config/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2013-03-01T09:25:00+08:00"><meta property="article:modified_time" content="2013-03-01T09:25:00+08:00"><meta itemprop=name content="octopress custom-configuration 个性化配置"><meta itemprop=description content="#概述
+我使用的octopress默认的主题，但是它的一些页面设置不能满足我的需求。比如：
+
+导航栏
+个人介绍页面
+分类Categories
+sina微薄分享
+评论
+
+好在octopress的可定制性非常强，其核心配置文件叫 `_config.yml,  基本上的配置都需要用到这个文件。它的逻辑比较简单，blog所有的配置都在这个文件，它的基本格式如下：
+# Disqus Comments
+disqus_short_name: 
+disqus_show_comment_count:
+这是一个第三方的评论插件，通过简单的设置即可实现blog中加入评论。注意，该文件是基于yaml语法，：后面的空格不能省略。该文件还有许多其他的参数可以配置，其中本文主要关注的是：
+
+# list each of the sidebar modules you want to include, in the order you want them to appear.
+# To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like 'custom/asides/custom_aside_name.html'
+default_asides: [asides/about.html, asides/weibo.html, asides/category_list.html, asides/recent_posts.html, asides/github.html, asides/twitter.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html]
+如注释中提到，asides的设置，关联的目录在/source/\_includes/custom/asides。比如想要在右侧边栏中加入about me框，则需要在/source/\_includes/custom/asides/中新建about.html。建议借用该目录下默认的about.html。
+<section>
+  <h1>About Me</h1>
+  <p>A little something about me.</p>
+</section>
+"><meta itemprop=datePublished content="2013-03-01T09:25:00+08:00"><meta itemprop=dateModified content="2013-03-01T09:25:00+08:00"><meta itemprop=wordCount content="94"><meta itemprop=keywords content="octopress,"><meta name=twitter:card content="summary"><meta name=twitter:title content="octopress custom-configuration 个性化配置"><meta name=twitter:description content="#概述
+我使用的octopress默认的主题，但是它的一些页面设置不能满足我的需求。比如：
+
+导航栏
+个人介绍页面
+分类Categories
+sina微薄分享
+评论
+
+好在octopress的可定制性非常强，其核心配置文件叫 `_config.yml,  基本上的配置都需要用到这个文件。它的逻辑比较简单，blog所有的配置都在这个文件，它的基本格式如下：
+# Disqus Comments
+disqus_short_name: 
+disqus_show_comment_count:
+这是一个第三方的评论插件，通过简单的设置即可实现blog中加入评论。注意，该文件是基于yaml语法，：后面的空格不能省略。该文件还有许多其他的参数可以配置，其中本文主要关注的是：
+
+# list each of the sidebar modules you want to include, in the order you want them to appear.
+# To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like 'custom/asides/custom_aside_name.html'
+default_asides: [asides/about.html, asides/weibo.html, asides/category_list.html, asides/recent_posts.html, asides/github.html, asides/twitter.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html]
+如注释中提到，asides的设置，关联的目录在/source/\_includes/custom/asides。比如想要在右侧边栏中加入about me框，则需要在/source/\_includes/custom/asides/中新建about.html。建议借用该目录下默认的about.html。
+<section>
+  <h1>About Me</h1>
+  <p>A little something about me.</p>
+</section>
+"></head><body class="ma0 avenir bg-near-white"><header><div class=bg-black><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l justify-between items-center center"><a href=/ class="f3 fw2 hover-white no-underline white-90 dib">Wujia Blog</a><div class="flex-l items-center"><div class=ananke-socials></div></div></div></nav></div></header><main class=pb7 role=main><article class="flex-l flex-wrap justify-between mw8 center ph3"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked">POSTS</aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">octopress custom-configuration 个性化配置</h1><time class="f6 mv4 dib tracked" datetime=2013-03-01T09:25:00+08:00>March 1, 2013</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>#概述
+我使用的octopress默认的主题，但是它的一些页面设置不能满足我的需求。比如：</p><ul><li>导航栏</li><li>个人介绍页面</li><li>分类Categories</li><li>sina微薄分享</li><li>评论</li></ul><p>好在octopress的可定制性非常强，其核心配置文件叫 `_config.yml, 基本上的配置都需要用到这个文件。它的逻辑比较简单，blog所有的配置都在这个文件，它的基本格式如下：</p><pre tabindex=0><code># Disqus Comments
+disqus_short_name: 
+disqus_show_comment_count:
+</code></pre><p>这是一个第三方的评论插件，通过简单的设置即可实现blog中加入评论。注意，该文件是基于yaml语法，：后面的空格不能省略。该文件还有许多其他的参数可以配置，其中本文主要关注的是：</p><pre tabindex=0><code>
+# list each of the sidebar modules you want to include, in the order you want them to appear.
+# To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like &#39;custom/asides/custom_aside_name.html&#39;
+default_asides: [asides/about.html, asides/weibo.html, asides/category_list.html, asides/recent_posts.html, asides/github.html, asides/twitter.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html]
+</code></pre><p>如注释中提到，asides的设置，关联的目录在<code>/source/\_includes/custom/asides</code>。比如想要在右侧边栏中加入about me框，则需要在<code>/source/\_includes/custom/asides/</code>中新建about.html。建议借用该目录下默认的about.html。</p><pre tabindex=0><code>&lt;section&gt;
+  &lt;h1&gt;About Me&lt;/h1&gt;
+  &lt;p&gt;A little something about me.&lt;/p&gt;
+&lt;/section&gt;
+</code></pre><p>#配置方法
+博主的自定义主要参考网络上的几篇blog，在这里不再详述，实现的功能有:</p><ul><li>octopress navigation设置</li><li>about页面，需要用rake new_page[&ldquo;about&rdquo;]，先生成页面。</li><li>octopress 侧边栏设置</li><li>个人介绍</li><li>sina微博分享</li><li>categories</li><li>google analysis</li></ul><h1 id=建议>建议</h1><p>最好把里面的twitter相关的信息全部删掉，否则由于GFW的原因，将会造成页面load很慢。同理，修改定制文件/source/_includes/custom/head.html 把google的自定义字体去掉</p><p>#参考文献
+<a href=http://yanping.me/cn/blog/2012/01/07/theming-and-customization/>ctopress修改主题和自定义样式</a></p><p><a href=http://linyi.herokuapp.com/blog/config-octopress.html>octopress的个性化配置</a></p><p><a href=http://codemacro.com/2012/07/18/add-category-list-to-octopress/>为octopress添加分类(category)列表</a></p><p><a href=http://programus.github.com/blog/2012/03/03/add-weibo-sidebar-into-octopress/>为Octopress博客追加新浪微博侧栏</a></p><ul class=pa0><li class="list di"><a href=/tags/octopress/ class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">octopress</a></li></ul><div class="mt6 instapaper_ignoref"></div></div><aside class="w-30-l mt6-l"><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links"><p class="f5 b mb3">What's in this posts</p><nav id=TableOfContents></nav></div><div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links"><p class="f5 b mb3">Related</p><ul class="pa0 list"><li class=mb2><a href=/posts/octopress-peizhi/>Ubuntu 12.04配置Octopress在Github上搭建blog</a></li></ul></div></aside></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://whbzju.github.io/>&copy; Wujia Blog 2022</a><div><div class=ananke-socials></div></div></div></footer></body></html>
