@@ -1,4 +1,4 @@
 baseURL = 'https://whbzju.github.io/'
 languageCode = 'en-us'
-title = 'Wujia's Log'
+title = 'Wujia Blog'
 theme = "ananke"
