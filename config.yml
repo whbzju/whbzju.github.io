@@ -1,0 +1,38 @@
+baseURL: 'https://whbzju.github.io/'
+languageCode: en-us
+title: Wujia's Blog
+theme: PaperMod
+params:
+  homeInfoParams:
+    Title: 'Welcome'
+    Content: >-
+      大家好，欢迎来到吾加的Blog。记录自己的学习和实践总结，包括编程、机器学习算法、搜广推实践、程序员职业发展等。目前在一家国内的互联网上市公司担任技术和产品的负责人。
+
+  socialIcons:
+    - name: "linkedin"
+      url: 'https://www.linkedin.com/in/haibo-wu-97b60759/'
+
+    - name: "zhihu"
+      url: 'https://www.zhihu.com/people/wu-hai-bo'
+
+  # defaultTheme: light
+  # defaultTheme: dark
+  defaultTheme: auto # to switch between dark or light according to browser theme
+
+  ShowShareButtons: true
+  ShowReadingTime: true
+  
+  ShowToc: true
+  TocOpen: true
+
+  ShowBreadCrumbs: true
+ 
+  ShowPostNavLinks: true
+
+  ShowCodeCopyButtons: true
+
+  outputs:
+    home:
+      - HTML
+      - RSS
+      - JSON # is necessary
