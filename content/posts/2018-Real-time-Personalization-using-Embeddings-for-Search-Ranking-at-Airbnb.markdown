@@ -1,10 +1,9 @@
 ---
 title: "不一样的论文解读：2018 Real Time Personalization Using Embeddings for Search Ranking at Airbnb"
 date: 2022-10-06T15:33:57+08:00
-draft: true
+draft: false
 ---
 
-# 不一样的论文解读：2018 KDD best论文Real-time Personalization using Embeddings for Search Ranking at Airbnb
 Airbnb这篇论文拿了今年KDD best paper，和16年google的W&D类似，并不fancy，但非常practicable，值得一读。可喜的是，据我所知，国内一线团队的实践水平并不比论文中描述的差，而且就是W&D，国内也有团队在论文没有出来之前就做出了类似的结果，可见在推荐这样的场景，大家在一个水平线上。希望未来国内的公司，也发一些真正实用的paper，不一定非要去发听起来fancy的。
 
 自从Word2vec出来后，迅速应用到各个领域中，夸张一点描述，万物皆可embedding。在NLP中，一个困难是如何描述词，传统有onehot、ngram等各种方式，但它们很难表达词与词之间的语义关系，简单来讲，即词之间的距离远近关系。我们把每个词的Embedding向量理解成它在这个词表空间的位置，即位置远近能描述哪些词相关，那些词不相关。
