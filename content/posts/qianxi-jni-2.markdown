@@ -13,7 +13,6 @@ toc: true
 ##Java层
 先看代码，为hello-jni的java层添加动态注册的native方法，与静态注册的native方法比较。
 
-{% codeblock jniActivity lang:java %}
 public class jniActivity extends Activity {
 
     private TextView tv;
@@ -49,7 +48,6 @@ public class jniActivity extends Activity {
        System.loadLibrary("learn-jni");
     }
 }
-{% endcodeblock %}
 
 以上的代码很简单，stringFromJNI上上节中用来演示静态注册，testMethodForNativeCallJava是后面要用到，暂时不用关心。我们来看`public native String DynamicStringFromJNI()`。动态注册和静态注册对java层来说没有区别。
 
@@ -57,7 +55,6 @@ public class jniActivity extends Activity {
 同样，先看代码：
 
 
-{% codeblock learnjni lang:c %}
 #include <string.h>
 #include <jni.h>
 #include <assert.h>
@@ -159,7 +156,6 @@ jint JNI_OnLoad(JavaVM* vm, void* reserved){
 
     return JNI_VERSION_1_4;
 }
-{% endcodeblock %}
 
 
 代码有点长，其中类似`__android_log_print(ANDROID_LOG_DEBUG,"hello-jni","env ok");`是我用来调试用的，jni方法无法直接用ide调试，一般情况下可以用打log的方式调试，如上面的做法，还需要修改Android.mk，加入`LOCAL_LDLIBS :=-llog`，放在`include $(CLEAR_VARS)
@@ -177,7 +173,6 @@ jint JNI_OnLoad(JavaVM* vm, void* reserved){
 	（参数1类型标示;参数2类型标示;…参数n类型标示）返回值类型标示
 其对应的类型标示可以参考jni.h中的定义，理解起来就是将java中的类型翻译成c中的类型：
 
-{% codeblock jni lang:c %}
 # include <inttypes.h>      /* C99 */
 typedef uint8_t         jboolean;       /* unsigned 8 bits */
 typedef int8_t          jbyte;          /* signed 8 bits */
@@ -197,7 +192,6 @@ typedef long long       jlong;          /* signed 64 bits */
 typedef float           jfloat;         /* 32-bit IEEE 754 */
 typedef double          jdouble;        /* 64-bit IEEE 754 */
 #endif
-{% endcodeblock %}
 
 更详细的对应关系请参考：<http://blog.csdn.net/lizhiguo0532/article/details/7219357>
 

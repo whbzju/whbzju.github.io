@@ -33,7 +33,6 @@ JNIEnv是jni中举足轻重的一个角色，env可以理解成window中的句�
 ##实例讲解--Jni回调java
 在工作中，我们使用jni时，常常会碰到需要从native回调java的需求，比如java通过jni调用native的一些函数，如果这些函数较为耗时，经常会起一个线程来完成任务，那么当任务完成时，必然要告诉java层。通常的做法是java层通过jni设置回调函数，native通过jni回调java。先看代码：
 
-{% codeblock jniActivity lang:java %}
 public class jniActivity extends Activity {
 
     private TextView tv;
@@ -73,11 +72,9 @@ public class jniActivity extends Activity {
        System.loadLibrary("learn-jni");
     }
 }
-{% endcodeblock %}
 
 C的代码和前面两篇类似，我只贴出增加的代码。
 
-{% codeblock learn-jni lang:c %}
 JavaVM* g_javaVm = NULL;
 jobject g_object = NULL;
 
@@ -168,7 +165,6 @@ jint JNI_OnLoad(JavaVM* vm, void* reserved){
 
     return JNI_VERSION_1_4;
 }
-{% endcodeblock %}
 
 ##分析
 从上面代码中可以看到，我在OnLoad中保存了java虚拟机的指针，后续的一系列参数从该指针中获取。在JavaSetCallBack中将java对象保存下来，由于我的回调函数不是静态的，需要java的实例才能调用，所以这里需要保存java的object，又由于在java虚拟机中，jobject是一个局部引用，因此需要主动new一个全局引用作为保存。在CallBack中通过g_object重新找到类的定义，相对于c，可以理解成找到符号表。最后通过callVoidMethod调用java的方法。
