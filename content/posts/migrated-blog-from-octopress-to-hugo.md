@@ -1,7 +1,7 @@
 ---
 title: "Migrated Blog From Octopress to Hugo"
 date: 2022-10-06T15:07:40+08:00
-draft: true
+draft: false
 ---
 
 自从社交媒体火起来后，很少用在blog写文章，这几年在知乎专栏写的比较多，收获了不少朋友，这个blog荒废多年。但鉴于社媒氛围的剧烈变化，还是blog这个老地方安静，后续会重启，作为一个自留地使用。
