@@ -1,0 +1,54 @@
+---
+import "../styles/global.css";
+import { nav, profile } from "../data/profile";
+
+const {
+  title = profile.name,
+  description = "Wujia / Haibo Wu builds AI products across WeShop, Memex, vertical AI SaaS, agents, and personal memory.",
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="site-frame">
+      <header class="topbar">
+        <a class="site-title" href="/" aria-label={`${profile.name} home`}>
+          {profile.name}
+        </a>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+          {nav.map((item) => (
+            <a
+              href={item.href}
+              class:list={{ active: currentPath === item.href }}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+
+      <footer class="footer">
+        <span>© {new Date().getFullYear()} {profile.name}</span>
+        <span>Static site on GitHub Pages · Built with Astro</span>
+      </footer>
+    </div>
+  </body>
+</html>

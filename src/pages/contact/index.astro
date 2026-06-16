@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { contactReasons, profile } from "../../data/profile";
+---
+
+<BaseLayout title={`Contact · ${profile.name}`}>
+  <section class="page-hero container">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h1>Useful conversations.</h1>
+    </div>
+    <p class="page-lead">The best reasons to reach out are AI product depth, vertical SaaS, open-source agents, personal memory systems, global distribution, and commercialization.</p>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        {contactReasons.map((reason) => (
+          <article class="contact-card">
+            <span class="card-type">{reason.label}</span>
+            <h3>{reason.title}</h3>
+            <p>{reason.text}</p>
+          </article>
+        ))}
+      </div>
+
+      <div class="split-panel">
+        <div class="aside-panel">
+          <p class="eyebrow">Primary links</p>
+          <h2>Find the work directly.</h2>
+          <p class="page-copy">GitHub is the best technical entry point. LinkedIn is best for business, media, and overseas opportunities. Zhihu carries the Chinese public thinking trail.</p>
+        </div>
+        <div class="aside-panel">
+          <div class="link-stack">
+            <a href={profile.links.github}>GitHub</a>
+            <a href={profile.links.linkedin}>LinkedIn</a>
+            <a href={profile.links.zhihu}>Zhihu</a>
+            <a href={profile.links.memex}>Memex</a>
+            <a href={profile.links.weshop}>WeShop AI</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

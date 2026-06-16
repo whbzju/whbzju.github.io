@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { principles, profile, works, writing } from "../data/profile";
+---
+
+<BaseLayout title={`${profile.name} · AI product builder`}>
+  <article class="home wrapper">
+    <h1 class="sr-only">{profile.name}</h1>
+
+    <img class="home-avatar" src="/images/avatar-zhihu.jpg" alt="Wujia / Haibo Wu" />
+
+    <p>I’m Wujia / Haibo Wu, an AI product builder working across commercial SaaS, open-source agents, creative workflows, and personal memory.</p>
+
+    <p>Recently, my work centers on two products: <a href={profile.links.weshop}>WeShop AI</a>, a commercial AI image and video generation platform for global e-commerce creative production, and <a href={profile.links.memex}>Memex</a>, an open-source local-first AI journal for personal memory.</p>
+
+    <p>My current focus is how AI applications move from demos into real business workflows, owned data, quality control, and long-term trust. 中文里我更常说：我关心 AI 应用怎么从 demo 进入真实业务、数据、工作流和长期信任。</p>
+
+    <p>You can find me on <a href={profile.links.github}>GitHub</a>, <a href={profile.links.linkedin}>LinkedIn</a>, and <a href={profile.links.zhihu}>Zhihu</a>. For a structured overview, start with <a href="/works/">work</a>, <a href="/thesis/">thesis</a>, or <a href="/writing/">writing</a>.</p>
+
+    <h2>Selected work</h2>
+    <ul class="plain-list">
+      {works.map((work) => (
+        <li>
+          <a href={work.href}>{work.title}</a>
+          <span>{work.summary}</span>
+        </li>
+      ))}
+    </ul>
+
+    <h2>Selected writing</h2>
+    <ul class="plain-list">
+      {writing.map((item) => (
+        <li>
+          <a href={item.href}>{item.title}</a>
+          <span>{item.note}</span>
+        </li>
+      ))}
+    </ul>
+
+    <h2>Current thesis</h2>
+    <ul class="plain-list">
+      {principles.slice(0, 3).map((item) => (
+        <li>
+          <strong>{item.title}</strong>
+          <span>{item.text}</span>
+        </li>
+      ))}
+    </ul>
+  </article>
+</BaseLayout>

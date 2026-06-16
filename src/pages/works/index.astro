@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { profile, works } from "../../data/profile";
+---
+
+<BaseLayout title={`Work · ${profile.name}`}>
+  <section class="page-hero container">
+    <div>
+      <p class="eyebrow">Work</p>
+      <h1>Products and experiments.</h1>
+    </div>
+    <p class="page-lead">The work is deliberately split across two product modes: a commercial AI product in a high-pressure creative workflow, and an open-source AI product around personal memory and private context.</p>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="work-grid">
+        {works.map((work) => (
+          <article class="product-card">
+            <div class="product-card-content">
+              <span class="card-type">{work.type}</span>
+              <h3>{work.title}</h3>
+              <p>{work.summary}</p>
+              <p>{work.thesis}</p>
+              <div class="tag-row">
+                {work.proof.map((tag) => <span class="tag">{tag}</span>)}
+              </div>
+              <div class="button-row">
+                <a class="button" href={work.href}>Open {work.title}</a>
+              </div>
+            </div>
+            <img src={work.image} alt={`${work.title} product context`} />
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
