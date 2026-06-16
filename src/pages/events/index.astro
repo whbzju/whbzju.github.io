@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { events, profile } from "../../data/profile";
+---
+
+<BaseLayout title={`Events · ${profile.name}`}>
+  <section class="page-hero container">
+    <div>
+      <p class="eyebrow">Events</p>
+      <h1>Talks, interviews, and public appearances.</h1>
+    </div>
+    <p class="page-lead">A lightweight index of public talks, interviews, podcasts, and media references around WeShop, Memex, AI products, and commercialization.</p>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <ul class="plain-list">
+        {events.map((item) => (
+          <li>
+            <a href={item.href}>{item.title}</a>
+            <span>{item.source}. {item.note}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

@@ -20,6 +20,7 @@ export const nav = [
   { label: "Work", href: "/works/" },
   { label: "Thesis", href: "/thesis/" },
   { label: "Writing", href: "/writing/" },
+  { label: "Events", href: "/events/" },
   { label: "Contact", href: "/contact/" },
 ];
 
@@ -85,14 +86,47 @@ export const writing = [
     note: "解释 Memex 的产品理念：AI 时代，个人记录、隐私和长期信任为什么重新变重要。",
   },
   {
+    title: "我们发布了WeShop商拍1.5版----分享一些最近的思考",
+    source: "Zhihu column",
+    href: "https://zhuanlan.zhihu.com/p/680507675",
+    note: "关于 WeShop 产品演进、AI 商拍场景和电商创意工作流的阶段性思考。",
+  },
+];
+
+export const events = [
+  {
     title: "WeShop唯象总经理吴海波：AI创业已非“套壳应用”时代",
     source: "36Kr talk",
     href: "https://m.36kr.com/p/3262118027476743",
     note: "关于 AI 应用创业、垂直场景和商业化产品深度的公开分享。",
   },
+  {
+    title: "AI Entrepreneurship Era Is No Longer About Wrapper Apps",
+    source: "36Kr Global",
+    href: "https://eu.36kr.com/en/p/3262118027476743",
+    note: "English coverage of the same product thesis for an international audience.",
+  },
+  {
+    title: "我们是独立于蘑菇街的产品，改老的东西比做新东西更难",
+    source: "Tencent News",
+    href: "https://news.qq.com/rain/a/20231113A04U5B00",
+    note: "关于 WeShop、产品独立性、组织和业务演进的访谈。",
+  },
+  {
+    title: "Sora 爆火将如何改变广告行业？",
+    source: "36Kr",
+    href: "https://m.36kr.com/p/2674977768683266",
+    note: "围绕视频生成模型、广告行业和商业创意工作流的讨论。",
+  },
+  {
+    title: "聊个小众一点的方向，AI 团队的组织方式",
+    source: "Podcast",
+    href: "https://www.zhihu.com/pin/1934944940464518617",
+    note: "一次关于 AI 团队组织、产品节奏和创业判断的公开播客讨论。",
+  },
 ];
 
-export const collections = [
+export const writingCollections = [
   {
     title: "Zhihu columns and answers",
     description:
@@ -102,17 +136,6 @@ export const collections = [
       ["Zhihu column", "我们发布了WeShop商拍1.5版----分享一些最近的思考", "https://zhuanlan.zhihu.com/p/680507675"],
       ["Zhihu answer", "AI 技术代替电商模特，现在可以实现了吗？", "https://www.zhihu.com/question/590884963/answer/2983851310"],
       ["Zhihu answer", "怎么成为一个 AI agent 工程师？", "https://www.zhihu.com/question/1936375725931361485/answer/1951304824327996800"],
-    ],
-  },
-  {
-    title: "Interviews, talks, and media",
-    description:
-      "External references that make the work legible beyond the site itself.",
-    items: [
-      ["36Kr", "AI创业已非“套壳应用”时代", "https://m.36kr.com/p/3262118027476743"],
-      ["36Kr Global", "AI Entrepreneurship Era Is No Longer About Wrapper Apps", "https://eu.36kr.com/en/p/3262118027476743"],
-      ["Tencent News", "我们是独立于蘑菇街的产品，改老的东西比做新东西更难", "https://news.qq.com/rain/a/20231113A04U5B00"],
-      ["36Kr", "Sora 爆火将如何改变广告行业？", "https://m.36kr.com/p/2674977768683266"],
     ],
   },
 ];

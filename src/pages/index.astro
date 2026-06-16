@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { principles, profile, works, writing } from "../data/profile";
+import { events, principles, profile, works, writing } from "../data/profile";
 ---
 
 <BaseLayout title={`${profile.name} · AI product builder`}>
@@ -15,7 +15,7 @@ import { principles, profile, works, writing } from "../data/profile";
 
     <p>My current focus is how AI applications move from demos into real business workflows, owned data, quality control, and long-term trust. 中文里我更常说：我关心 AI 应用怎么从 demo 进入真实业务、数据、工作流和长期信任。</p>
 
-    <p>You can find me on <a href={profile.links.github}>GitHub</a>, <a href={profile.links.linkedin}>LinkedIn</a>, and <a href={profile.links.zhihu}>Zhihu</a>. For a structured overview, start with <a href="/works/">work</a>, <a href="/thesis/">thesis</a>, or <a href="/writing/">writing</a>.</p>
+    <p>You can find me on <a href={profile.links.github}>GitHub</a>, <a href={profile.links.linkedin}>LinkedIn</a>, and <a href={profile.links.zhihu}>Zhihu</a>. For a structured overview, start with <a href="/works/">work</a>, <a href="/thesis/">thesis</a>, <a href="/writing/">writing</a>, or <a href="/events/">events</a>.</p>
 
     <h2>Selected work</h2>
     <ul class="plain-list">
@@ -33,6 +33,16 @@ import { principles, profile, works, writing } from "../data/profile";
         <li>
           <a href={item.href}>{item.title}</a>
           <span>{item.note}</span>
+        </li>
+      ))}
+    </ul>
+
+    <h2>Events and interviews</h2>
+    <ul class="plain-list">
+      {events.slice(0, 3).map((item) => (
+        <li>
+          <a href={item.href}>{item.title}</a>
+          <span>{item.source}. {item.note}</span>
         </li>
       ))}
     </ul>

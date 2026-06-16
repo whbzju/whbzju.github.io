@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { collections, profile, writing } from "../../data/profile";
+import { profile, writing, writingCollections } from "../../data/profile";
 ---
 
 <BaseLayout title={`Writing · ${profile.name}`}>
@@ -9,7 +9,7 @@ import { collections, profile, writing } from "../../data/profile";
       <p class="eyebrow">Writing</p>
       <h1>Public reasoning trail.</h1>
     </div>
-    <p class="page-lead">This page is not an old blog feed. It is a curated proof layer: product notes, Zhihu answers, talks, and interviews that explain how the work developed.</p>
+    <p class="page-lead">This page is not an old blog feed. It is a curated trail of product notes, Zhihu answers, and essays that explain how the work developed.</p>
   </section>
 
   <section class="section">
@@ -36,7 +36,7 @@ import { collections, profile, writing } from "../../data/profile";
   <section class="section">
     <div class="container">
       <div class="collection-grid">
-        {collections.map((group) => (
+        {writingCollections.map((group) => (
           <article class="collection-card">
             <h3>{group.title}</h3>
             <p>{group.description}</p>
