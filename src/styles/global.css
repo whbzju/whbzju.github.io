@@ -430,6 +430,38 @@ main {
   color: var(--text);
 }
 
+.writing-note-list {
+  margin: 0 0 28px;
+  padding: 0;
+  list-style: none;
+}
+
+.writing-note {
+  margin: 0 0 22px;
+  padding: 0 0 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.writing-note:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.writing-note h4 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.35;
+  overflow-wrap: break-word;
+}
+
+.writing-note p {
+  margin: 0;
+  line-height: 1.65;
+  overflow-wrap: break-word;
+}
+
 .split-panel {
   display: block;
   margin: 0;

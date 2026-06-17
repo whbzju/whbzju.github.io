@@ -2,7 +2,22 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { events, profile } from "../../data/profile";
 
-const eventGroups = events.reduce((groups, event) => {
+const featuredEventTitles = new Set([
+  "AI应用 WeShop 卷到海外，智能时代的新外贸故事",
+  "WeShop唯象总经理吴海波：AI创业已非“套壳应用”时代",
+  "AI Entrepreneurship Era Is No Longer About Wrapper Apps",
+  "组织的野望：AI 公司全员远程办公可行吗？",
+  "2024 腾讯数字生态大会：WeShop 总经理吴海波展望 AI 商拍未来",
+  "Sora 爆火将如何改变广告行业？",
+  "AI 落地进行时，让创新真正触手可及",
+  "极新对话 WeShop 总经理吴海波｜投身 AI，大胆创新",
+  "替代 OR 进化——人工智能时代的服装设计",
+  "WeShop 团队从大模型研发走向 AI 商拍产品化",
+]);
+
+const featuredEvents = events.filter((event) => featuredEventTitles.has(event.title));
+
+const eventGroups = featuredEvents.reduce((groups, event) => {
   const year = /^\d{4}-\d{4}$/.test(event.date)
     ? event.date
     : event.date.match(/^\d{4}/)?.[0] ?? event.date;
@@ -30,8 +45,8 @@ const eventGroups = events.reduce((groups, event) => {
         <span data-lang-content="zh">演讲、访谈和公开活动。</span>
       </h1>
     </div>
-    <p class="page-lead" data-lang-content="en">Public talks, interviews, podcasts, and media coverage around WeShop, Memex, AI products, and commercialization.</p>
-    <p class="page-lead" data-lang-content="zh">整理和 WeShop、Memex、AI 产品及商业化有关的公开演讲、访谈、播客和报道。</p>
+    <p class="page-lead" data-lang-content="en">A selected list of public talks, interviews, podcasts, and media coverage around WeShop, Memex, AI products, and commercialization.</p>
+    <p class="page-lead" data-lang-content="zh">精选和 WeShop、Memex、AI 产品及商业化有关的公开演讲、访谈、播客和报道。</p>
   </section>
 
   <section class="section">
@@ -57,8 +72,8 @@ const eventGroups = events.reduce((groups, event) => {
                   <p data-lang-content="en">{item.noteEn}</p>
                   <p data-lang-content="zh">{item.note}</p>
                   <a class="event-link" href={item.href} target="_blank" rel="noopener noreferrer">
-                    <span data-lang-content="en">Read source</span>
-                    <span data-lang-content="zh">查看来源</span>
+                    <span data-lang-content="en">Source</span>
+                    <span data-lang-content="zh">来源</span>
                   </a>
                 </li>
               ))}

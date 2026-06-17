@@ -69,16 +69,16 @@ const highlightGroups = [...new Set(writingHighlights.map((item) => item.group))
       <div class="section-header">
         <div>
           <p class="eyebrow">
-            <span data-lang-content="en">Zhihu index</span>
-            <span data-lang-content="zh">知乎索引</span>
+            <span data-lang-content="en">Selected notes</span>
+            <span data-lang-content="zh">精选笔记</span>
           </p>
           <h2>
-            <span data-lang-content="en">Selected Zhihu posts and answers.</span>
-            <span data-lang-content="zh">知乎代表文章与回答。</span>
+            <span data-lang-content="en">Product, technical, and product-thinking notes.</span>
+            <span data-lang-content="zh">产品、技术和产品判断。</span>
           </h2>
         </div>
-        <p class="section-lead" data-lang-content="en">External links for now; the strongest pieces can later become full bilingual pages with images preserved.</p>
-        <p class="section-lead" data-lang-content="zh">这一组先保留外链，后面可以挑最重要的内容迁移成保留图片的中英双语全文。</p>
+        <p class="section-lead" data-lang-content="en">A smaller set of representative public notes. English readers get translated titles and context here; Chinese originals remain as sources.</p>
+        <p class="section-lead" data-lang-content="zh">这一组只保留更能代表产品实践、技术理解和产品理念的内容。中文原文作为来源保留。</p>
       </div>
 
       {highlightGroups.map((group) => (
@@ -87,16 +87,23 @@ const highlightGroups = [...new Set(writingHighlights.map((item) => item.group))
             <span data-lang-content="en">{group.group}</span>
             <span data-lang-content="zh">{group.groupZh}</span>
           </h3>
-          <ul class="plain-list">
+          <ul class="writing-note-list">
             {group.items.map((item) => (
-              <li>
-                <span class="item-source">
+              <li class="writing-note">
+                <div class="event-meta">
                   <span data-lang-content="en">{item.type}</span>
                   <span data-lang-content="zh">{item.typeZh}</span>
-                </span>
-                <a href={item.href}>{item.title}</a>
-                <span data-lang-content="en">{item.noteEn}</span>
-                <span data-lang-content="zh">{item.note}</span>
+                </div>
+                <h4>
+                  <span data-lang-content="en">{item.titleEn}</span>
+                  <span data-lang-content="zh">{item.title}</span>
+                </h4>
+                <p data-lang-content="en">{item.noteEn}</p>
+                <p data-lang-content="zh">{item.note}</p>
+                <a class="event-link" href={item.href} target="_blank" rel="noopener noreferrer">
+                  <span data-lang-content="en">Source</span>
+                  <span data-lang-content="zh">中文原文</span>
+                </a>
               </li>
             ))}
           </ul>

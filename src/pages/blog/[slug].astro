@@ -30,14 +30,14 @@ const { post } = Astro.props;
         <span>{post.date}</span>
         <span>·</span>
         <a href={post.sourceUrl}>
-          <span data-lang-content="en">Original on Zhihu</span>
+          <span data-lang-content="en">Chinese original on Zhihu</span>
           <span data-lang-content="zh">知乎原文</span>
         </a>
       </p>
       <p class="post-deck" data-lang-content="en">{post.excerptEn}</p>
       <p class="post-deck" data-lang-content="zh">{post.excerptZh}</p>
       <p class="post-language-note">
-        <span data-lang-content="en">Translated from the original Chinese essay.</span>
+        <span data-lang-content="en">English translation provided here; the Zhihu link is the original source.</span>
         <span data-lang-content="zh">中文为知乎原文，英文为译文。</span>
       </p>
     </header>
