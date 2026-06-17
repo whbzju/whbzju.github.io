@@ -19,7 +19,7 @@ export const profile = {
 export const nav = [
   { label: "Work", href: "/works/" },
   { label: "Thesis", href: "/thesis/" },
-  { label: "Writing", href: "/writing/" },
+  { label: "Blog", href: "/blog/" },
   { label: "Events", href: "/events/" },
   { label: "Contact", href: "/contact/" },
 ];

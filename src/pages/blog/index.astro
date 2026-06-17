@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { profile, writing, writingCollections } from "../../data/profile";
+---
+
+<BaseLayout title={`Blog · ${profile.name}`}>
+  <section class="page-hero container">
+    <div>
+      <p class="eyebrow">Blog</p>
+      <h1>Notes and essays.</h1>
+    </div>
+    <p class="page-lead">A curated trail of product notes, Zhihu answers, and essays that explain how the work developed.</p>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Selected</p>
+          <h2>Start here.</h2>
+        </div>
+        <p class="section-lead">Three pieces that explain Memex, WeShop, and the product thesis most directly.</p>
+      </div>
+      <div class="writing-grid">
+        {writing.map((item) => (
+          <a class="writing-card" href={item.href}>
+            <span class="item-source">{item.source}</span>
+            <h3>{item.title}</h3>
+            <p>{item.note}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="collection-grid">
+        {writingCollections.map((group) => (
+          <article class="collection-card">
+            <h3>{group.title}</h3>
+            <p>{group.description}</p>
+            <div class="collection-list">
+              {group.items.map(([source, title, href]) => (
+                <a href={href}>
+                  <span>{source}</span>
+                  <strong>{title}</strong>
+                </a>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
