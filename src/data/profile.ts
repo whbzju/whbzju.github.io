@@ -293,12 +293,12 @@ export const events = [
     date: "2024-11",
     kind: "Case study",
     kindZh: "案例报道",
-    source: "Xinhua",
-    sourceZh: "新华网",
-    href: "https://www.news.cn/info/20241119/bef5b4bb70f34790923926d091edf9a9/c.html",
+    source: "China.com repost",
+    sourceZh: "中华网转载",
+    href: "https://m.tech.china.com/hea/article/20241211/122024_1615378.html",
     noteEn:
-      "A media case study on WeShop's AI commercial photography workflow, regional adaptation, and infrastructure support.",
-    note: "关于 WeShop AI 商拍工作流、不同地区数据训练和算力基础设施支持的媒体案例。",
+      "A media case study, originally from Xinhua, on WeShop's AI commercial photography workflow, regional adaptation, and infrastructure support.",
+    note: "新华网原文的转载版本，关于 WeShop AI 商拍工作流、不同地区数据训练和算力基础设施支持。",
   },
   {
     title: "2024 腾讯数字生态大会：WeShop 总经理吴海波展望 AI 商拍未来",
@@ -323,7 +323,7 @@ export const events = [
     kindZh: "访谈",
     source: "创氪网",
     sourceZh: "创氪网",
-    href: "https://m.chuanganwang.cn/dskb/hy/20240705/173859.html",
+    href: "http://www.chuanganwang.cn/dskx/yw/20240705/173858.html",
     noteEn:
       "An interview on WeShop's global users, product growth, cross-border commerce, and AI product innovation.",
     note: "围绕 WeShop 全球用户、产品增长、跨境电商和 AI 产品创新的访谈。",

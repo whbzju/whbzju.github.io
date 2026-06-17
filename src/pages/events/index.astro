@@ -1,6 +1,21 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { events, profile } from "../../data/profile";
+
+const eventGroups = events.reduce((groups, event) => {
+  const year = /^\d{4}-\d{4}$/.test(event.date)
+    ? event.date
+    : event.date.match(/^\d{4}/)?.[0] ?? event.date;
+  const current = groups[groups.length - 1];
+
+  if (!current || current.year !== year) {
+    groups.push({ year, items: [event] });
+  } else {
+    current.items.push(event);
+  }
+
+  return groups;
+}, []);
 ---
 
 <BaseLayout title={`Events · ${profile.name}`}>
@@ -21,18 +36,36 @@ import { events, profile } from "../../data/profile";
 
   <section class="section">
     <div class="container">
-      <ul class="plain-list">
-        {events.map((item) => (
-          <li>
-            <a href={item.href}>
-              <span data-lang-content="en">{item.titleEn}</span>
-              <span data-lang-content="zh">{item.titleZh}</span>
-            </a>
-            <span data-lang-content="en">{item.date} · {item.kind} · {item.source}. {item.noteEn}</span>
-            <span data-lang-content="zh">{item.date} · {item.kindZh} · {item.sourceZh}. {item.note}</span>
-          </li>
+      <div class="events-timeline">
+        {eventGroups.map((group) => (
+          <section class="event-year">
+            <h2>{group.year}</h2>
+            <ol class="event-list">
+              {group.items.map((item) => (
+                <li class="event-item">
+                  <div class="event-meta">
+                    <time datetime={item.date}>{item.date}</time>
+                    <span data-lang-content="en">{item.kind}</span>
+                    <span data-lang-content="zh">{item.kindZh}</span>
+                    <span data-lang-content="en">{item.source}</span>
+                    <span data-lang-content="zh">{item.sourceZh}</span>
+                  </div>
+                  <h3>
+                    <span data-lang-content="en">{item.titleEn}</span>
+                    <span data-lang-content="zh">{item.titleZh}</span>
+                  </h3>
+                  <p data-lang-content="en">{item.noteEn}</p>
+                  <p data-lang-content="zh">{item.note}</p>
+                  <a class="event-link" href={item.href} target="_blank" rel="noopener noreferrer">
+                    <span data-lang-content="en">Read source</span>
+                    <span data-lang-content="zh">查看来源</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </section>
         ))}
-      </ul>
+      </div>
     </div>
   </section>
 </BaseLayout>
