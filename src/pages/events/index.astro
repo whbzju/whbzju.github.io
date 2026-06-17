@@ -6,10 +6,17 @@ import { events, profile } from "../../data/profile";
 <BaseLayout title={`Events · ${profile.name}`}>
   <section class="page-hero container">
     <div>
-      <p class="eyebrow">Events</p>
-      <h1>Talks, interviews, and public appearances.</h1>
+      <p class="eyebrow">
+        <span data-lang-content="en">Events</span>
+        <span data-lang-content="zh">活动</span>
+      </p>
+      <h1>
+        <span data-lang-content="en">Talks, interviews, and public appearances.</span>
+        <span data-lang-content="zh">演讲、访谈和公开活动。</span>
+      </h1>
     </div>
-    <p class="page-lead">A lightweight index of public talks, interviews, podcasts, and media references around WeShop, Memex, AI products, and commercialization.</p>
+    <p class="page-lead" data-lang-content="en">Public talks, interviews, podcasts, and media coverage around WeShop, Memex, AI products, and commercialization.</p>
+    <p class="page-lead" data-lang-content="zh">整理和 WeShop、Memex、AI 产品及商业化有关的公开演讲、访谈、播客和报道。</p>
   </section>
 
   <section class="section">
@@ -17,8 +24,12 @@ import { events, profile } from "../../data/profile";
       <ul class="plain-list">
         {events.map((item) => (
           <li>
-            <a href={item.href}>{item.title}</a>
-            <span>{item.source}. {item.note}</span>
+            <a href={item.href}>
+              <span data-lang-content="en">{item.titleEn}</span>
+              <span data-lang-content="zh">{item.titleZh}</span>
+            </a>
+            <span data-lang-content="en">{item.date} · {item.kind} · {item.source}. {item.noteEn}</span>
+            <span data-lang-content="zh">{item.date} · {item.kindZh} · {item.sourceZh}. {item.note}</span>
           </li>
         ))}
       </ul>

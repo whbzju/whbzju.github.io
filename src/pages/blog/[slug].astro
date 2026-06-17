@@ -1,0 +1,126 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { profile } from "../../data/profile";
+import blogPosts from "../../data/blog-posts.json";
+
+export function getStaticPaths() {
+  return blogPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+---
+
+<BaseLayout title={`${post.titleEn} · ${profile.name}`}>
+  <article class="post wrapper">
+    <header class="post-header">
+      <p class="eyebrow">
+        <a href="/blog/">
+          <span data-lang-content="en">Blog</span>
+          <span data-lang-content="zh">文章</span>
+        </a>
+      </p>
+      <h1>
+        <span data-lang-content="en">{post.titleEn}</span>
+        <span data-lang-content="zh">{post.titleZh}</span>
+      </h1>
+      <p class="post-meta">
+        <span>{post.date}</span>
+        <span>·</span>
+        <a href={post.sourceUrl}>
+          <span data-lang-content="en">Original on Zhihu</span>
+          <span data-lang-content="zh">知乎原文</span>
+        </a>
+      </p>
+      <p class="post-deck" data-lang-content="en">{post.excerptEn}</p>
+      <p class="post-deck" data-lang-content="zh">{post.excerptZh}</p>
+      <p class="post-language-note">
+        <span data-lang-content="en">Translated from the original Chinese essay.</span>
+        <span data-lang-content="zh">中文为知乎原文，英文为译文。</span>
+      </p>
+    </header>
+
+    <div class="post-body">
+      {post.blocks.map((block) => (
+        <>
+          {block.type === "p" && (
+            <>
+              <p data-lang-content="en" set:html={block.htmlEn} />
+              <p data-lang-content="zh" set:html={block.htmlZh} />
+            </>
+          )}
+
+          {block.type === "h2" && (
+            <>
+              <h2 data-lang-content="en" set:html={block.htmlEn} />
+              <h2 data-lang-content="zh" set:html={block.htmlZh} />
+            </>
+          )}
+
+          {block.type === "h3" && (
+            <>
+              <h3 data-lang-content="en" set:html={block.htmlEn} />
+              <h3 data-lang-content="zh" set:html={block.htmlZh} />
+            </>
+          )}
+
+          {block.type === "h4" && (
+            <>
+              <h4 data-lang-content="en" set:html={block.htmlEn} />
+              <h4 data-lang-content="zh" set:html={block.htmlZh} />
+            </>
+          )}
+
+          {block.type === "quote" && (
+            <>
+              <blockquote data-lang-content="en" set:html={block.htmlEn} />
+              <blockquote data-lang-content="zh" set:html={block.htmlZh} />
+            </>
+          )}
+
+          {block.type === "ul" && (
+            <>
+              <ul data-lang-content="en">
+                {block.itemsEn.map((item) => <li>{item}</li>)}
+              </ul>
+              <ul data-lang-content="zh">
+                {block.itemsZh.map((item) => <li>{item}</li>)}
+              </ul>
+            </>
+          )}
+
+          {block.type === "ol" && (
+            <>
+              <ol data-lang-content="en">
+                {block.itemsEn.map((item) => <li>{item}</li>)}
+              </ol>
+              <ol data-lang-content="zh">
+                {block.itemsZh.map((item) => <li>{item}</li>)}
+              </ol>
+            </>
+          )}
+
+          {block.type === "image" && (
+            <figure class="post-figure">
+              <img
+                src={block.src}
+                alt={block.alt}
+                width={block.width}
+                height={block.height}
+                loading="lazy"
+              />
+              {(block.captionZh || block.captionEn) && (
+                <figcaption>
+                  <span data-lang-content="en">{block.captionEn}</span>
+                  <span data-lang-content="zh">{block.captionZh}</span>
+                </figcaption>
+              )}
+            </figure>
+          )}
+        </>
+      ))}
+    </div>
+  </article>
+</BaseLayout>

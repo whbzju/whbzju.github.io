@@ -4,14 +4,14 @@ import { nav, profile } from "../data/profile";
 
 const {
   title = profile.name,
-  description = "Wujia / Haibo Wu builds AI products across WeShop, Memex, vertical AI SaaS, agents, and personal memory.",
+  description = "Wujia / Haibo Wu builds AI products across WeShop AI, Memex, commerce workflows, open source, and personal memory.",
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,6 +21,14 @@ const currentPath = Astro.url.pathname;
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url.href} />
     <title>{title}</title>
+    <script is:inline>
+      (() => {
+        const saved = localStorage.getItem("site-language");
+        const language = saved === "zh" ? "zh" : "en";
+        document.documentElement.dataset.lang = language;
+        document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
+      })();
+    </script>
   </head>
   <body>
     <div class="site-frame">
@@ -29,16 +37,25 @@ const currentPath = Astro.url.pathname;
           {profile.name}
         </a>
 
-        <nav class="site-nav" aria-label="Primary navigation">
-          {nav.map((item) => (
-            <a
-              href={item.href}
-              class:list={{ active: currentPath === item.href }}
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
+        <div class="topbar-actions">
+          <nav class="site-nav" aria-label="Primary navigation">
+            {nav.map((item) => (
+              <a
+                href={item.href}
+                class:list={{ active: currentPath === item.href }}
+              >
+                <span data-lang-content="en">{item.label}</span>
+                <span data-lang-content="zh">{item.labelZh}</span>
+              </a>
+            ))}
+          </nav>
+
+          <div class="language-switch" aria-label="Language">
+            <button type="button" data-language="en" aria-pressed="true">EN</button>
+            <span aria-hidden="true">/</span>
+            <button type="button" data-language="zh" aria-pressed="false">中文</button>
+          </div>
+        </div>
       </header>
 
       <main>
@@ -47,8 +64,37 @@ const currentPath = Astro.url.pathname;
 
       <footer class="footer">
         <span>© {new Date().getFullYear()} {profile.name}</span>
-        <span>Static site on GitHub Pages · Built with Astro</span>
+        <span class="footer-links">
+          <a href={profile.links.github}>GitHub</a>
+          <span>·</span>
+          <a href={profile.links.linkedin}>LinkedIn</a>
+          <span>·</span>
+          <a href={profile.links.zhihu}>Zhihu</a>
+        </span>
       </footer>
     </div>
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        const buttons = Array.from(document.querySelectorAll("[data-language]"));
+
+        const setLanguage = (language) => {
+          const next = language === "zh" ? "zh" : "en";
+          root.dataset.lang = next;
+          root.lang = next === "zh" ? "zh-CN" : "en";
+          localStorage.setItem("site-language", next);
+
+          buttons.forEach((button) => {
+            const active = button.dataset.language === next;
+            button.setAttribute("aria-pressed", String(active));
+          });
+        };
+
+        setLanguage(root.dataset.lang);
+        buttons.forEach((button) => {
+          button.addEventListener("click", () => setLanguage(button.dataset.language));
+        });
+      })();
+    </script>
   </body>
 </html>

@@ -6,10 +6,17 @@ import { profile, works } from "../../data/profile";
 <BaseLayout title={`Work · ${profile.name}`}>
   <section class="page-hero container">
     <div>
-      <p class="eyebrow">Work</p>
-      <h1>Products and experiments.</h1>
+      <p class="eyebrow">
+        <span data-lang-content="en">Work</span>
+        <span data-lang-content="zh">作品</span>
+      </p>
+      <h1>
+        <span data-lang-content="en">Products I’m building.</span>
+        <span data-lang-content="zh">我在做的产品。</span>
+      </h1>
     </div>
-    <p class="page-lead">The work is deliberately split across two product modes: a commercial AI product in a high-pressure creative workflow, and an open-source AI product around personal memory and private context.</p>
+    <p class="page-lead" data-lang-content="en">Two tracks define the current work: WeShop turns generative AI into a commercial creative workflow for e-commerce, while Memex explores personal AI memory as an open-source, local-first product.</p>
+    <p class="page-lead" data-lang-content="zh">目前主要是两条线：WeShop 把生成式 AI 放进电商创意生产流程；Memex 则用开源、local-first 的方式探索个人 AI 记忆。</p>
   </section>
 
   <section class="section">
@@ -18,15 +25,22 @@ import { profile, works } from "../../data/profile";
         {works.map((work) => (
           <article class="product-card">
             <div class="product-card-content">
-              <span class="card-type">{work.type}</span>
+              <span class="card-type" data-lang-content="en">{work.type}</span>
+              <span class="card-type" data-lang-content="zh">{work.typeZh}</span>
               <h3>{work.title}</h3>
-              <p>{work.summary}</p>
-              <p>{work.thesis}</p>
+              <p data-lang-content="en">{work.summary}</p>
+              <p data-lang-content="zh">{work.summaryZh}</p>
+              <p data-lang-content="en">{work.thesis}</p>
+              <p data-lang-content="zh">{work.thesisZh}</p>
               <div class="tag-row">
-                {work.proof.map((tag) => <span class="tag">{tag}</span>)}
+                {work.proof.map((tag) => <span class="tag" data-lang-content="en">{tag}</span>)}
+                {work.proofZh.map((tag) => <span class="tag" data-lang-content="zh">{tag}</span>)}
               </div>
               <div class="button-row">
-                <a class="button" href={work.href}>Open {work.title}</a>
+                <a class="button" href={work.href}>
+                  <span data-lang-content="en">Visit {work.title}</span>
+                  <span data-lang-content="zh">查看 {work.title}</span>
+                </a>
               </div>
             </div>
             <img src={work.image} alt={`${work.title} product context`} />

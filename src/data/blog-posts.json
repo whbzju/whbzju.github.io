@@ -1,0 +1,958 @@
+[
+  {
+    "slug": "memex-open-source-growth",
+    "titleZh": "一个没资源的开源项目，是怎么被人看见的",
+    "titleEn": "How a Resource-Constrained Open-Source Project Got Discovered",
+    "date": "2026-06-05",
+    "source": "Zhihu",
+    "sourceUrl": "https://zhuanlan.zhihu.com/p/2046314257738887994",
+  "excerptZh": "Memex 开源冷启动复盘：没有预算、没有合作，如何靠真实作品和有效讨论被看见。",
+    "excerptEn": "A postmortem on Memex’s open-source cold start: how a project with no budget or partnerships was discovered through real work and useful discussions.",
+    "blocks": [
+      {
+        "type": "p",
+        "htmlZh": "最近 Memex 被几个海外 AI 博主推荐了一下。",
+        "htmlEn": "Recently, Memex was recommended by a few overseas AI bloggers."
+      },
+      {
+        "type": "p",
+        "htmlZh": "其中一条 Instagram 帖子有 1.6 万 likes。项目本身也跟着涨了一波 stars，但还远远谈不上火。",
+        "htmlEn": "One Instagram post got 16,000 likes. The project picked up some GitHub stars as well, though it was still far from “going viral.”"
+      },
+      {
+        "type": "p",
+        "htmlZh": "比较好笑的是，我们一开始完全不知道发生了什么。",
+        "htmlEn": "The funny part is that at first we had no idea what had happened."
+      },
+      {
+        "type": "p",
+        "htmlZh": "GitHub 后台只能看到一些很模糊的来源。我们自己去 X、TikTok、youtube 上找了一圈，也没找到真正的原因。最后我是问 ChatGPT，让它帮我搜最近有没有人在海外提到 Memex，才发现原来有几条帖子在推荐我们。",
+        "htmlEn": "GitHub analytics only showed a few vague referrers. We searched X, TikTok, and YouTube ourselves but still could not find the real source. In the end I asked ChatGPT to search whether anyone overseas had mentioned Memex recently, and that was how I found those recommendation posts."
+      },
+      {
+        "type": "p",
+        "htmlZh": "一个 AI 项目的增长来源，最后靠 ChatGPT 查出来，多少有点GEO。",
+        "htmlEn": "For an AI project, discovering the source of growth through ChatGPT is, in a way, very GEO."
+      },
+      {
+        "type": "p",
+        "htmlZh": "<a href=\"https://www.instagram.com/reels/DZFafmFNwMp/\">https://www.instagram.com/reels/DZFafmFNwMp/</a>",
+        "htmlEn": "<a href=\"https://www.instagram.com/reels/DZFafmFNwMp/\">https://www.instagram.com/reels/DZFafmFNwMp/</a>"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/memex-open-source-growth-01-37cfb6cb.jpg",
+        "alt": "一个没资源的开源项目，是怎么被人看见的",
+        "width": 1280,
+        "height": 2781,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "p",
+        "htmlZh": "Memex 是一个 open-source、local-first 的 AI journal。你可以把文字、图片、语音、截图这些生活碎片丢进去，让 AI 帮你整理成自己的记忆。",
+        "htmlEn": "Memex is an open-source, local-first AI journal. You can drop in fragments of life — text, images, voice, screenshots — and let AI organize them into your own memory."
+      },
+      {
+        "type": "p",
+        "htmlZh": "但这篇不太想讲产品功能。我更想记录一下：一个没资源、没投放、没合作的小开源项目，是怎么慢慢被别人看见的。",
+        "htmlEn": "But this piece is not mainly about product features. I want to record how a small open-source project with no resources, no paid promotion, and no partnerships slowly became visible to other people."
+      },
+      {
+        "type": "p",
+        "htmlZh": "最早的起点，其实不是产品，而是我们对 Claude Code 的研究。",
+        "htmlEn": "The earliest starting point was not the product itself, but our research into Claude Code."
+      },
+      {
+        "type": "p",
+        "htmlZh": "我们比较早意识到一件事：Agent 不一定一上来就需要复杂的数据库、索引、RAG。很多时候，只要把信息组织成 markdown，再配合基础的bash命令，如find、grep、读写文件，Agent 就已经能做非常强的事情。",
+        "htmlEn": "We realized early that agents do not necessarily need complex databases, indexes, or RAG from day one. In many cases, if information is organized as markdown and paired with basic bash commands such as find, grep, and file reads and writes, an agent can already do very powerful things."
+      },
+      {
+        "type": "p",
+        "htmlZh": "这个判断后来变成了 Memex 早期架构的底层直觉。",
+        "htmlEn": "That judgment later became the underlying intuition behind Memex’s early architecture."
+      },
+      {
+        "type": "p",
+        "htmlZh": "我们做的不是一个传统日记 App，而是想做一个“个人记忆的文件系统”：记录可以很碎，组织可以交给 Agent，结构可以慢慢长出来。",
+        "htmlEn": "We were not building a traditional diary app. We wanted to build a “file system for personal memory”: records can be fragmented, organization can be handed to agents, and structure can grow gradually over time."
+      },
+      {
+        "type": "p",
+        "htmlZh": "当然，刚发出来的时候，基本没什么反应。比如我写了一篇产品理念：<a href=\"https://zhuanlan.zhihu.com/p/2016169349749166998\">我们做了一个关于\"记录自己\"的东西，然后决定把它开源</a> 一点流量都没有。",
+        "htmlEn": "Of course, when we first released it, almost nothing happened. For example, I wrote a product-thinking piece titled “We Built Something About ‘Recording Yourself,’ Then Decided to Open Source It,” and it barely got any traffic."
+      },
+      {
+        "type": "p",
+        "htmlZh": "我们就在小红书、知乎写一点想法，改 README，做官网，上 App Store 和 Google Play，一边自己用一边改。这个阶段很慢，也很容易怀疑：是不是只有我们自己觉得这件事有意思？",
+        "htmlEn": "So we wrote bits of thinking on Xiaohongshu and Zhihu, kept improving the README, built the website, shipped to the App Store and Google Play, and kept using and improving the product ourselves. That stage was slow, and it was easy to wonder whether we were the only ones who found the idea interesting."
+      },
+      {
+        "type": "p",
+        "htmlZh": "第一波冷启动，反而来自一次评论。",
+        "htmlEn": "The first wave of cold-start growth actually came from a comment."
+      },
+      {
+        "type": "p",
+        "htmlZh": "前段时间 Karpathy 发了一个 gist，叫 LLM Wiki。大概意思是，用 LLM 去维护一个基于 markdown 的个人知识库。不是传统 RAG 那种“每次问的时候再去检索”，而是让模型持续整理、更新、链接这些 markdown 文件，让知识库自己慢慢长出来。<a href=\"https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f\">https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f</a>",
+        "htmlEn": "A while ago, Karpathy published a gist called LLM Wiki. The rough idea was to use LLMs to maintain a markdown-based personal knowledge base. Instead of the traditional RAG pattern of “retrieve only when a question is asked,” the model would continuously organize, update, and connect markdown files, allowing the knowledge base to grow by itself over time. https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f"
+      },
+      {
+        "type": "p",
+        "htmlZh": "这个东西我们看了之后很有感觉，因为它和我们做 Memex 时的很多想法非常接近。",
+        "htmlEn": "It resonated strongly with us, because it was very close to many of the ideas behind Memex."
+      },
+      {
+        "type": "p",
+        "htmlZh": "所以当时看到 Karpathy 那个 gist，我们就在评论区认真回了一条，也放了 Memex。",
+        "htmlEn": "So when we saw Karpathy’s gist, we left a serious reply in the comments and mentioned Memex."
+      },
+      {
+        "type": "p",
+        "htmlZh": "这就是第一波冷启动。",
+        "htmlEn": "That became our first wave of cold-start traffic."
+      },
+      {
+        "type": "p",
+        "htmlZh": "这件事给我的感受很强：<br>当你没有资源的时候，最好的推广可能不是“推广”，而是出现在正确的讨论里。",
+        "htmlEn": "The experience left a strong impression on me: when you have no resources, the best promotion may not be “promotion” at all, but showing up in the right conversation."
+      },
+      {
+        "type": "p",
+        "htmlZh": "你得真的想过这个问题，真的做过一些东西，然后在别人讨论到这里的时候，你能接得上。",
+        "htmlEn": "You have to have really thought about the problem and really built something, so that when others are discussing it, you can meaningfully join the conversation."
+      },
+      {
+        "type": "p",
+        "htmlZh": "这很像 built in public。",
+        "htmlEn": "This is very close to built in public."
+      },
+      {
+        "type": "p",
+        "htmlZh": "不是每天喊“我又更新了什么”，而是持续把自己的判断、迭代、困惑放出来。早期不会有什么反馈，但这些东西会变成痕迹。等某个讨论刚好和你有关的时候，别人能顺着这些痕迹找到你。",
+        "htmlEn": "It is not about shouting every day that “we shipped another update.” It is about continuously exposing your judgments, iterations, and confusions. Early on, there may be almost no feedback, but those traces accumulate. When a discussion happens to intersect with your work, people can follow those traces back to you."
+      },
+      {
+        "type": "p",
+        "htmlZh": "后面 Memex 就慢慢过了 100 stars。",
+        "htmlEn": "Later, Memex slowly crossed 100 stars."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/memex-open-source-growth-02-63a9d91b.jpg",
+        "alt": "一个没资源的开源项目，是怎么被人看见的",
+        "width": 1440,
+        "height": 1013,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "p",
+        "htmlZh": "这个数字不大，但对小开源项目来说，它像一个很微弱的信号：至少这个东西不是完全没人关心。过了这个点之后，开始有一些小博主看到我们，再后来有稍微大一点的账号转发，最后才有了那条 1.6 万赞的 Instagram 帖子。",
+        "htmlEn": "That number is not large, but for a small open-source project it felt like a faint signal: at least the thing was not completely ignored. After that point, a few smaller bloggers found us, then somewhat larger accounts reposted the project, and eventually there was that Instagram post with 16,000 likes."
+      },
+      {
+        "type": "p",
+        "htmlZh": "所以这条路径其实很朴素：",
+        "htmlEn": "So the path was actually very plain:"
+      },
+      {
+        "type": "p",
+        "htmlZh": "先是我们自己想清楚一点东西。<br>然后把产品做出来。<br>然后在相关讨论里认真说话。<br>然后有第一波人进来。<br>然后持续迭代。<br>然后被更多人偶然看见。",
+        "htmlEn": "First, we clarified some of our own thinking. Then we built the product. Then we spoke seriously in relevant discussions. Then the first group of people came in. Then we kept iterating. Then more people happened to discover it."
+      },
+      {
+        "type": "p",
+        "htmlZh": "没有什么很神奇的方法。",
+        "htmlEn": "There was no magical method."
+      },
+      {
+        "type": "p",
+        "htmlZh": "这个是业务项目，我们没有预算，没有合作，也没有海外渠道。很多事情就是慢慢做：README 改一改，官网补一补，小红书知乎写一写，App Store 和 Google Play 上一上，用户反馈修一修，慢慢的它又变成了一个服务全球各地用户的产品了。",
+        "htmlEn": "This was a bootstrapped project. We had no budget, no partnerships, and no overseas channels. A lot of the work was simply slow accumulation: improving the README, adding to the website, writing on Xiaohongshu and Zhihu, shipping to the App Store and Google Play, responding to user feedback. Gradually it became a product serving users around the world."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/memex-open-source-growth-03-63c0a50e.jpg",
+        "alt": "一个没资源的开源项目，是怎么被人看见的",
+        "width": 700,
+        "height": 754,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "p",
+        "htmlZh": "这次经历让我比较确定的一点是：AI Agent 这个阶段，对个人开发者是有机会的。",
+        "htmlEn": "This experience made me more certain of one thing: in this stage of AI agents, individual developers do have opportunities."
+      },
+      {
+        "type": "p",
+        "htmlZh": "因为很多东西大家都还在重新理解。你没有资源，但如果你对一个新范式的理解足够早，持续把想法做成东西，并且公开迭代，就有可能被同样在思考这件事的人看到。",
+        "htmlEn": "A lot of things are being re-understood. You may not have resources, but if you understand a new paradigm early enough, keep turning ideas into working products, and iterate in public, you may be discovered by others who are thinking about the same thing."
+      },
+      {
+        "type": "p",
+        "htmlZh": "当然，另一面是痛苦的。",
+        "htmlEn": "Of course, the other side is painful."
+      },
+      {
+        "type": "p",
+        "htmlZh": "我们这几个月对 Agent 的理解变化很快。理解变了以后，就会发现老的产品架构有很多地方不对劲。现在 Memex 也在准备一轮比较大的重构。",
+        "htmlEn": "Our understanding of agents has changed quickly over the past few months. Once your understanding changes, you start seeing many awkward parts in the old product architecture. Memex is now preparing for a fairly large refactor."
+      },
+      {
+        "type": "p",
+        "htmlZh": "这也是我觉得 built in public 有意思的地方：它不只是公开一个结果，而是公开一个想法怎么变化，一个产品怎么被自己的新认知反过来推动。",
+        "htmlEn": "That is also what I find interesting about built in public: it is not just making an outcome public, but making public how an idea changes, and how a product is pushed forward by your own new understanding."
+      },
+      {
+        "type": "p",
+        "htmlZh": "Memex 还很早期，也有很多做得不好的地方。<br>但如果你也对 AI Agent、local-first、个人记忆、陪伴这类方向感兴趣，欢迎来 GitHub 看看，或者一起参与进来。",
+        "htmlEn": "Memex is still very early, and many parts are not good enough. But if you are interested in AI agents, local-first software, personal memory, or companionship-like products, you are welcome to visit GitHub or join the work."
+      },
+      {
+        "type": "p",
+        "htmlZh": "项目：<a href=\"https://github.com/memex-lab/memex\">memex-lab/memex</a>",
+        "htmlEn": "<a href=\"https://github.com/memex-lab/memex\">Project: memex-lab/memex</a>"
+      },
+      {
+        "type": "p",
+        "htmlZh": "官网：<a href=\"https://www.memexlab.ai/\">Memex — Open-Source AI Journal That Organizes Your Life</a>",
+        "htmlEn": "<a href=\"https://www.memexlab.ai/\">Website: Memex — Open-Source AI Journal That Organizes Your Life</a>"
+      }
+    ]
+  },
+  {
+    "slug": "memex-record-yourself",
+    "titleZh": "我们做了一个关于\"记录自己\"的东西，然后决定把它开源",
+    "titleEn": "We Built Something About “Recording Yourself,” Then Decided to Open Source It",
+    "date": "2026-03-14",
+    "source": "Zhihu",
+    "sourceUrl": "https://zhuanlan.zhihu.com/p/2016169349749166998",
+  "excerptZh": "关于 Memex 的产品理念：AI 时代，个人记录、隐私和长期信任为什么重新变重要。",
+    "excerptEn": "The product thinking behind Memex: why personal records, privacy, and long-term trust matter again in the AI era.",
+    "blocks": [
+      {
+        "type": "p",
+        "htmlZh": "我们正处在一个奇怪的历史节点。",
+        "htmlEn": "We are living through a strange historical moment."
+      },
+      {
+        "type": "p",
+        "htmlZh": "AI 以前所未有的速度改写规则——它<b>写作、绘画、编程、分析</b>，几乎每天都在逼近人类曾经引以为傲的能力边界。很多人感到<b>焦虑：我该学什么？我的价值在哪里？</b>",
+        "htmlEn": "AI is rewriting the rules at unprecedented speed — writing, drawing, programming, analyzing — and almost every day it approaches abilities humans once took pride in. Many people feel anxious: what should I learn? Where is my value?"
+      },
+      {
+        "type": "p",
+        "htmlZh": "但也正是在这样的时代，有一件事变得比任何时候都更重要：<b>记录你自己活过的痕迹。</b>",
+        "htmlEn": "Yet in precisely this era, one thing has become more important than ever: recording the traces of your own life."
+      },
+      {
+        "type": "p",
+        "htmlZh": "不是因为记录\"有用\"，也不是为了效率，更不是为了打造一个自律人设。",
+        "htmlEn": "Not because recording is “useful,” not for efficiency, and not to construct a self-disciplined persona."
+      },
+      {
+        "type": "p",
+        "htmlZh": "而是因为——当越来越多的外部能力被 AI 接管之后，<b>那些只属于你的情绪、瞬间、困惑和心颤，反而成为最不可替代的东西。</b>",
+        "htmlEn": "Rather, because when more and more external abilities are taken over by AI, the emotions, moments, confusions, and tremors that belong only to you become the most irreplaceable things."
+      },
+      {
+        "type": "h2",
+        "htmlZh": "说回记录这件事本身",
+        "htmlEn": "Back to the act of recording itself"
+      },
+      {
+        "type": "p",
+        "htmlZh": "最近，越来越多的博主在劝人写日记。这话有道理，但问题出在\"日记\"本身。",
+        "htmlEn": "Recently, more and more creators have been telling people to keep a diary. They have a point, but the problem is the diary itself."
+      },
+      {
+        "type": "p",
+        "htmlZh": "写日记意味着：你先活过一天，然后在某个时刻坐下来，回忆、筛选、整理、总结，无论是写还是说，最后形成一段完整的话。",
+        "htmlEn": "Keeping a diary means that you live through a day, then sit down at some point to recall, select, organize, and summarize it, whether by writing or speaking, until it becomes a complete passage."
+      },
+      {
+        "type": "p",
+        "htmlZh": "这是一种<b>压缩</b>。",
+        "htmlEn": "This is a kind of compression."
+      },
+      {
+        "type": "p",
+        "htmlZh": "它留下的是你整理过的版本，不是生活本身。",
+        "htmlEn": "What it leaves behind is the version you have organized, not life itself."
+      },
+      {
+        "type": "p",
+        "htmlZh": "但真实的生活，往往不是由总结构成的。它更像是无数个细小、零散、难以解释的瞬间：",
+        "htmlEn": "But real life is often not made of summaries. It is more like countless tiny, scattered, hard-to-explain moments:"
+      },
+      {
+        "type": "ul",
+        "itemsZh": [
+          "一张随手拍下的照片",
+          "一句突然想写下的话",
+          "一段说不清为什么的情绪波动",
+          "一个深夜突然袭来的难过"
+        ],
+        "itemsEn": [
+          "a photo taken casually",
+          "a sentence you suddenly wanted to write down",
+          "an emotional fluctuation you cannot quite explain",
+          "a sadness that arrives suddenly late at night"
+        ]
+      },
+      {
+        "type": "p",
+        "htmlZh": "这些碎片看起来很轻，但它们往往比任何\"总结\"都更接近真实的你。",
+        "htmlEn": "These fragments look light, but they are often closer to the real you than any “summary.”"
+      },
+      {
+        "type": "p",
+        "htmlZh": "<b>传统日记太重了。它把记录变成了一门功课。</b>",
+        "htmlEn": "Traditional diaries are too heavy. They turn recording into homework."
+      },
+      {
+        "type": "h2",
+        "htmlZh": "记录真正缺少的，从来不是输入工具",
+        "htmlEn": "What recording has always lacked is not an input tool"
+      },
+      {
+        "type": "p",
+        "htmlZh": "过去的记录类产品之所以难以坚持，不是因为\"输入不方便\"。",
+        "htmlEn": "The reason previous recording products were hard to keep using was not that “input was inconvenient.”"
+      },
+      {
+        "type": "p",
+        "htmlZh": "而是因为——<b>记录之后，什么都没有发生。</b>",
+        "htmlEn": "It was because after recording, nothing happened."
+      },
+      {
+        "type": "p",
+        "htmlZh": "你写了一段话，拍了一张图，保存了一个念头，然后它被放进时间轴，消失了。没有回应，没有连接，也没有任何\"被理解\"的感觉。",
+        "htmlEn": "You wrote a passage, took a picture, saved a thought, and then it was placed on a timeline and disappeared. There was no response, no connection, and no sense of being understood."
+      },
+      {
+        "type": "p",
+        "htmlZh": "久而久之，记录会变成一件很孤单的事。",
+        "htmlEn": "Over time, recording becomes a very lonely thing."
+      },
+      {
+        "type": "p",
+        "htmlZh": "AI 第一次改变了这一点。",
+        "htmlEn": "AI changes this for the first time."
+      },
+      {
+        "type": "p",
+        "htmlZh": "记录完成之后，系统可以回应你。不需要很复杂，也不需要每次都做深度解读——很多时候，用户需要的只是一个轻一点、自然一点、能接住当下的反馈。",
+        "htmlEn": "After a record is created, the system can respond to you. It does not need to be complicated, and it does not need to produce deep interpretation every time. Often, what the user needs is only a light, natural response that can hold the moment."
+      },
+      {
+        "type": "p",
+        "htmlZh": "而在长期使用之后，那些零散的记录之间会开始出现关联。某些你原本不会注意到的模式，会慢慢浮现出来。",
+        "htmlEn": "After long-term use, connections between scattered records begin to appear. Patterns you might not have noticed slowly surface."
+      },
+      {
+        "type": "p",
+        "htmlZh": "这时候，记录就不再只是\"我留下了一些东西\"，而变成了：",
+        "htmlEn": "At that point, recording is no longer just “I left something behind.” It becomes:"
+      },
+      {
+        "type": "p",
+        "htmlZh": "<b>我正在通过这些碎片，慢慢理解自己是谁。</b>",
+        "htmlEn": "Through these fragments, I am slowly understanding who I am."
+      },
+      {
+        "type": "h2",
+        "htmlZh": "这就是 Memex 想做的事",
+        "htmlEn": "This is what Memex wants to do"
+      },
+      {
+        "type": "p",
+        "htmlZh": "Memex 不是传统意义上的日记 App，也不是单纯提供情绪陪伴的 AI 产品。",
+        "htmlEn": "Memex is not a diary app in the traditional sense, nor is it simply an AI product for emotional companionship."
+      },
+      {
+        "type": "p",
+        "htmlZh": "它想做的是一种新的个人记录方式：<b>不是帮你把生活存下来，而是帮你从生活里看见自己。</b>",
+        "htmlEn": "It wants to create a new way of personal recording: not helping you store life, but helping you see yourself through life."
+      },
+      {
+        "type": "p",
+        "htmlZh": "具体来说：",
+        "htmlEn": "More concretely:"
+      },
+      {
+        "type": "p",
+        "htmlZh": "<b>记录要\"无感\"。</b> Memex 不要求你改变原有的生活习惯，不强迫你每天写长篇日记。一句话、一张照片、一段语音——你原本怎么记，就怎么记。",
+        "htmlEn": "Recording should be effortless. Memex does not require you to change your existing habits or force you to write long diary entries every day. A sentence, a photo, a voice note — whatever you already use to record, you keep using it that way."
+      },
+      {
+        "type": "p",
+        "htmlZh": "<b>AI 在背后工作。</b> 多 Agent 协作完成整理、卡片生成、洞察提取和记忆关联——这些工作由系统完成，不由你来做。",
+        "htmlEn": "AI should work in the background. Multiple agents collaborate to organize records, generate cards, extract insights, and connect memories. The system does this work; you do not."
+      },
+      {
+        "type": "p",
+        "htmlZh": "<b>回应要真实。</b> 不把洞察变成报告，不把陪伴变成营销。Memex 的目标，是让你在某一天回头看时，真正感到：<i>哦，原来我是这样的人。</i>",
+        "htmlEn": "The response should feel real. Insights should not become reports, and companionship should not become marketing. Memex’s goal is that one day, when you look back, you genuinely feel: oh, so this is the kind of person I am."
+      },
+      {
+        "type": "h2",
+        "htmlZh": "为什么我们选择开源",
+        "htmlEn": "Why we chose open source"
+      },
+      {
+        "type": "p",
+        "htmlZh": "Memex 触动了每一位参与开发的人。但我们也清楚地看到：<b>在商业公司的框架里，维持这样一个\"以人为本\"的产品极其困难。</b>",
+        "htmlEn": "Memex touched every person involved in building it. But we also saw clearly that within the framework of a commercial company, sustaining such a “human-centered” product is extremely difficult."
+      },
+      {
+        "type": "p",
+        "htmlZh": "模型成本高。运营成本高。在流量和利润的压力下，我们无法确信这个理念能否一直走下去。",
+        "htmlEn": "Model costs are high. Operating costs are high. Under pressure for traffic and profit, we cannot be sure that this idea can always keep going."
+      },
+      {
+        "type": "p",
+        "htmlZh": "此外，由于手机本地大模型能力还不足，Memex 目前还无法做到完全的零数据上传——它仍需要调用云端大模型。我们不想假装这个问题已经被解决。",
+        "htmlEn": "In addition, because on-device large models on phones are not yet strong enough, Memex cannot currently achieve complete zero data upload. It still needs to call cloud-based large models. We do not want to pretend this problem has already been solved."
+      },
+      {
+        "type": "p",
+        "htmlZh": "所以我们决定将它开源。",
+        "htmlEn": "So we decided to open source it."
+      },
+      {
+        "type": "p",
+        "htmlZh": "<b>最敏感的数据，必须对应最高等级的信任。</b> 一个会接触你情绪、关系、脆弱和人生困惑的系统，不应该只靠一家公司的承诺来保障。它应该是透明的，可审查的，可以被社区共同守护的。",
+        "htmlEn": "The most sensitive data must correspond to the highest level of trust. A system that touches your emotions, relationships, vulnerabilities, and life questions should not be protected only by one company’s promise. It should be transparent, auditable, and guarded together by the community."
+      },
+      {
+        "type": "p",
+        "htmlZh": "<i>希望Memex能给这个方向留下一些有价值的东西，欢迎每一个认同这个方向的人，一起来建设它。附上Github地址：</i>",
+        "htmlEn": "I hope Memex can leave something valuable for this direction. Everyone who believes in it is welcome to build it together. Here is the GitHub address:"
+      },
+      {
+        "type": "p",
+        "htmlZh": "<a href=\"https://github.com/memex-lab/memex\">GitHub：memex-lab/memex</a>",
+        "htmlEn": "<a href=\"https://github.com/memex-lab/memex\">GitHub: memex-lab/memex</a>"
+      },
+      {
+        "type": "p",
+        "htmlZh": "一个简单的DEMO演示：",
+        "htmlEn": "A simple demo:"
+      },
+      {
+        "type": "h2",
+        "htmlZh": "一些有趣的产品测试截图",
+        "htmlEn": "Some product test screenshots"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/memex-record-yourself-01-26d86af1.jpg",
+        "alt": "我们做了一个关于\"记录自己\"的东西，然后决定把它开源",
+        "width": 1050,
+        "height": 172,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/memex-record-yourself-02-0ab15993.jpg",
+        "alt": "我们做了一个关于\"记录自己\"的东西，然后决定把它开源",
+        "width": 1080,
+        "height": 2346,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/memex-record-yourself-03-8b7342a1.jpg",
+        "alt": "我们做了一个关于\"记录自己\"的东西，然后决定把它开源",
+        "width": 1080,
+        "height": 2400,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/memex-record-yourself-04-7cfe9f4f.jpg",
+        "alt": "我们做了一个关于\"记录自己\"的东西，然后决定把它开源",
+        "width": 1179,
+        "height": 2556,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/memex-record-yourself-05-a03c2d56.jpg",
+        "alt": "我们做了一个关于\"记录自己\"的东西，然后决定把它开源",
+        "width": 1179,
+        "height": 2556,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/memex-record-yourself-06-5b1fbef3.jpg",
+        "alt": "我们做了一个关于\"记录自己\"的东西，然后决定把它开源",
+        "width": 1080,
+        "height": 2346,
+        "captionZh": "",
+        "captionEn": ""
+      }
+    ]
+  },
+  {
+    "slug": "weshop-1-5-reflections",
+    "titleZh": "我们发布了WeShop商拍1.5版----分享一些最近的思考",
+    "titleEn": "We Released WeShop Commercial Photography 1.5 — Some Recent Reflections",
+    "date": "2024-02-05",
+    "source": "Zhihu",
+    "sourceUrl": "https://zhuanlan.zhihu.com/p/680507675",
+    "excerptZh": "关于 WeShop 产品演进、AI 商拍场景和电商创意工作流的阶段性思考。",
+    "excerptEn": "Reflections on WeShop’s product evolution, AI commercial photography, and e-commerce creative workflows.",
+    "blocks": [
+      {
+        "type": "p",
+        "htmlZh": "<b>太长不看版：</b>WeShop 1.5版在保持商品细节和提高背景变换自由度方面有较大进步，使其扩大了应用场景。在人脸、色彩、光影、透视、手部及多人图像等核心问题上，需要期待2.0版。",
+        "htmlEn": "TL;DR: WeShop 1.5 makes meaningful progress in preserving product details and increasing freedom in background transformation, expanding the range of usable scenarios. For core issues such as faces, color, lighting, perspective, hands, and multi-person images, we still need to wait for version 2.0."
+      },
+      {
+        "type": "p",
+        "htmlZh": "老规矩，先看一波效果：",
+        "htmlEn": "As usual, let’s look at some results first:"
+      },
+      {
+        "type": "h3",
+        "htmlZh": "各种原图背景转棚拍",
+        "htmlEn": "Turning original backgrounds into studio shots"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-1-5-reflections-01-921f3a67.jpg",
+        "alt": "我们发布了WeShop商拍1.5版----分享一些最近的思考",
+        "width": 1440,
+        "height": 720,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-1-5-reflections-02-4ee11cc1.jpg",
+        "alt": "我们发布了WeShop商拍1.5版----分享一些最近的思考",
+        "width": 1440,
+        "height": 1041,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-1-5-reflections-03-c054fb32.jpg",
+        "alt": "我们发布了WeShop商拍1.5版----分享一些最近的思考",
+        "width": 1440,
+        "height": 1079,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "h3",
+        "htmlZh": "室外室内背景互换",
+        "htmlEn": "Switching between outdoor and indoor backgrounds"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-1-5-reflections-04-7a5ef6d2.jpg",
+        "alt": "我们发布了WeShop商拍1.5版----分享一些最近的思考",
+        "width": 1440,
+        "height": 961,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-1-5-reflections-05-f74a9735.jpg",
+        "alt": "我们发布了WeShop商拍1.5版----分享一些最近的思考",
+        "width": 1440,
+        "height": 902,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-1-5-reflections-06-0534373e.jpg",
+        "alt": "我们发布了WeShop商拍1.5版----分享一些最近的思考",
+        "width": 1440,
+        "height": 1076,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "h3",
+        "htmlZh": "人台",
+        "htmlEn": "Mannequins"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-1-5-reflections-07-efa453ed.jpg",
+        "alt": "我们发布了WeShop商拍1.5版----分享一些最近的思考",
+        "width": 1440,
+        "height": 1079,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-1-5-reflections-08-b2facfb4.jpg",
+        "alt": "我们发布了WeShop商拍1.5版----分享一些最近的思考",
+        "width": 1440,
+        "height": 955,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "h3",
+        "htmlZh": "杂志封面",
+        "htmlEn": "Magazine covers"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-1-5-reflections-09-7af9fa49.jpg",
+        "alt": "我们发布了WeShop商拍1.5版----分享一些最近的思考",
+        "width": 1440,
+        "height": 900,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-1-5-reflections-10-8c1ad02c.jpg",
+        "alt": "我们发布了WeShop商拍1.5版----分享一些最近的思考",
+        "width": 1404,
+        "height": 1051,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-1-5-reflections-11-021b04aa.jpg",
+        "alt": "我们发布了WeShop商拍1.5版----分享一些最近的思考",
+        "width": 1440,
+        "height": 1265,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "h3",
+        "htmlZh": "商品静物图，光影和边缘细节的保持",
+        "htmlEn": "Product still life, preserving lighting and edge details"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-1-5-reflections-12-5dfc131b.jpg",
+        "alt": "我们发布了WeShop商拍1.5版----分享一些最近的思考",
+        "width": 1396,
+        "height": 1047,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-1-5-reflections-13-97ecb6d0.jpg",
+        "alt": "我们发布了WeShop商拍1.5版----分享一些最近的思考",
+        "width": 1396,
+        "height": 1010,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-1-5-reflections-14-8bd95d66.jpg",
+        "alt": "我们发布了WeShop商拍1.5版----分享一些最近的思考",
+        "width": 1440,
+        "height": 1018,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-1-5-reflections-15-14482fbd.jpg",
+        "alt": "我们发布了WeShop商拍1.5版----分享一些最近的思考",
+        "width": 1440,
+        "height": 406,
+        "captionZh": "",
+        "captionEn": ""
+      },
+      {
+        "type": "p",
+        "htmlZh": "更多案例请访问：<a href=\"https://blog.weshop.com/post-3260\">WeShop唯象妙境1.5版本上线 - WeShop唯象妙境</a>",
+        "htmlEn": "For more examples, please visit: <a href=\"https://blog.weshop.com/post-3260\">WeShop 1.5 release — WeShop</a>"
+      },
+      {
+        "type": "h2",
+        "htmlZh": "必须声明:以下所有观点皆为个人立场，仅涉及AI应用型创业公司，不包括参与大模型竞赛的公司。这两类公司采取迥异的创业模式，不能混为一谈。",
+        "htmlEn": "A necessary disclaimer: all views below are personal views only. They concern AI application startups, not companies competing in foundation-model races. These two kinds of companies follow very different startup models and should not be mixed together."
+      },
+      {
+        "type": "h2",
+        "htmlZh": "<b>AI Native公司的两个重要特征</b>",
+        "htmlEn": "Two important characteristics of AI-native companies"
+      },
+      {
+        "type": "p",
+        "htmlZh": "对我来说，什么是AI Native公司是至关重要的问题。如果AI Native不存在，像我们这种做AI应用的创业团队将无长期商业价值,我们不过是为大公司试错而已。这一轮大模型的发展，我个人坚信会有AI Native的存在，会有原生的商业巨头成长出来。",
+        "htmlEn": "For me, what counts as an AI-native company is a crucial question. If AI-native companies do not exist, then teams like ours building AI applications will have no long-term commercial value; we would merely be doing trial and error for large companies. With this wave of large-model development, I personally believe AI-native companies will exist, and native commercial giants will grow out of it."
+      },
+      {
+        "type": "p",
+        "htmlZh": "通过WeShop的实践，我不负责任的总结AI Native公司有两个核心特征:",
+        "htmlEn": "Based on WeShop’s practice, I will irresponsibly summarize two core characteristics of AI-native companies:"
+      },
+      {
+        "type": "ol",
+        "itemsZh": [
+          "研发流程符合Prompt > LoRA > Finetune原则"
+        ],
+        "itemsEn": [
+          "The R&D process follows the principle of Prompt > LoRA > Finetune"
+        ]
+      },
+      {
+        "type": "p",
+        "htmlZh": "我们讨论AI Native，其实是在讨论这波AI的红利是什么。对于创业团队，没有人力、资金和资源。它的创新必须建立在试错成本不高的前提下，prompt正是大模型时代给大家提供最低门槛的创新手段。实际上很多团队严重低估了prompt的潜力,没有对大模型的极限进行过prompt的边界测试。",
+        "htmlEn": "When we discuss AI-native companies, we are really discussing where the dividend of this AI wave lies. Startup teams have no abundant manpower, capital, or resources. Their innovation must be built on relatively low trial-and-error costs, and prompting is the lowest-threshold innovation method that large models provide. In reality, many teams severely underestimate the potential of prompts and have not tested the boundaries of what large models can do with prompting."
+      },
+      {
+        "type": "p",
+        "htmlZh": "其次是LoRA，没有LoRA技术，就不会有今天社区的繁荣。LoRA的成本一般情况下略大于Prompt，但LoRA在团队内部可以形成LoRA工厂，实现流水线生产。通过集成各种LoRA经常能制造出非常惊艳的产品效果。",
+        "htmlEn": "Next is LoRA. Without LoRA, today’s community would not be as vibrant. In most cases, LoRA costs slightly more than prompting, but inside a team it can form a LoRA factory and enable assembly-line production. By integrating different LoRAs, teams can often create surprisingly strong product results."
+      },
+      {
+        "type": "p",
+        "htmlZh": "最后是微调(finetune)，2023年很多朋友找我交流AI创业的想法，一般都会提到要微调，购买机器，准备数据，训练一个行业模型。这时我就紧张了，微调模型的难度和成本，其实远超过大家的预期，从prompt和lora开始是更合理的选择。当然，在PMF后上需要成功微调一个好的模型，形成商业护城河。",
+        "htmlEn": "Finally there is finetuning. In 2023, many friends came to me to discuss AI startup ideas and usually mentioned finetuning, buying machines, preparing data, and training a vertical model. That made me nervous. The difficulty and cost of finetuning are far beyond many people’s expectations; starting with prompts and LoRA is a more reasonable choice. Of course, after PMF, successfully finetuning a good model may be necessary to form a commercial moat."
+      },
+      {
+        "type": "p",
+        "htmlZh": "2. <b>单点能力突出但整合性差</b>",
+        "htmlEn": "2. Strong at single-point capabilities but weak at integration"
+      },
+      {
+        "type": "p",
+        "htmlZh": "也就是当前产品对小客户友好，AI技术还处于早期发展阶段，必然会有大量的问题，而且这些问题往往是在原先玩家觉得比较简单的问题。比如在WeShop，客户会觉得背景都能换的逼真了，咋就做不到这个裙子的肩带不要变粗，咋就不能把红衣服变绿衣服。又比如在LLM中，长篇大论的文章都能写了，怎么就不能好好做个客服呢。",
+        "htmlEn": "In other words, current products are friendly to small customers. AI technology is still early, and there will inevitably be many problems — often with things previous players considered simple. In WeShop, for example, customers may ask: if the background can already be changed realistically, why can’t the shoulder strap on this dress stay thin, or why can’t a red dress become green? In LLMs, similarly, a model may write long essays, but why can’t it handle customer service properly?"
+      },
+      {
+        "type": "p",
+        "htmlZh": "对于小客户来讲，AI产品解决的是核心问题，是指数级的效率提升。但对于大公司来讲，由于规模和质量的要求，无法进入它商业流程的环节都是降低效率的，从客观商业考量就不合算。这个矛盾会随着技术的发展、新的工作流出现得到解决，但它需要时间，这就给了很多创业团队发展的时机，我们必须在那个临界点到来前成长到能活下去的状态。",
+        "htmlEn": "For small customers, AI products solve core problems and bring exponential efficiency gains. But for large companies, because of scale and quality requirements, any step that cannot enter the business workflow reduces efficiency and is not worthwhile from an objective commercial perspective. This contradiction will be solved as technology improves and new workflows emerge, but it needs time. That gives many startup teams a window to grow. We must survive and grow before that critical point arrives."
+      },
+      {
+        "type": "h2",
+        "htmlZh": "<b>AI应用急需复合型产品经理</b>",
+        "htmlEn": "AI applications urgently need hybrid product managers"
+      },
+      {
+        "type": "p",
+        "htmlZh": "个人认为这个角色目前是极度稀缺的状态，也是限制优秀AI应用广泛涌现的关键因素之一。",
+        "htmlEn": "I personally think this role is extremely scarce right now, and it is one of the key constraints limiting the emergence of excellent AI applications."
+      },
+      {
+        "type": "p",
+        "htmlZh": "产品经理需具备敏锐的需求洞察力。即便在移动互联网时代，具有此能力的产品经理亦屈指可数。设想若团队拥有这样一位核心人物，他们面对的挑战在于如何将捕捉到的需求转化为具体应用。由于AI技术的不确定性，这一过程变得异常复杂。在移动互联网时代，几轮产品需求文档（PRD）评审即可明确产品功能是否可行，不存在模糊地带。当然，业务能否如期成功又是另一回事。但AI开发的特点是，虽然可能半天就能出示一个demo，却可能半年也难以推出成品，更不用说进入产品市场契合（PMF）之后的增长、运营和商业模型构建。产研团队内部如果无法有效沟通，对齐标准，将大幅降低迭代效率。",
+        "htmlEn": "Product managers need sharp demand insight. Even in the mobile internet era, product managers with this ability were rare. Imagine a team with such a core person: their challenge is how to turn captured demand into a concrete application. Because of the uncertainty of AI technology, this process becomes unusually complex. In the mobile internet era, after a few rounds of PRD review, teams could determine whether a feature was feasible; there was little ambiguity. Whether the business could succeed on schedule was another matter. But AI development is different: you may produce a demo in half a day, yet spend half a year struggling to launch a product, not to mention growth, operations, and business-model building after PMF. If product and engineering teams cannot communicate effectively and align on standards, iteration efficiency will drop sharply."
+      },
+      {
+        "type": "p",
+        "htmlZh": "理想的情况是，产品同学也能掌握AI技术的特征。尽管AI技术相比过去的学术理论整体门槛有所降低，但构建一个自洽的认知体系仍需要大量训练和积累。这波AI浪潮来势汹汹，人才储备严重不足。然而一年过去，我相信许多人已经逐渐适应，正悄悄进行各种实践，尽管这些努力尚未爆发，我们有理由期待2024年的到来。",
+        "htmlEn": "Ideally, product people should also understand the characteristics of AI technology. Although AI technology has a lower threshold than past academic theory in some ways, building a coherent cognitive system still requires significant training and accumulation. This AI wave has arrived fast, and talent reserves are seriously insufficient. But after a year, I believe many people have gradually adapted and are quietly practicing in different ways. These efforts have not yet fully erupted, but we have reason to look forward to 2024."
+      },
+      {
+        "type": "p",
+        "htmlZh": "因此，希望对产品行业感兴趣的朋友们积极拥抱AI技术，敢于尝试，勇于创新。特别是，在这个阶段，不应该盲目模仿。创新是回报率最高的投资，即使短期内创新未必成功，通过实践获取的真知也能显著提升个人及团队对AI行业的理解。",
+        "htmlEn": "Therefore, I hope people interested in product work actively embrace AI technology, dare to try, and dare to innovate. Especially at this stage, they should not blindly imitate. Innovation has the highest return on investment. Even if it does not succeed in the short term, the firsthand understanding gained through practice will significantly improve an individual’s and a team’s grasp of the AI industry."
+      },
+      {
+        "type": "h2",
+        "htmlZh": "我们要开源",
+        "htmlEn": "We want to open source"
+      },
+      {
+        "type": "p",
+        "htmlZh": "WeShop产品的构建受益于广泛的开源项目及SD社区朋友的支持。在深思熟虑后，我们决定亦应贡献于开源社区。计划将WeShop的前端、后端及部分模型训练工具逐步开放源代码。",
+        "htmlEn": "The construction of WeShop has benefited from many open-source projects and friends in the Stable Diffusion community. After careful consideration, we decided that we should also contribute to the open-source community. We plan to gradually open source WeShop’s frontend, backend, and some model-training tools."
+      },
+      {
+        "type": "p",
+        "htmlZh": "目前已发布WeShop个人版，它可视为SD的webui的一个变体。当前阶段，我们仅发布了部分前端代码，尚不完整，代码质量亦请各位海涵。与现有WebUI相比，我们新增了任务管理、异步执行和远程多用户访问等功能，更适合商业环境中实际应用SD。",
+        "htmlEn": "We have released the WeShop personal edition, which can be seen as a variant of the SD web UI. At this stage, we have only released part of the frontend code; it is not yet complete, and please forgive the code quality. Compared with existing WebUIs, we added task management, asynchronous execution, and remote multi-user access, making it more suitable for using SD in real commercial environments."
+      },
+      {
+        "type": "p",
+        "htmlZh": "鉴于团队规模有限，全面开源仍在路上，我们需要时间完成代码的工程化改造，因此尚未在github上发布。我们已成立专门小组，未来将分步公开源代码。欢迎对此感兴趣的同仁通过飞书文档了解更多详情。",
+        "htmlEn": "Because the team is small, full open source is still on the way. We need time to complete engineering work on the codebase, so it has not yet been released on GitHub. We have formed a dedicated group and will disclose the source code step by step. People interested in this are welcome to learn more through the Feishu document."
+      },
+      {
+        "type": "p",
+        "htmlZh": "<a href=\"https://waytoagi.feishu.cn/wiki/UqKXwX1d0iRO5ikBb0DcYyb9ned\">飞书文档：WeShop 开源说明</a>",
+        "htmlEn": "<a href=\"https://waytoagi.feishu.cn/wiki/UqKXwX1d0iRO5ikBb0DcYyb9ned\">Feishu document: WeShop open-source notes</a>"
+      },
+      {
+        "type": "h2",
+        "htmlZh": "一些有趣的资料分享",
+        "htmlEn": "Some useful resources"
+      },
+      {
+        "type": "p",
+        "htmlZh": "分享一些我觉得不错的SD或LLM相关的资料给大家。",
+        "htmlEn": "Here are some SD- or LLM-related resources that I think are good."
+      },
+      {
+        "type": "p",
+        "htmlZh": "北大李建教授关于LCM的talk，整个专辑也非常不错。",
+        "htmlEn": "Professor Li Jian from Peking University has a talk on LCM; the whole series is also very good."
+      },
+      {
+        "type": "p",
+        "htmlZh": "<a href=\"https://www.bilibili.com/video/BV1434y1M7uM/\">Bilibili：北大李建教授关于 LCM 的 talk</a>",
+        "htmlEn": "<a href=\"https://www.bilibili.com/video/BV1434y1M7uM/\">Bilibili: Professor Li Jian on LCM</a>"
+      },
+      {
+        "type": "p",
+        "htmlZh": "沈向洋老师创办的IDEA研究院的深度学习的数学专辑：",
+        "htmlEn": "The mathematics of deep learning series from IDEA, founded by Harry Shum:"
+      },
+      {
+        "type": "p",
+        "htmlZh": "<a href=\"https://www.bilibili.com/video/BV1Pc41117oq/\">Bilibili：深度学习中的数学</a>",
+        "htmlEn": "<a href=\"https://www.bilibili.com/video/BV1Pc41117oq/\">Bilibili: Mathematics in Deep Learning</a>"
+      },
+      {
+        "type": "p",
+        "htmlZh": "李沐老师的课程，可惜李沐老师创业后不更新了。",
+        "htmlEn": "Mu Li’s course. Unfortunately, he stopped updating after starting his company."
+      },
+      {
+        "type": "p",
+        "htmlZh": "<a href=\"https://www.bilibili.com/video/BV17r4y1u77B/\">Bilibili：DALL·E 2 论文精读</a>",
+        "htmlEn": "<a href=\"https://www.bilibili.com/video/BV17r4y1u77B/\">Bilibili: DALL·E 2 paper reading</a>"
+      },
+      {
+        "type": "p",
+        "htmlZh": "andrew NG的：",
+        "htmlEn": "Andrew Ng’s courses:"
+      },
+      {
+        "type": "p",
+        "htmlZh": "<a href=\"https://www.deeplearning.ai/short-courses/\">DeepLearning.AI Short Courses</a>",
+        "htmlEn": "<a href=\"https://www.deeplearning.ai/short-courses/\">DeepLearning.AI Short Courses</a>"
+      },
+      {
+        "type": "p",
+        "htmlZh": "youtube：",
+        "htmlEn": "YouTube:"
+      },
+      {
+        "type": "p",
+        "htmlZh": "<a href=\"https://www.youtube.com/watch?v=T0Qxzf0eaio\">YouTube：https://www.youtube.com/watch?v=T0Qxzf0eaio</a>",
+        "htmlEn": "<a href=\"https://www.youtube.com/watch?v=T0Qxzf0eaio\">YouTube: https://www.youtube.com/watch?v=T0Qxzf0eaio</a>"
+      },
+      {
+        "type": "p",
+        "htmlZh": "song yang：",
+        "htmlEn": "Song Yang:"
+      },
+      {
+        "type": "p",
+        "htmlZh": "<a href=\"https://www.youtube.com/watch?v=y8q3gh61OY0&t=3670s\">YouTube：https://www.youtube.com/watch?v=y8q3gh61OY0</a>",
+        "htmlEn": "<a href=\"https://www.youtube.com/watch?v=y8q3gh61OY0&t=3670s\">YouTube: https://www.youtube.com/watch?v=y8q3gh61OY0</a>"
+      },
+      {
+        "type": "p",
+        "htmlZh": "大串讲：",
+        "htmlEn": "A broad overview:"
+      },
+      {
+        "type": "p",
+        "htmlZh": "<a href=\"https://www.youtube.com/watch?v=cS6JQpEY9cs&t=10813s\">YouTube：https://www.youtube.com/watch?v=cS6JQpEY9cs</a>",
+        "htmlEn": "<a href=\"https://www.youtube.com/watch?v=cS6JQpEY9cs&t=10813s\">YouTube: https://www.youtube.com/watch?v=cS6JQpEY9cs</a>"
+      },
+      {
+        "type": "p",
+        "htmlZh": "Lex Fridman和IIya的访谈：",
+        "htmlEn": "The Lex Fridman interview with Ilya:"
+      },
+      {
+        "type": "p",
+        "htmlZh": "<a href=\"https://www.youtube.com/watch?v=13CZPWmke6A&t=2716s\">YouTube：Lex Fridman 和 Ilya 访谈</a>",
+        "htmlEn": "<a href=\"https://www.youtube.com/watch?v=13CZPWmke6A&t=2716s\">YouTube: Lex Fridman interview with Ilya</a>"
+      },
+      {
+        "type": "h2",
+        "htmlZh": "LLM产品推荐",
+        "htmlEn": "LLM product recommendations"
+      },
+      {
+        "type": "p",
+        "htmlZh": "还有很多资料没有放，因为我现在使用LLM来辅助深入理解文本类的信息，推荐几个常用的：",
+        "htmlEn": "There are many resources I did not include. Since I now use LLMs to help me understand text-heavy information more deeply, here are a few tools I often use:"
+      },
+      {
+        "type": "p",
+        "htmlZh": "在论文学术问题上，chatgpt废话太多了（也有可能我对LLM的prompt实践不够极致）",
+        "htmlEn": "For academic paper questions, ChatGPT tends to be too verbose, though this may also be because my prompting practice is not yet extreme enough."
+      },
+      {
+        "type": "p",
+        "htmlZh": "国外推荐Claude2：",
+        "htmlEn": "For overseas use, I recommend Claude 2:"
+      },
+      {
+        "type": "p",
+        "htmlZh": "<a href=\"https://claude.ai/\">Claude</a>",
+        "htmlEn": "<a href=\"https://claude.ai/\">Claude</a>"
+      },
+      {
+        "type": "p",
+        "htmlZh": "国内推荐：",
+        "htmlEn": "For domestic use, I recommend:"
+      },
+      {
+        "type": "p",
+        "htmlZh": "<a href=\"https://kimi.moonshot.cn/\">Kimi</a>",
+        "htmlEn": "<a href=\"https://kimi.moonshot.cn/\">Kimi</a>"
+      },
+      {
+        "type": "p",
+        "htmlZh": "日常问题，国外推荐chatgpt，国内推荐豆包、通义，豆包的语音交互做的不错。",
+        "htmlEn": "For everyday questions, I recommend ChatGPT overseas; domestically I recommend Doubao and Tongyi. Doubao’s voice interaction is quite good."
+      },
+      {
+        "type": "h2",
+        "htmlZh": "其他关于WeShop",
+        "htmlEn": "Other posts about WeShop"
+      },
+      {
+        "type": "p",
+        "htmlZh": "<a href=\"https://zhuanlan.zhihu.com/p/629144911\">吴海波：和大家汇报下我们电商AI模特产品WeShop beta版本开放测试</a>",
+        "htmlEn": "<a href=\"https://zhuanlan.zhihu.com/p/629144911\">Wu Haibo: Reporting to everyone that our e-commerce AI model product WeShop beta is open for testing</a>"
+      },
+      {
+        "type": "p",
+        "htmlZh": "<a href=\"https://zhuanlan.zhihu.com/p/645661098\">吴海波：以WeShop为例尝试回答一些经常被问的AIGC产品业务问题</a>",
+        "htmlEn": "<a href=\"https://zhuanlan.zhihu.com/p/645661098\">Wu Haibo: Trying to answer frequently asked AIGC product business questions using WeShop as an example</a>"
+      },
+      {
+        "type": "p",
+        "htmlZh": "<a href=\"https://zhuanlan.zhihu.com/p/633513013\">吴海波：谈谈做WeShop过程中对AIGC产品的一些思考----写在WeShop正式版上线</a>",
+        "htmlEn": "<a href=\"https://zhuanlan.zhihu.com/p/633513013\">Wu Haibo: Thoughts from building WeShop — written after the official WeShop launch</a>"
+      },
+      {
+        "type": "p",
+        "htmlZh": "PS：上诉产品图片如有侵权，请联系我删除。",
+        "htmlEn": "PS: If any of the product images above infringe rights, please contact me and I will delete them."
+      }
+    ]
+  }
+]

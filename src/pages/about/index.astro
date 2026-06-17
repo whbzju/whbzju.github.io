@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { experience, profile } from "../../data/profile";
+---
+
+<BaseLayout title={`About · ${profile.name}`}>
+  <section class="page-hero container">
+    <div>
+      <p class="eyebrow">
+        <span data-lang-content="en">About</span>
+        <span data-lang-content="zh">经历</span>
+      </p>
+      <h1>
+        <span data-lang-content="en">The path so far.</span>
+        <span data-lang-content="zh">从搜索推荐到 AI 产品。</span>
+      </h1>
+    </div>
+    <p class="page-lead" data-lang-content="en">My work has stayed close to applied AI: terminal AI at Huawei, search/recommendation/ads and product at Mogujie, AI commercial photography at WeShop, and now local-first personal AI with Memex.</p>
+    <p class="page-lead" data-lang-content="zh">我的经历一直围绕真实业务里的 AI 应用展开：早期在华为做终端 AI，后来在蘑菇街负责搜索、推荐、广告和产品，再到 WeShop 的 AI 商拍，以及现在的 Memex。</p>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>
+        <span data-lang-content="en">Experience</span>
+        <span data-lang-content="zh">时间线</span>
+      </h2>
+      <ul class="plain-list">
+        {experience.map((item) => (
+          <li>
+            <span class="item-source" data-lang-content="en">{item.period}</span>
+            <span class="item-source" data-lang-content="zh">{item.periodZh}</span>
+            <strong data-lang-content="en">{item.title}</strong>
+            <strong data-lang-content="zh">{item.titleZh}</strong>
+            <span data-lang-content="en">{item.text}</span>
+            <span data-lang-content="zh">{item.textZh}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

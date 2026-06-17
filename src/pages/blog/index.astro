@@ -1,32 +1,63 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { profile, writing, writingCollections } from "../../data/profile";
+import { profile, writingHighlights } from "../../data/profile";
+import blogPosts from "../../data/blog-posts.json";
+
+const highlightGroups = [...new Set(writingHighlights.map((item) => item.group))].map((group) => {
+  const items = writingHighlights.filter((item) => item.group === group);
+  return {
+    group,
+    groupZh: items[0].groupZh,
+    items,
+  };
+});
 ---
 
 <BaseLayout title={`Blog · ${profile.name}`}>
   <section class="page-hero container">
     <div>
-      <p class="eyebrow">Blog</p>
-      <h1>Notes and essays.</h1>
+      <p class="eyebrow">
+        <span data-lang-content="en">Blog</span>
+        <span data-lang-content="zh">文章</span>
+      </p>
+      <h1>
+        <span data-lang-content="en">Writing and selected answers.</span>
+        <span data-lang-content="zh">文章与代表回答。</span>
+      </h1>
     </div>
-    <p class="page-lead">A curated trail of product notes, Zhihu answers, and essays that explain how the work developed.</p>
+    <p class="page-lead" data-lang-content="en">A curated reading path across Memex, WeShop, AI applications, generative models, search, recommendation, and earlier machine-learning work.</p>
+    <p class="page-lead" data-lang-content="zh">按主题整理我在知乎和专栏里较有代表性的文章与回答，覆盖 Memex、WeShop、AI 应用、生成模型、搜索推荐和早期机器学习实践。</p>
   </section>
 
   <section class="section">
     <div class="container">
       <div class="section-header">
         <div>
-          <p class="eyebrow">Selected</p>
-          <h2>Start here.</h2>
+          <p class="eyebrow">
+            <span data-lang-content="en">Selected</span>
+            <span data-lang-content="zh">精选</span>
+          </p>
+          <h2>
+            <span data-lang-content="en">Featured essays.</span>
+            <span data-lang-content="zh">精选长文。</span>
+          </h2>
         </div>
-        <p class="section-lead">Three pieces that explain Memex, WeShop, and the product thesis most directly.</p>
+        <p class="section-lead" data-lang-content="en">These essays are available as full pages here. Chinese keeps the original Zhihu text; English is translated for international readers.</p>
+        <p class="section-lead" data-lang-content="zh">这几篇已迁移到本站。中文保留知乎原文，英文提供译文。</p>
       </div>
-      <div class="writing-grid">
-        {writing.map((item) => (
-          <a class="writing-card" href={item.href}>
-            <span class="item-source">{item.source}</span>
-            <h3>{item.title}</h3>
-            <p>{item.note}</p>
+      <div class="post-list">
+        {blogPosts.map((post) => (
+          <a class="post-list-item" href={`/blog/${post.slug}/`}>
+            <span class="item-source">
+              <span data-lang-content="en">{post.date} · {post.source}</span>
+              <span data-lang-content="zh">{post.date} · 知乎原文</span>
+            </span>
+            <h3>
+              <span data-lang-content="en">{post.titleEn}</span>
+              <span data-lang-content="zh">{post.titleZh}</span>
+            </h3>
+            <p data-lang-content="en">{post.excerptEn}</p>
+            <p data-lang-content="zh">{post.excerptZh}</p>
           </a>
         ))}
       </div>
@@ -35,22 +66,42 @@ import { profile, writing, writingCollections } from "../../data/profile";
 
   <section class="section">
     <div class="container">
-      <div class="collection-grid">
-        {writingCollections.map((group) => (
-          <article class="collection-card">
-            <h3>{group.title}</h3>
-            <p>{group.description}</p>
-            <div class="collection-list">
-              {group.items.map(([source, title, href]) => (
-                <a href={href}>
-                  <span>{source}</span>
-                  <strong>{title}</strong>
-                </a>
-              ))}
-            </div>
-          </article>
-        ))}
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">
+            <span data-lang-content="en">Zhihu index</span>
+            <span data-lang-content="zh">知乎索引</span>
+          </p>
+          <h2>
+            <span data-lang-content="en">Selected Zhihu posts and answers.</span>
+            <span data-lang-content="zh">知乎代表文章与回答。</span>
+          </h2>
+        </div>
+        <p class="section-lead" data-lang-content="en">External links for now; the strongest pieces can later become full bilingual pages with images preserved.</p>
+        <p class="section-lead" data-lang-content="zh">这一组先保留外链，后面可以挑最重要的内容迁移成保留图片的中英双语全文。</p>
       </div>
+
+      {highlightGroups.map((group) => (
+        <section class="highlight-group">
+          <h3>
+            <span data-lang-content="en">{group.group}</span>
+            <span data-lang-content="zh">{group.groupZh}</span>
+          </h3>
+          <ul class="plain-list">
+            {group.items.map((item) => (
+              <li>
+                <span class="item-source">
+                  <span data-lang-content="en">{item.type}</span>
+                  <span data-lang-content="zh">{item.typeZh}</span>
+                </span>
+                <a href={item.href}>{item.title}</a>
+                <span data-lang-content="en">{item.noteEn}</span>
+                <span data-lang-content="zh">{item.note}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
     </div>
   </section>
 </BaseLayout>
