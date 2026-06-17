@@ -15,8 +15,8 @@ import { profile } from "../../data/profile";
         <span data-lang-content="zh">联系入口。</span>
       </h1>
     </div>
-    <p class="page-lead" data-lang-content="en">Different contexts fit different channels: LinkedIn for business and media, GitHub for open source, and Zhihu for longer Chinese-language discussions.</p>
-    <p class="page-lead" data-lang-content="zh">不同事情适合不同入口：商业合作和媒体采访看 LinkedIn，开源和技术讨论看 GitHub，中文语境下的长讨论可以在知乎。</p>
+    <p class="page-lead" data-lang-content="en">Different contexts fit different channels: LinkedIn for business and media, GitHub for open source, X for short-form AI/product updates, and Zhihu for longer Chinese-language discussions.</p>
+    <p class="page-lead" data-lang-content="zh">不同事情适合不同入口：商业合作和媒体采访看 LinkedIn，开源和技术讨论看 GitHub，短观点和海外 AI 讨论看 X，中文语境下的长讨论可以在知乎。</p>
   </section>
 
   <section class="section">
@@ -35,6 +35,11 @@ import { profile } from "../../data/profile";
           <a href={profile.links.github}>GitHub</a>
           <span data-lang-content="en">Technical discussion, open-source work, and Memex-related issues, ideas, or pull requests.</span>
           <span data-lang-content="zh">适合技术讨论、开源协作，以及 Memex 相关 issue、想法和 pull request。</span>
+        </li>
+        <li>
+          <a href={profile.links.x}>X</a>
+          <span data-lang-content="en">Short-form thoughts on AI products, open source, agents, and what I am building.</span>
+          <span data-lang-content="zh">适合看一些更短的 AI 产品、开源、Agent 和正在做的事情。</span>
         </li>
         <li>
           <a href={profile.links.zhihu}>Zhihu</a>

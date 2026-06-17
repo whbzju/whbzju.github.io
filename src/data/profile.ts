@@ -10,6 +10,7 @@ export const profile = {
   links: {
     github: "https://github.com/whbzju",
     linkedin: "https://www.linkedin.com/in/haibo-wu-97b60759/",
+    x: "https://x.com/whb_zju",
     zhihu: "https://www.zhihu.com/people/wu-hai-bo",
     memex: "https://github.com/memex-lab/memex",
     weshop: "https://www.weshop.ai/",
@@ -484,142 +485,165 @@ export const events = [
   },
 ];
 
-export const writingHighlights = [
+export const writingByArea = [
   {
-    group: "AI products and agents",
-    groupZh: "AI 产品与 Agent",
-    type: "Zhihu answer",
-    typeZh: "知乎回答",
-    title: "在研究编程 Agent，Agent 核心就几十行代码，那剩下的几万行到底在解决什么问题？",
-    titleEn: "If an agent core is only a few dozen lines, what are the other tens of thousands of lines for?",
-    href: "https://www.zhihu.com/question/1994057559171167995/answer/2021164259149714484",
-    noteEn:
-      "A product-engineering answer on production agents: tools, permissions, validation, application structure, and the gap between a demo loop and a usable product.",
-    note: "从产品工程角度解释生产级 Agent 为什么需要工具、权限、校验和完整应用结构。",
-  },
-  {
-    group: "AI products and agents",
-    groupZh: "AI 产品与 Agent",
-    type: "Zhihu answer",
-    typeZh: "知乎回答",
-    title: "怎么成为一个 AI agent 工程师？",
-    titleEn: "How to become an AI agent engineer",
-    href: "https://www.zhihu.com/question/1936375725931361485/answer/1951304824327996800",
-    noteEn:
-      "A practical answer connecting agent engineering with Memex, local-first personal AI, and the product work behind reliable agent experiences.",
-    note: "从 AI Agent 工程聊到 Memex、local-first 个人 AI 和产品构建。",
-  },
-  {
-    group: "AI products and agents",
-    groupZh: "AI 产品与 Agent",
-    type: "Zhihu answer",
-    typeZh: "知乎回答",
-    title: "为什么一定要频繁记录自己？",
-    titleEn: "Why record yourself so often?",
-    href: "https://www.zhihu.com/question/1925936172162605365/answer/2016262442049634843",
-    noteEn:
-      "A Memex-adjacent answer about personal records, AI anxiety, memory, and agency in an era when private context becomes useful again.",
-    note: "延伸 Memex 的产品理念，讨论个人记录、AI 焦虑、记忆和主体性。",
-  },
-  {
-    group: "WeShop and commercial AI",
-    groupZh: "WeShop 与商业 AI",
-    type: "Zhihu answer",
-    typeZh: "知乎回答",
-    title: "AI 技术代替电商模特，现在可以实现了吗？",
-    titleEn: "Can AI replace e-commerce models now?",
-    href: "https://www.zhihu.com/question/590884963/answer/2983851310",
-    noteEn:
-      "A WeShop-grounded answer on virtual models, e-commerce photography, production constraints, and where generative AI was already useful before it was perfect.",
-    note: "关于虚拟试衣、AI 模特和电商商拍生产约束的代表性回答。",
-  },
-  {
-    group: "WeShop and commercial AI",
-    groupZh: "WeShop 与商业 AI",
-    type: "Zhihu answer",
-    typeZh: "知乎回答",
-    title: "现在 AI 很火，但实际落地的行业应用并不多，问题出在哪里？",
-    titleEn: "Why are there still so few real industry AI applications?",
-    href: "https://www.zhihu.com/question/635835356/answer/3388639454",
-    noteEn:
-      "A product answer on why AI applications struggle to move from impressive demos into repeatable industry workflows, using WeShop as context.",
-    note: "用 WeShop 经验回答 AI 应用为什么难从 demo 进入行业工作流。",
-  },
-  {
-    group: "WeShop and commercial AI",
-    groupZh: "WeShop 与商业 AI",
-    type: "Zhihu column",
-    typeZh: "知乎专栏",
-    title: "WeShopAI 全员远程协作一年记",
-    titleEn: "A year of remote collaboration at WeShop AI",
-    href: "https://zhuanlan.zhihu.com/p/1910357861290210251",
-    noteEn:
-      "A founder/operator note on running a remote AI product team: cadence, autonomy, communication, and the kind of organization AI work requires.",
-    note: "从团队 leader 视角记录 WeShop 全员远程协作一年的体感和组织判断。",
-  },
-  {
-    group: "Technical foundations",
-    groupZh: "技术理解",
-    type: "Zhihu column",
-    typeZh: "知乎专栏",
-    title: "Diffusion Models 导读",
-    titleEn: "A guide to diffusion models",
-    href: "https://zhuanlan.zhihu.com/p/591720296",
-    noteEn:
-      "A technical primer for readers entering image generation, useful as a marker of the technical base behind later commercial AI image work.",
-    note: "面向图像生成入门读者的 Diffusion Models 技术导读。",
-  },
-  {
-    group: "Technical foundations",
-    groupZh: "技术理解",
-    type: "Zhihu column",
-    typeZh: "知乎专栏",
-    title: "应用视角下 ChatGPT 背后的关键技术讨论",
-    titleEn: "The core technologies behind ChatGPT from an application perspective",
-    href: "https://zhuanlan.zhihu.com/p/609624863",
-    noteEn:
-      "A technical-product discussion of ChatGPT from the perspective of application builders, not only model observers.",
-    note: "从应用构建者视角讨论 ChatGPT 背后的关键技术。",
-  },
-  {
-    group: "Technical foundations",
-    groupZh: "技术理解",
-    type: "Zhihu answer",
-    typeZh: "知乎回答",
-    title: "推荐系统中如何做 User Embedding？",
-    titleEn: "How to build user embeddings in recommender systems",
-    href: "https://www.zhihu.com/question/336110178/answer/848660398",
-    noteEn:
-      "A representative search/recommendation answer from earlier machine-learning work, connecting modeling concepts with production recommendation practice.",
-    note: "把 User Embedding 和推荐系统实践联系起来的代表性回答。",
-  },
-  {
-    group: "Technical foundations",
-    groupZh: "技术理解",
-    type: "Zhihu answer",
-    typeZh: "知乎回答",
-    title: "在你做推荐系统的过程中都遇到过什么坑？",
-    titleEn: "Pitfalls from building recommender systems in real business",
-    href: "https://www.zhihu.com/question/32218407/answer/555385513",
-    noteEn:
-      "A practical answer on what breaks in recommender systems once algorithms meet product constraints, traffic, incentives, and operations.",
-    note: "来自真实业务经验的推荐系统踩坑总结。",
-  },
-];
-
-export const writingCollections = [
-  {
-    title: "Zhihu columns and answers",
-    titleZh: "知乎专栏与回答",
+    title: "WeShop AI and commercial creative workflows",
+    titleZh: "WeShop AI 与商业创意工作流",
     description:
-      "A long-running thinking trail across AI products, e-commerce creative workflows, agents, and open-source growth.",
+      "Writing around WeShop's path from digital-model generation experiments to a commercial AI photography and creative-production product.",
     descriptionZh:
-      "围绕 AI 产品、电商创意工作流、智能体和开源增长的一条长期思考线索。",
+      "围绕 WeShop 从电商数字模特技术实践，走向 AI 商拍、商业创意生产和全球化 SaaS 的一组文章与回答。",
     items: [
-      ["Zhihu column", "和大家汇报下我们电商AI模特产品WeShop beta版本开放测试", "https://zhuanlan.zhihu.com/p/629144911"],
-      ["Zhihu column", "我们发布了WeShop商拍1.5版----分享一些最近的思考", "https://zhuanlan.zhihu.com/p/680507675"],
-      ["Zhihu answer", "AI 技术代替电商模特，现在可以实现了吗？", "https://www.zhihu.com/question/590884963/answer/2983851310"],
-      ["Zhihu answer", "怎么成为一个 AI agent 工程师？", "https://www.zhihu.com/question/1936375725931361485/answer/1951304824327996800"],
+      {
+        type: "On this site",
+        typeZh: "站内双语全文",
+        title: "AI 技术代替电商模特，现在可以实现了吗？",
+        titleEn: "Can AI replace e-commerce models now?",
+        href: "/blog/weshop-ai-models/",
+        noteEn:
+          "A widely read WeShop answer on AI models, virtual try-on, e-commerce photography constraints, cross-border merchandising, and why usefulness can arrive before perfection.",
+        note: "一篇关于 WeShop 场景的高赞回答，解释 AI 模特、虚拟试衣、电商商拍约束、出海商品图和生成式 AI 的可用性边界。",
+      },
+      {
+        type: "Zhihu column",
+        typeZh: "知乎专栏",
+        title: "谈谈做WeShop过程中对AIGC产品的一些思考",
+        titleEn: "Product reflections from building WeShop's AIGC product",
+        href: "https://zhuanlan.zhihu.com/p/633513013",
+        noteEn:
+          "A core WeShop product essay on user feedback, product-market fit, quality problems, and why AIGC products need real customers early.",
+        note: "WeShop 早期最重要的产品思考之一，讨论用户反馈、PMF、质量问题和 AIGC 产品为什么要尽早接触真实客户。",
+      },
+      {
+        type: "On this site",
+        typeZh: "站内全文",
+        title: "我们发布了WeShop商拍1.5版----分享一些最近的思考",
+        titleEn: "We Released WeShop Commercial Photography 1.5 — Some Recent Reflections",
+        href: "/blog/weshop-1-5-reflections/",
+        noteEn:
+          "A product-iteration essay on preserving product details, changing backgrounds, quality limits, and how AI commercial photography expands from demos into workflows.",
+        note: "WeShop 1.5 的产品迭代复盘，讨论商品细节、背景替换、质量边界，以及 AI 商拍如何从 demo 进入真实工作流。",
+      },
+    ],
+  },
+  {
+    title: "Memex, agents, and personal AI",
+    titleZh: "Memex、Agent 与个人 AI",
+    description:
+      "Writing around local-first personal memory, AI agents, open-source growth, and using AI coding to build a real product.",
+    descriptionZh:
+      "围绕 Memex、local-first 个人记忆、AI Agent、开源增长和 AI coding 产品实践的一组内容。",
+    items: [
+      {
+        type: "On this site",
+        typeZh: "站内全文",
+        title: "我们做了一个关于“记录自己”的东西，然后决定把它开源",
+        titleEn: "We Built Something About Recording Yourself, Then Decided to Open Source It",
+        href: "/blog/memex-record-yourself/",
+        noteEn:
+          "The product thesis behind Memex: personal records, private context, memory, and why local-first trust matters in the AI era.",
+        note: "Memex 的产品原点：个人记录、私人上下文、长期记忆，以及 AI 时代为什么重新需要 local-first 信任。",
+      },
+      {
+        type: "Zhihu answer",
+        typeZh: "知乎回答",
+        title: "为什么一定要频繁记录自己？",
+        titleEn: "Why record yourself so often?",
+        href: "https://www.zhihu.com/question/1925936172162605365/answer/2016262442049634843",
+        noteEn:
+          "A public-facing explanation of personal records, AI anxiety, memory, agency, and why private context becomes useful again in the agent era.",
+        note: "把 Memex 的产品理念讲给更广泛读者：个人记录、记忆、隐私、AI 焦虑和私人上下文。",
+      },
+      {
+        type: "On this site",
+        typeZh: "站内全文",
+        title: "一个没资源的开源项目，是怎么被人看见的",
+        titleEn: "How an Open-Source Project With No Resources Got Discovered",
+        href: "/blog/memex-open-source-growth/",
+        noteEn:
+          "A postmortem on Memex's open-source cold start: useful work, public discussion, timing, and distribution without a large existing audience.",
+        note: "Memex 开源冷启动复盘：没有预算、没有合作，如何靠真实作品、有效讨论和时机被看见。",
+      },
+    ],
+  },
+  {
+    title: "Search, recommendation, and earlier machine learning",
+    titleZh: "搜索、推荐与早期机器学习",
+    description:
+      "Earlier writing from search, recommendation, advertising, and industrial machine-learning practice before the current generative-AI wave.",
+    descriptionZh:
+      "这一组代表更早期的搜索、推荐、广告和工业机器学习实践，是进入生成式 AI 之前的重要经验底色。",
+    items: [
+      {
+        type: "On this site",
+        typeZh: "站内双语全文",
+        title: "论算法工程师首先是个工程师之深度学习在排序应用踩坑总结",
+        titleEn: "A ranking-systems postmortem: algorithm engineers are engineers first",
+        href: "/blog/ranking-engineer-first/",
+        noteEn:
+          "A 1,000-plus-like essay from the Mogujie search/recommendation period, arguing from real ranking-system work that algorithm engineers need strong engineering judgment.",
+        note: "蘑菇街搜索推荐阶段的一篇过千赞专栏，用深度学习排序项目的真实踩坑说明：算法工程师首先得是工程师。",
+      },
+      {
+        type: "On this site",
+        typeZh: "站内双语全文",
+        title: "如何评价Airbnb的Real-time Personalization获得2018 kdd最佳论文？",
+        titleEn: "Reading Airbnb's KDD 2018 best paper from a recommendation-systems perspective",
+        href: "/blog/airbnb-real-time-personalization/",
+        noteEn:
+          "A high-engagement answer on Airbnb's embedding-based search ranking paper, mixed with practical reflections from domestic recommendation-system work.",
+        note: "关于 Airbnb embedding 搜索排序论文的高赞回答，也夹带了不少国内推荐系统实践的经验判断。",
+      },
+      {
+        type: "On this site",
+        typeZh: "站内双语全文",
+        title: "增强学习在推荐系统有什么最新进展？",
+        titleEn: "What is new in reinforcement learning for recommender systems?",
+        href: "/blog/rl-recommender-systems/",
+        noteEn:
+          "A high-interaction answer using YouTube's RL-for-recommendation papers to explain long-term reward, exploration, large action spaces, and engineering constraints.",
+        note: "用 YouTube 推荐系统里的强化学习论文，解释长期收益、探索、大规模 action space 和推荐场景里的工程约束。",
+      },
+    ],
+  },
+  {
+    title: "Generative AI and application foundations",
+    titleZh: "生成式 AI 与应用基础",
+    description:
+      "Technical and product writing from the early generative-AI transition, before and during the move into WeShop.",
+    descriptionZh:
+      "这一组是生成式 AI 早期转向时的技术和应用理解，也解释了为什么后来能进入 WeShop 这样的产品实践。",
+    items: [
+      {
+        type: "Zhihu column",
+        typeZh: "知乎专栏",
+        title: "Diffusion Models 导读",
+        titleEn: "A guide to diffusion models",
+        href: "https://zhuanlan.zhihu.com/p/591720296",
+        noteEn:
+          "A technical primer for readers entering image generation, useful as a marker of the technical base behind later commercial AI image work.",
+        note: "面向图像生成入门读者的 Diffusion Models 技术导读，也是理解后续 AI 商拍实践的技术背景。",
+      },
+      {
+        type: "Zhihu column",
+        typeZh: "知乎专栏",
+        title: "应用视角下 ChatGPT 背后的关键技术讨论",
+        titleEn: "The core technologies behind ChatGPT from an application perspective",
+        href: "https://zhuanlan.zhihu.com/p/609624863",
+        noteEn:
+          "A technical-product discussion of ChatGPT from the perspective of application builders, not only model observers.",
+        note: "从应用构建者视角讨论 ChatGPT 背后的关键技术，而不是只停留在模型观察。",
+      },
+      {
+        type: "Zhihu answer",
+        typeZh: "知乎回答",
+        title: "在研究编程 Agent，Agent 核心就几十行代码，那剩下的几万行到底在解决什么问题？",
+        titleEn: "If an agent core is only a few dozen lines, what are the other tens of thousands of lines for?",
+        href: "https://www.zhihu.com/question/1994057559171167995/answer/2021164259149714484",
+        noteEn:
+          "A production-engineering answer on why real agents need tools, permissions, context, validation, UI, logs, recovery, and product structure.",
+        note: "从工程角度解释生产级 Agent 为什么不只是几十行循环，还需要工具、权限、上下文、校验、UI、日志和恢复机制。",
+      },
     ],
   },
 ];

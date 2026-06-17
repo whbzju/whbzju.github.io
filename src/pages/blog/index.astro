@@ -1,16 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { profile, writingHighlights } from "../../data/profile";
-import blogPosts from "../../data/blog-posts.json";
-
-const highlightGroups = [...new Set(writingHighlights.map((item) => item.group))].map((group) => {
-  const items = writingHighlights.filter((item) => item.group === group);
-  return {
-    group,
-    groupZh: items[0].groupZh,
-    items,
-  };
-});
+import { profile, writingByArea } from "../../data/profile";
 ---
 
 <BaseLayout title={`Blog · ${profile.name}`}>
@@ -25,8 +15,8 @@ const highlightGroups = [...new Set(writingHighlights.map((item) => item.group))
         <span data-lang-content="zh">文章与代表回答。</span>
       </h1>
     </div>
-    <p class="page-lead" data-lang-content="en">A curated reading path across Memex, WeShop, AI applications, generative models, search, recommendation, and earlier machine-learning work.</p>
-    <p class="page-lead" data-lang-content="zh">按主题整理我在知乎和专栏里较有代表性的文章与回答，覆盖 Memex、WeShop、AI 应用、生成模型、搜索推荐和早期机器学习实践。</p>
+    <p class="page-lead" data-lang-content="en">A compact reading path organized by the areas I have worked in: WeShop, Memex, recommendation systems, and technical foundations for AI applications.</p>
+    <p class="page-lead" data-lang-content="zh">按我的工作范围整理，每组只保留 2-3 篇代表内容：WeShop、Memex、推荐系统，以及 AI 应用相关的纯技术理解。</p>
   </section>
 
   <section class="section">
@@ -34,62 +24,34 @@ const highlightGroups = [...new Set(writingHighlights.map((item) => item.group))
       <div class="section-header">
         <div>
           <p class="eyebrow">
-            <span data-lang-content="en">Selected</span>
-            <span data-lang-content="zh">精选</span>
+            <span data-lang-content="en">Reading path</span>
+            <span data-lang-content="zh">阅读路径</span>
           </p>
           <h2>
-            <span data-lang-content="en">Featured essays.</span>
-            <span data-lang-content="zh">精选长文。</span>
+            <span data-lang-content="en">Organized by work area.</span>
+            <span data-lang-content="zh">按工作范围整理。</span>
           </h2>
         </div>
-        <p class="section-lead" data-lang-content="en">These essays are available as full pages here. Chinese keeps the original Zhihu text; English is translated for international readers.</p>
-        <p class="section-lead" data-lang-content="zh">这几篇已迁移到本站。中文保留知乎原文，英文提供译文。</p>
-      </div>
-      <div class="post-list">
-        {blogPosts.map((post) => (
-          <a class="post-list-item" href={`/blog/${post.slug}/`}>
-            <span class="item-source">
-              <span data-lang-content="en">{post.date} · {post.source}</span>
-              <span data-lang-content="zh">{post.date} · 知乎原文</span>
-            </span>
-            <h3>
-              <span data-lang-content="en">{post.titleEn}</span>
-              <span data-lang-content="zh">{post.titleZh}</span>
-            </h3>
-            <p data-lang-content="en">{post.excerptEn}</p>
-            <p data-lang-content="zh">{post.excerptZh}</p>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <div>
-          <p class="eyebrow">
-            <span data-lang-content="en">Selected notes</span>
-            <span data-lang-content="zh">精选笔记</span>
-          </p>
-          <h2>
-            <span data-lang-content="en">Product, technical, and product-thinking notes.</span>
-            <span data-lang-content="zh">产品、技术和产品判断。</span>
-          </h2>
-        </div>
-        <p class="section-lead" data-lang-content="en">A smaller set of representative public notes. English readers get translated titles and context here; Chinese originals remain as sources.</p>
-        <p class="section-lead" data-lang-content="zh">这一组只保留更能代表产品实践、技术理解和产品理念的内容。中文原文作为来源保留。</p>
+        <p class="section-lead" data-lang-content="en">Each area keeps only a few representative pieces. Site essays maintain separate English and Chinese versions; remaining external pieces keep source links with translated context.</p>
+        <p class="section-lead" data-lang-content="zh">每组只放少数代表作。站内文章会维护中文原文和英文版；少数还没迁入的内容先保留原始链接和上下文说明。</p>
       </div>
 
-      {highlightGroups.map((group) => (
+      {writingByArea.map((group) => (
         <section class="highlight-group">
           <h3>
-            <span data-lang-content="en">{group.group}</span>
-            <span data-lang-content="zh">{group.groupZh}</span>
+            <span data-lang-content="en">{group.title}</span>
+            <span data-lang-content="zh">{group.titleZh}</span>
           </h3>
+          <p class="section-lead" data-lang-content="en">{group.description}</p>
+          <p class="section-lead" data-lang-content="zh">{group.descriptionZh}</p>
           <ul class="writing-note-list">
             {group.items.map((item) => (
               <li class="writing-note">
+                {(() => {
+                  const isInternal = item.href.startsWith("/");
+
+                  return (
+                    <>
                 <div class="event-meta">
                   <span data-lang-content="en">{item.type}</span>
                   <span data-lang-content="zh">{item.typeZh}</span>
@@ -100,10 +62,18 @@ const highlightGroups = [...new Set(writingHighlights.map((item) => item.group))
                 </h4>
                 <p data-lang-content="en">{item.noteEn}</p>
                 <p data-lang-content="zh">{item.note}</p>
-                <a class="event-link" href={item.href} target="_blank" rel="noopener noreferrer">
-                  <span data-lang-content="en">Source</span>
-                  <span data-lang-content="zh">中文原文</span>
+                <a
+                  class="event-link"
+                  href={item.href}
+                  target={isInternal ? undefined : "_blank"}
+                  rel={isInternal ? undefined : "noopener noreferrer"}
+                >
+                  <span data-lang-content="en">{isInternal ? "Read essay" : "Source"}</span>
+                  <span data-lang-content="zh">{isInternal ? "阅读全文" : "中文原文"}</span>
                 </a>
+                    </>
+                  );
+                })()}
               </li>
             ))}
           </ul>

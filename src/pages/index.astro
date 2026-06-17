@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { allBlogPosts } from "../data/all-blog-posts";
 import { events, profile, works } from "../data/profile";
-import blogPosts from "../data/blog-posts.json";
 ---
 
 <BaseLayout title={`${profile.name} · AI product builder`}>
@@ -19,7 +19,7 @@ import blogPosts from "../data/blog-posts.json";
 
       <p>That background shapes how I think about AI: demos are easy; durable products have to enter workflows, build on owned data, control quality, and earn trust over time.</p>
 
-      <p>Start with <a href="/works/">work</a>, <a href="/blog/">writing</a>, <a href="/events/">events</a>, or <a href="/about/">about</a>. You can also find me on <a href={profile.links.github}>GitHub</a>, <a href={profile.links.linkedin}>LinkedIn</a>, and <a href={profile.links.zhihu}>Zhihu</a>.</p>
+      <p>Start with <a href="/works/">work</a>, <a href="/blog/">writing</a>, <a href="/events/">events</a>, or <a href="/about/">about</a>. You can also find me on <a href={profile.links.github}>GitHub</a>, <a href={profile.links.linkedin}>LinkedIn</a>, <a href={profile.links.x}>X</a>, and <a href={profile.links.zhihu}>Zhihu</a>.</p>
     </div>
 
     <div data-lang-content="zh">
@@ -31,7 +31,7 @@ import blogPosts from "../data/blog-posts.json";
 
       <p>这些经历让我更关心 demo 之后的事情：AI 应用如何进入真实工作流，沉淀自有数据，稳定控制质量，并被长期信任。</p>
 
-      <p>可以从 <a href="/works/">作品</a>、<a href="/blog/">文章</a>、<a href="/events/">活动</a> 或 <a href="/about/">经历</a> 开始看，也可以在 <a href={profile.links.github}>GitHub</a>、<a href={profile.links.linkedin}>LinkedIn</a> 和 <a href={profile.links.zhihu}>知乎</a> 找到我。</p>
+      <p>可以从 <a href="/works/">作品</a>、<a href="/blog/">文章</a>、<a href="/events/">活动</a> 或 <a href="/about/">经历</a> 开始看，也可以在 <a href={profile.links.github}>GitHub</a>、<a href={profile.links.linkedin}>LinkedIn</a>、<a href={profile.links.x}>X</a> 和 <a href={profile.links.zhihu}>知乎</a> 找到我。</p>
     </div>
 
     <h2>
@@ -59,7 +59,7 @@ import blogPosts from "../data/blog-posts.json";
       <span data-lang-content="zh">精选文章</span>
     </h2>
     <ul class="plain-list">
-      {blogPosts.slice(0, 3).map((post) => (
+      {allBlogPosts.slice(0, 3).map((post) => (
         <li>
           <a href={`/blog/${post.slug}/`}>
             <span data-lang-content="en">{post.titleEn}</span>

@@ -1,16 +1,54 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { profile } from "../../data/profile";
-import blogPosts from "../../data/blog-posts.json";
+import { allBlogPosts } from "../../data/all-blog-posts";
 
 export function getStaticPaths() {
-  return blogPosts.map((post) => ({
+  return allBlogPosts.map((post) => ({
     params: { slug: post.slug },
     props: { post },
   }));
 }
 
 const { post } = Astro.props;
+
+const getLanguageBlocks = (language) => {
+  if (post.blocksEn && post.blocksZh) {
+    return language === "en" ? post.blocksEn : post.blocksZh;
+  }
+
+  return post.blocks.map((block) => {
+    if (block.type === "image") {
+      return {
+        ...block,
+        caption: language === "en" ? block.captionEn : block.captionZh,
+      };
+    }
+
+    if (block.type === "ul" || block.type === "ol") {
+      return {
+        type: block.type,
+        items: language === "en" ? block.itemsEn : block.itemsZh,
+      };
+    }
+
+    return {
+      type: block.type,
+      html: language === "en" ? block.htmlEn : block.htmlZh,
+    };
+  });
+};
+
+const blocksEn = getLanguageBlocks("en");
+const blocksZh = getLanguageBlocks("zh");
+const translationNoteEn =
+  post.translationMode === "adapted"
+    ? "English edition adapted for native English readers; Chinese text follows the original Zhihu source."
+    : "English translation provided here; the Zhihu link is the original source.";
+const translationNoteZh =
+  post.translationMode === "adapted"
+    ? "英文版按英文读者习惯重写整理，中文版保留知乎原文。"
+    : "中文为知乎原文，英文为译文。";
 ---
 
 <BaseLayout title={`${post.titleEn} · ${profile.name}`}>
@@ -37,69 +75,44 @@ const { post } = Astro.props;
       <p class="post-deck" data-lang-content="en">{post.excerptEn}</p>
       <p class="post-deck" data-lang-content="zh">{post.excerptZh}</p>
       <p class="post-language-note">
-        <span data-lang-content="en">English translation provided here; the Zhihu link is the original source.</span>
-        <span data-lang-content="zh">中文为知乎原文，英文为译文。</span>
+        <span data-lang-content="en">{translationNoteEn}</span>
+        <span data-lang-content="zh">{translationNoteZh}</span>
       </p>
     </header>
 
-    <div class="post-body">
-      {post.blocks.map((block) => (
+    <div class="post-body" data-lang-content="en">
+      {blocksEn.map((block) => (
         <>
           {block.type === "p" && (
-            <>
-              <p data-lang-content="en" set:html={block.htmlEn} />
-              <p data-lang-content="zh" set:html={block.htmlZh} />
-            </>
+            <p set:html={block.html} />
           )}
 
           {block.type === "h2" && (
-            <>
-              <h2 data-lang-content="en" set:html={block.htmlEn} />
-              <h2 data-lang-content="zh" set:html={block.htmlZh} />
-            </>
+            <h2 set:html={block.html} />
           )}
 
           {block.type === "h3" && (
-            <>
-              <h3 data-lang-content="en" set:html={block.htmlEn} />
-              <h3 data-lang-content="zh" set:html={block.htmlZh} />
-            </>
+            <h3 set:html={block.html} />
           )}
 
           {block.type === "h4" && (
-            <>
-              <h4 data-lang-content="en" set:html={block.htmlEn} />
-              <h4 data-lang-content="zh" set:html={block.htmlZh} />
-            </>
+            <h4 set:html={block.html} />
           )}
 
           {block.type === "quote" && (
-            <>
-              <blockquote data-lang-content="en" set:html={block.htmlEn} />
-              <blockquote data-lang-content="zh" set:html={block.htmlZh} />
-            </>
+            <blockquote set:html={block.html} />
           )}
 
           {block.type === "ul" && (
-            <>
-              <ul data-lang-content="en">
-                {block.itemsEn.map((item) => <li>{item}</li>)}
-              </ul>
-              <ul data-lang-content="zh">
-                {block.itemsZh.map((item) => <li>{item}</li>)}
-              </ul>
-            </>
+            <ul>
+              {block.items.map((item) => <li set:html={item} />)}
+            </ul>
           )}
 
           {block.type === "ol" && (
-            <>
-              <ol data-lang-content="en">
-                {block.itemsEn.map((item) => <li>{item}</li>)}
-              </ol>
-              <ol data-lang-content="zh">
-                {block.itemsZh.map((item) => <li>{item}</li>)}
-              </ol>
-            </>
+            <ol>
+              {block.items.map((item) => <li set:html={item} />)}
+            </ol>
           )}
 
           {block.type === "image" && (
@@ -111,10 +124,64 @@ const { post } = Astro.props;
                 height={block.height}
                 loading="lazy"
               />
-              {(block.captionZh || block.captionEn) && (
+              {block.caption && (
                 <figcaption>
-                  <span data-lang-content="en">{block.captionEn}</span>
-                  <span data-lang-content="zh">{block.captionZh}</span>
+                  {block.caption}
+                </figcaption>
+              )}
+            </figure>
+          )}
+        </>
+      ))}
+    </div>
+
+    <div class="post-body" data-lang-content="zh">
+      {blocksZh.map((block) => (
+        <>
+          {block.type === "p" && (
+            <p set:html={block.html} />
+          )}
+
+          {block.type === "h2" && (
+            <h2 set:html={block.html} />
+          )}
+
+          {block.type === "h3" && (
+            <h3 set:html={block.html} />
+          )}
+
+          {block.type === "h4" && (
+            <h4 set:html={block.html} />
+          )}
+
+          {block.type === "quote" && (
+            <blockquote set:html={block.html} />
+          )}
+
+          {block.type === "ul" && (
+            <ul>
+              {block.items.map((item) => <li set:html={item} />)}
+            </ul>
+          )}
+
+          {block.type === "ol" && (
+            <ol>
+              {block.items.map((item) => <li set:html={item} />)}
+            </ol>
+          )}
+
+          {block.type === "image" && (
+            <figure class="post-figure">
+              <img
+                src={block.src}
+                alt={block.alt}
+                width={block.width}
+                height={block.height}
+                loading="lazy"
+              />
+              {block.caption && (
+                <figcaption>
+                  {block.caption}
                 </figcaption>
               )}
             </figure>
