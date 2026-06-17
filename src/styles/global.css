@@ -419,9 +419,23 @@ main {
   overflow-wrap: break-word;
 }
 
+.event-reason {
+  margin-top: 10px !important;
+  padding-left: 12px;
+  border-left: 2px solid var(--line);
+  color: var(--muted) !important;
+  font-size: 15px;
+}
+
+.event-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 9px;
+}
+
 .event-link {
   display: inline-block;
-  margin-top: 9px;
   color: var(--muted);
   font-size: 15px;
 }
