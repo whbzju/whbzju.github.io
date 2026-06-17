@@ -297,17 +297,29 @@ main {
   text-decoration: underline;
 }
 
+.product-logo {
+  display: block;
+  width: auto;
+  max-width: 172px;
+  max-height: 44px;
+  margin: 0 0 16px;
+  border: 0;
+  object-fit: contain;
+  object-position: left center;
+}
+
 .post-list-item p {
   margin: 0 0 15px;
   color: var(--muted);
   line-height: 1.65;
 }
 
-.product-card img {
+.product-shot {
   width: 100%;
-  max-width: 520px;
-  margin: 12px 0 0;
+  max-width: 720px;
+  margin: 16px 0 0;
   border: 1px solid var(--line);
+  border-radius: 8px;
 }
 
 .tag-row,

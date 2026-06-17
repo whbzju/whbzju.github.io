@@ -29,7 +29,10 @@ export const works = [
     type: "Open-source AI product",
     typeZh: "开源 AI 产品",
     href: "https://github.com/memex-lab/memex",
-    image: "/images/memex-memory.webp",
+    logo: "/images/logos/memex-logo.png",
+    logoAlt: "Memex logo",
+    image: "/images/products/memex-homepage.jpg",
+    imageAlt: "Memex homepage screenshot",
     summary:
       "An open-source, local-first AI journal that captures text, screenshots, voice, and images, then organizes them into timeline cards, insights, and personal memory.",
     summaryZh:
@@ -46,7 +49,10 @@ export const works = [
     type: "Commercial AI product",
     typeZh: "商业化 AI 产品",
     href: "https://www.weshop.ai/",
-    image: "/images/weshop-workflow.webp",
+    logo: "/images/logos/weshop-logo.svg",
+    logoAlt: "WeShop AI logo",
+    image: "/images/products/weshop-homepage.jpg",
+    imageAlt: "WeShop AI homepage screenshot",
     summary:
       "A commercial AI image and video platform for global e-commerce teams creating product, model, and advertising assets.",
     summaryZh:

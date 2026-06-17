@@ -25,6 +25,7 @@ import { profile, works } from "../../data/profile";
         {works.map((work) => (
           <article class="product-card">
             <div class="product-card-content">
+              <img class="product-logo" src={work.logo} alt={work.logoAlt} />
               <span class="card-type" data-lang-content="en">{work.type}</span>
               <span class="card-type" data-lang-content="zh">{work.typeZh}</span>
               <h3>{work.title}</h3>
@@ -43,7 +44,7 @@ import { profile, works } from "../../data/profile";
                 </a>
               </div>
             </div>
-            <img src={work.image} alt={`${work.title} product context`} />
+            <img class="product-shot" src={work.image} alt={work.imageAlt} />
           </article>
         ))}
       </div>
