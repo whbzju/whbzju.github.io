@@ -742,8 +742,8 @@ export const zhihuBlogPosts = [
     "titleZh": "如何评价Airbnb的Real-time Personalization获得2018 kdd最佳论文？",
     "titleEn": "Reading Airbnb’s Real-Time Personalization Paper as a Recommender-Systems Practitioner",
     "date": "2018",
-    "source": "Zhihu answer",
-    "sourceUrl": "https://www.zhihu.com/question/302288216/answer/530729525",
+    "source": "Zhihu column",
+    "sourceUrl": "https://zhuanlan.zhihu.com/p/49537461",
     "excerptZh": "从推荐系统实践角度解读 Airbnb KDD 2018 最佳论文，重点不是 fancy 模型，而是 embedding 语料、稀疏问题、实时特征和负反馈。",
     "excerptEn": "A practitioner’s reading of Airbnb’s KDD 2018 paper: corpus construction, sparse IDs, real-time embedding features, and negative feedback.",
     "translationMode": "adapted",
@@ -777,8 +777,24 @@ export const zhihuBlogPosts = [
         "html": "A nice part of the paper is the way booked listings are used as global context. A normal Word2Vec window changes as it slides through the session. Airbnb adds the eventually booked listing as a target that should be predicted regardless of whether it appears inside the local window."
       },
       {
+        "type": "image",
+        "src": "/images/blog/airbnb-real-time-personalization-01.jpg",
+        "alt": "Airbnb embedding objective with global context",
+        "width": 982,
+        "height": 516,
+        "caption": "Airbnb's adaptation adds the booked listing as global context."
+      },
+      {
         "type": "p",
         "html": "My reading is that this is a simple way to move an unsupervised embedding objective closer to the business objective. It is not just learning what was nearby in behavior; it is also nudging the vector space toward what eventually converted."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/airbnb-real-time-personalization-02.jpg",
+        "alt": "Airbnb global context objective formula",
+        "width": 1002,
+        "height": 152,
+        "caption": "The objective term that connects local behavior with the eventual booking."
       },
       {
         "type": "h2",
@@ -793,6 +809,14 @@ export const zhihuBlogPosts = [
         "html": "Airbnb filters entities with roughly five to ten occurrences, and also uses clustering-like methods for sparse IDs. The specific rule is tied to Airbnb’s business, but the principle generalizes: if ID sparsity is not handled, the rest of the modeling discussion is premature."
       },
       {
+        "type": "image",
+        "src": "/images/blog/airbnb-real-time-personalization-03.jpg",
+        "alt": "Hashed feature column collision example",
+        "width": 1224,
+        "height": 470,
+        "caption": "A hashing example from the original discussion of sparse IDs."
+      },
+      {
         "type": "h2",
         "html": "From vectors to ranking features"
       },
@@ -803,6 +827,22 @@ export const zhihuBlogPosts = [
       {
         "type": "p",
         "html": "The paper is valuable because it makes the operational details concrete: short-term click embeddings, long-term booking signals, user-type and listing-type embeddings in the same vector space, daily training, offline vector evaluation, and online ranking experiments."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/airbnb-real-time-personalization-04.jpg",
+        "alt": "Airbnb offline embedding ranking evaluation",
+        "width": 936,
+        "height": 714,
+        "caption": "Offline ranking evaluation using embedding similarity."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/airbnb-real-time-personalization-05.jpg",
+        "alt": "Airbnb user type and listing type embeddings",
+        "width": 1036,
+        "height": 602,
+        "caption": "User-type and listing-type embeddings need to live in the same vector space."
       },
       {
         "type": "h2",
@@ -879,6 +919,14 @@ export const zhihuBlogPosts = [
         "html": "一般情况下，我们直接用Word2vec，效果就挺好。论文作者根据Airbnb的业务特点，做了点改造，主要集中在目标函数的细节上，比较出彩。先来看一张图："
       },
       {
+        "type": "image",
+        "src": "/images/blog/airbnb-real-time-personalization-01.jpg",
+        "alt": "Airbnb global context 模型图",
+        "width": 982,
+        "height": 516,
+        "caption": ""
+      },
+      {
         "type": "p",
         "html": "主要idea是增加一个global context，普通的word2vec在训练过程中，词的context是随着窗口滑动而变化，这个global context是不变的，原文描述如下："
       },
@@ -889,6 +937,14 @@ export const zhihuBlogPosts = [
       {
         "type": "p",
         "html": "再看下它的公式，更容易理解："
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/airbnb-real-time-personalization-02.jpg",
+        "alt": "Airbnb global context 目标函数公式",
+        "width": 1002,
+        "height": 152,
+        "caption": ""
       },
       {
         "type": "p",
@@ -919,6 +975,14 @@ export const zhihuBlogPosts = [
         "html": "At this point, you might rightfully think: &quot;This is crazy!&quot; After all, we are forcing the different input values to a smaller set of categories. This means that two probably unrelated inputs will be mapped to the same category, and consequently mean the same thing to the neural network. The following figure illustrates this dilemma, showing that kitchenware and sports both get assigned to category (hash bucket) 12:"
       },
       {
+        "type": "image",
+        "src": "/images/blog/airbnb-real-time-personalization-03.jpg",
+        "alt": "Hashed Column 示例图",
+        "width": 1224,
+        "height": 470,
+        "caption": ""
+      },
+      {
         "type": "p",
         "html": "As with many counterintuitive phenomena in machine learning, it turns out that hashing often works well in practice. That's because hash categories provide the model with some separation. The model can use additional features to further separate kitchenware from sports."
       },
@@ -937,6 +1001,14 @@ export const zhihuBlogPosts = [
       {
         "type": "p",
         "html": "更具体地说，假设我们获得了最近点击的房源和需要排序的房源候选列表，其中包括用户最终预订的房源；通过计算点击房源和候选房源在嵌入空间的余弦相似度，我们可以对候选房源进行排序，并观察最终被预订的房源在排序中的位置。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/airbnb-real-time-personalization-04.jpg",
+        "alt": "Airbnb embedding 离线排序评估图",
+        "width": 936,
+        "height": 714,
+        "caption": ""
       },
       {
         "type": "p",
@@ -961,6 +1033,14 @@ export const zhihuBlogPosts = [
       {
         "type": "p",
         "html": "To learn user_type and listinд_type embeddings in the same vector space we incorporate the user_type into the booking sessions."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/airbnb-real-time-personalization-05.jpg",
+        "alt": "Airbnb user type 和 listing type embedding 图",
+        "width": 1036,
+        "height": 602,
+        "caption": ""
       },
       {
         "type": "p",
