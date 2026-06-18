@@ -27,6 +27,54 @@ export const zhihuBlogPosts = [
         "caption": "Examples from the WeShop virtual try-on workflow."
       },
       {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-02.webp",
+        "alt": "WeShop product examples from the original Zhihu answer",
+        "width": 1080,
+        "height": 5130,
+        "caption": "WeShop product workflow example 1 from the original Zhihu answer."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-03.webp",
+        "alt": "WeShop product examples from the original Zhihu answer",
+        "width": 1080,
+        "height": 4950,
+        "caption": "WeShop product workflow example 2 from the original Zhihu answer."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-04.webp",
+        "alt": "WeShop product examples from the original Zhihu answer",
+        "width": 1080,
+        "height": 5278,
+        "caption": "WeShop product workflow example 3 from the original Zhihu answer."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-05.webp",
+        "alt": "WeShop product examples from the original Zhihu answer",
+        "width": 1080,
+        "height": 4690,
+        "caption": "WeShop product workflow example 4 from the original Zhihu answer."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-06.webp",
+        "alt": "WeShop product examples from the original Zhihu answer",
+        "width": 1080,
+        "height": 4673,
+        "caption": "WeShop product workflow example 5 from the original Zhihu answer."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-07.webp",
+        "alt": "WeShop product examples from the original Zhihu answer",
+        "width": 1080,
+        "height": 4587,
+        "caption": "WeShop product workflow example 6 from the original Zhihu answer."
+      },
+      {
         "type": "h2",
         "html": "The important problem is not whether the image looks good once"
       },
@@ -37,6 +85,142 @@ export const zhihuBlogPosts = [
       {
         "type": "p",
         "html": "This is also where many early demos became misleading. A few screenshots could make the technology look ready, but a merchant needs repeatable control: keep the garment, change the model, change the scene, keep the SKU reliable, and do it at scale."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-08.webp",
+        "alt": "Early WeShop e-commerce image generation example",
+        "width": 1440,
+        "height": 1016,
+        "caption": "Early WeShop e-commerce generation case 1."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-09.webp",
+        "alt": "Early WeShop e-commerce image generation example",
+        "width": 1440,
+        "height": 567,
+        "caption": "Early WeShop e-commerce generation case 2."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-10.webp",
+        "alt": "Early WeShop e-commerce image generation example",
+        "width": 1440,
+        "height": 584,
+        "caption": "Early WeShop e-commerce generation case 3."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-11.webp",
+        "alt": "Early WeShop e-commerce image generation example",
+        "width": 1440,
+        "height": 912,
+        "caption": "Early WeShop e-commerce generation case 4."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-12.webp",
+        "alt": "Early WeShop e-commerce image generation example",
+        "width": 1440,
+        "height": 605,
+        "caption": "Early WeShop e-commerce generation case 5."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-13.webp",
+        "alt": "Early WeShop e-commerce image generation example",
+        "width": 1440,
+        "height": 798,
+        "caption": "Early WeShop e-commerce generation case 6."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-14.webp",
+        "alt": "Early WeShop e-commerce image generation example",
+        "width": 1440,
+        "height": 970,
+        "caption": "Early WeShop e-commerce generation case 7."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-15.webp",
+        "alt": "Early WeShop e-commerce image generation example",
+        "width": 1440,
+        "height": 947,
+        "caption": "Early WeShop e-commerce generation case 8."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-16.webp",
+        "alt": "Early WeShop e-commerce image generation example",
+        "width": 1440,
+        "height": 945,
+        "caption": "Early WeShop e-commerce generation case 9."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-17.webp",
+        "alt": "Early WeShop e-commerce image generation example",
+        "width": 1440,
+        "height": 929,
+        "caption": "Early WeShop e-commerce generation case 10."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-18.webp",
+        "alt": "Early WeShop e-commerce image generation example",
+        "width": 1440,
+        "height": 948,
+        "caption": "Early WeShop e-commerce generation case 11."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-19.webp",
+        "alt": "Early WeShop e-commerce image generation example",
+        "width": 1440,
+        "height": 944,
+        "caption": "Early WeShop e-commerce generation case 12."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-20.webp",
+        "alt": "Early WeShop e-commerce image generation example",
+        "width": 1440,
+        "height": 1068,
+        "caption": "Early WeShop e-commerce generation case 13."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-21.webp",
+        "alt": "Early WeShop e-commerce image generation example",
+        "width": 1440,
+        "height": 900,
+        "caption": "Early WeShop e-commerce generation case 14."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-22.webp",
+        "alt": "Early WeShop e-commerce image generation example",
+        "width": 1440,
+        "height": 719,
+        "caption": "Early WeShop e-commerce generation case 15."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-23.webp",
+        "alt": "Early WeShop e-commerce image generation example",
+        "width": 1440,
+        "height": 1887,
+        "caption": "Early WeShop e-commerce generation case 16."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-24.webp",
+        "alt": "Early WeShop e-commerce image generation example",
+        "width": 1440,
+        "height": 640,
+        "caption": "Early WeShop e-commerce generation case 17."
       },
       {
         "type": "h2",
@@ -55,12 +239,116 @@ export const zhihuBlogPosts = [
         "html": "We also looked at the image-editing literature: ControlNet, Prompt-to-Prompt, Null-text Inversion, Pix2Pix-Zero, InstructPix2Pix, SDEdit, Composer, and related work. Some of these directions were promising, but e-commerce has its own instruction distribution. A model trained on general editing instructions does not automatically understand what a merchant means by “keep the collar”, “do not change the strap”, or “make this red dress green without changing the cut”."
       },
       {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-25.webp",
+        "alt": "Diffusion-model and image-editing experiment for e-commerce photos",
+        "width": 1045,
+        "height": 293,
+        "caption": "Technical experiment from the original answer, case 1."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-26.webp",
+        "alt": "Diffusion-model and image-editing experiment for e-commerce photos",
+        "width": 1440,
+        "height": 447,
+        "caption": "Technical experiment from the original answer, case 2."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-27.webp",
+        "alt": "Diffusion-model and image-editing experiment for e-commerce photos",
+        "width": 1440,
+        "height": 644,
+        "caption": "Technical experiment from the original answer, case 3."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-28.webp",
+        "alt": "Diffusion-model and image-editing experiment for e-commerce photos",
+        "width": 1440,
+        "height": 496,
+        "caption": "Technical experiment from the original answer, case 4."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-29.webp",
+        "alt": "Diffusion-model and image-editing experiment for e-commerce photos",
+        "width": 1440,
+        "height": 610,
+        "caption": "Technical experiment from the original answer, case 5."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-30.webp",
+        "alt": "Diffusion-model and image-editing experiment for e-commerce photos",
+        "width": 1440,
+        "height": 671,
+        "caption": "Technical experiment from the original answer, case 6."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-31.webp",
+        "alt": "Diffusion-model and image-editing experiment for e-commerce photos",
+        "width": 1392,
+        "height": 820,
+        "caption": "Technical experiment from the original answer, case 7."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-32.webp",
+        "alt": "Diffusion-model and image-editing experiment for e-commerce photos",
+        "width": 1440,
+        "height": 673,
+        "caption": "Technical experiment from the original answer, case 8."
+      },
+      {
         "type": "h2",
         "html": "Productization means narrowing freedom"
       },
       {
         "type": "p",
         "html": "A raw generation interface gives users freedom, but it also gives them too many ways to fail. For WeShop, we started to design templates: common scenes, parameter sets, and workflows that compress the best practices we discovered through repeated testing. This sacrifices some creative freedom, but it makes the result more controllable."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-33.webp",
+        "alt": "WeShop template and demo output example",
+        "width": 1315,
+        "height": 293,
+        "caption": "Template and demo output from the original answer, case 1."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-34.webp",
+        "alt": "WeShop template and demo output example",
+        "width": 1354,
+        "height": 312,
+        "caption": "Template and demo output from the original answer, case 2."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-35.webp",
+        "alt": "WeShop template and demo output example",
+        "width": 1440,
+        "height": 958,
+        "caption": "Template and demo output from the original answer, case 3."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-36.webp",
+        "alt": "WeShop template and demo output example",
+        "width": 1440,
+        "height": 1270,
+        "caption": "Template and demo output from the original answer, case 4."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-37.webp",
+        "alt": "WeShop template and demo output example",
+        "width": 1365,
+        "height": 1259,
+        "caption": "Template and demo output from the original answer, case 5."
       },
       {
         "type": "p",
@@ -121,76 +409,260 @@ export const zhihuBlogPosts = [
         "html": "假人台转真人模特，适合服装制造商、批发商等需要给大量SKU拍照的场景。<br>真人实拍换模特、换背景，适合普通服装品牌、出海卖家等。<br>实物商品添加背景、场景等，适合大部分零售商家。<br>借助人台"
       },
       {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-02.webp",
+        "alt": "WeShop 假人台转真人模特等早期产品效果。",
+        "width": 1080,
+        "height": 5130,
+        "caption": "WeShop 假人台转真人模特等早期产品效果。"
+      },
+      {
         "type": "p",
         "html": "高级复杂服装"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-03.webp",
+        "alt": "高级复杂服装生成效果。",
+        "width": 1080,
+        "height": 4950,
+        "caption": "高级复杂服装生成效果。"
       },
       {
         "type": "p",
         "html": "高难度人物姿势"
       },
       {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-04.webp",
+        "alt": "高难度人物姿势生成效果。",
+        "width": 1080,
+        "height": 5278,
+        "caption": "高难度人物姿势生成效果。"
+      },
+      {
         "type": "p",
         "html": "高难度姿势"
       },
       {
-        "type": "p",
-        "html": "多人"
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-05.webp",
+        "alt": "高难度姿势生成效果。",
+        "width": 1080,
+        "height": 4690,
+        "caption": "高难度姿势生成效果。"
       },
       {
         "type": "p",
         "html": "多人"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-06.webp",
+        "alt": "多人场景生成效果。",
+        "width": 1080,
+        "height": 4673,
+        "caption": "多人场景生成效果。"
+      },
+      {
+        "type": "p",
+        "html": "多人"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-07.webp",
+        "alt": "多人场景生成效果。",
+        "width": 1080,
+        "height": 4587,
+        "caption": "多人场景生成效果。"
       },
       {
         "type": "p",
         "html": "简单的绿幕背景"
       },
       {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-08.webp",
+        "alt": "简单绿幕背景处理效果。",
+        "width": 1440,
+        "height": 1016,
+        "caption": "简单绿幕背景处理效果。"
+      },
+      {
         "type": "p",
         "html": "非全身人台"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-09.webp",
+        "alt": "非全身人台处理效果。",
+        "width": 1440,
+        "height": 567,
+        "caption": "非全身人台处理效果。"
       },
       {
         "type": "p",
         "html": "已有商品图片换模特"
       },
       {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-10.webp",
+        "alt": "已有商品图片换模特效果。",
+        "width": 1440,
+        "height": 584,
+        "caption": "已有商品图片换模特效果。"
+      },
+      {
         "type": "p",
         "html": "换背景换表情"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-11.webp",
+        "alt": "换背景、换表情效果。",
+        "width": 1440,
+        "height": 912,
+        "caption": "换背景、换表情效果。"
       },
       {
         "type": "p",
         "html": "换年龄"
       },
       {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-12.webp",
+        "alt": "换年龄效果。",
+        "width": 1440,
+        "height": 605,
+        "caption": "换年龄效果。"
+      },
+      {
         "type": "p",
         "html": "换模特人种肤色"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-13.webp",
+        "alt": "换模特人种和肤色效果。",
+        "width": 1440,
+        "height": 798,
+        "caption": "换模特人种和肤色效果。"
       },
       {
         "type": "p",
         "html": "大码模特也没有问题"
       },
       {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-14.webp",
+        "alt": "大码模特效果。",
+        "width": 1440,
+        "height": 970,
+        "caption": "大码模特效果。"
+      },
+      {
         "type": "p",
         "html": "换金发美女"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-15.webp",
+        "alt": "换金发模特效果。",
+        "width": 1440,
+        "height": 947,
+        "caption": "换金发模特效果。"
       },
       {
         "type": "p",
         "html": "换亚裔，亚洲人目前还有不少场景需要优化"
       },
       {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-16.webp",
+        "alt": "换亚裔模特效果。",
+        "width": 1440,
+        "height": 945,
+        "caption": "换亚裔模特效果。"
+      },
+      {
         "type": "p",
         "html": "商品换背景"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-17.webp",
+        "alt": "商品换背景效果。",
+        "width": 1440,
+        "height": 929,
+        "caption": "商品换背景效果。"
       },
       {
         "type": "p",
         "html": "本身有背景商品换背景"
       },
       {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-18.webp",
+        "alt": "有背景商品图换背景效果。",
+        "width": 1440,
+        "height": 948,
+        "caption": "有背景商品图换背景效果。"
+      },
+      {
         "type": "p",
         "html": "白底商品图（PNG）换背景"
       },
       {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-19.webp",
+        "alt": "白底商品图换背景效果。",
+        "width": 1440,
+        "height": 944,
+        "caption": "白底商品图换背景效果。"
+      },
+      {
         "type": "p",
         "html": "以上是我们近期在不断实践新技术的结果展示，当然已经有一批内测客户体验过我们的产品。目前AI还处于早期的阶段，不同的使用姿势，效果差异很大，我们团队一直在不断迭代，尝试用产品化的功能去沉淀最佳实践，降低客户使用AI产品的门槛。同时我们整个团队也不断被AI的能力边界所震撼，依旧在快速的成长中，欢迎对我们产品感兴趣的朋友们去官网加小助手和我们交流："
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-20.webp",
+        "alt": "WeShop 更多商品图和模特图生成案例。",
+        "width": 1440,
+        "height": 1068,
+        "caption": "WeShop 更多商品图和模特图生成案例（1）。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-21.webp",
+        "alt": "WeShop 更多商品图和模特图生成案例。",
+        "width": 1440,
+        "height": 900,
+        "caption": "WeShop 更多商品图和模特图生成案例（2）。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-22.webp",
+        "alt": "WeShop 更多商品图和模特图生成案例。",
+        "width": 1440,
+        "height": 719,
+        "caption": "WeShop 更多商品图和模特图生成案例（3）。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-23.webp",
+        "alt": "WeShop 更多商品图和模特图生成案例。",
+        "width": 1440,
+        "height": 1887,
+        "caption": "WeShop 更多商品图和模特图生成案例（4）。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-24.webp",
+        "alt": "WeShop 更多商品图和模特图生成案例。",
+        "width": 1440,
+        "height": 640,
+        "caption": "WeShop 更多商品图和模特图生成案例（5）。"
       },
       {
         "type": "p",
@@ -199,6 +671,22 @@ export const zhihuBlogPosts = [
       {
         "type": "p",
         "html": "先看一个场景，国内的商家在出海时，常常要面对重新请他国的模特重新拍摄商品照片的问题，如果能一键变换不同国家的模特而保持商品不变，则能降低不少营销侧的成本。给大家看下这两周和几个小伙伴一起搞的一个demo效果："
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-25.webp",
+        "alt": "早期 demo 效果示例。",
+        "width": 1045,
+        "height": 293,
+        "caption": "早期 demo 效果示例（1）。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-26.webp",
+        "alt": "早期 demo 效果示例。",
+        "width": 1440,
+        "height": 447,
+        "caption": "早期 demo 效果示例（2）。"
       },
       {
         "type": "p",
@@ -211,6 +699,14 @@ export const zhihuBlogPosts = [
       {
         "type": "p",
         "html": "随着AI技术的持续出圈，电商圈的小伙伴也很积极在尝试各种可能性，估计很多从业者在各种社交媒体刷到过下面一些图："
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-27.webp",
+        "alt": "社交媒体中常见的 AI 电商模特效果示例。",
+        "width": 1440,
+        "height": 644,
+        "caption": "社交媒体中常见的 AI 电商模特效果示例。"
       },
       {
         "type": "h2",
@@ -261,8 +757,24 @@ export const zhihuBlogPosts = [
         "html": "但如果大家仔细去看网上分享的case，会发现人的lora模型效果要比商品好很多，比如一些明星、二次元妹子的LoRA，反过来在商品维度，很多细节、色彩还是会有问题。在我们早期的LoRA实践中，输入的原商品如下："
       },
       {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-28.webp",
+        "alt": "早期 LoRA 实践中的原商品图。",
+        "width": 1440,
+        "height": 496,
+        "caption": "早期 LoRA 实践中的原商品图。"
+      },
+      {
         "type": "p",
         "html": "可以看到LoRA是学到了这家内衣会有花纹，但是下围没有了，当然在后面不停的prompt工程和调参中，也能有一些出图是有完整商品结构的，但是别的细节又会有问题，比如下面的case，左边是用于训练LoRA的商品图，右边是生成的图片。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-29.webp",
+        "alt": "LoRA 训练商品图与生成图对比。",
+        "width": 1440,
+        "height": 610,
+        "caption": "LoRA 训练商品图与生成图对比。"
       },
       {
         "type": "h2",
@@ -273,12 +785,36 @@ export const zhihuBlogPosts = [
         "html": "很自然，大家就会想要ControlNet来帮忙，比如用它的Canny去做商品细节的复原，如下面两张图所示，虽然还有明显的问题，但商品的结构、花纹细节已经好很多了："
       },
       {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-30.webp",
+        "alt": "LoRA + ControlNet 对商品结构和纹理的保持效果。",
+        "width": 1440,
+        "height": 671,
+        "caption": "LoRA + ControlNet 对商品结构和纹理的保持效果（1）。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-31.webp",
+        "alt": "LoRA + ControlNet 对商品结构和纹理的保持效果。",
+        "width": 1392,
+        "height": 820,
+        "caption": "LoRA + ControlNet 对商品结构和纹理的保持效果（2）。"
+      },
+      {
         "type": "h2",
         "html": "局部编辑：impaint + LoRA + ControlNet"
       },
       {
         "type": "p",
         "html": "对国内的商家来讲，请不同国家的模特拍摄成本不低，如果我们换个思路，只对已有的商品图片换模特，则有可能利用生成式模型逼真的特点同时又保留了商品的细节。下图是我们快速实践的效果："
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-32.webp",
+        "alt": "局部编辑换模特的早期实践效果。",
+        "width": 1440,
+        "height": 673,
+        "caption": "局部编辑换模特的早期实践效果。"
       },
       {
         "type": "p",
@@ -321,8 +857,48 @@ export const zhihuBlogPosts = [
         "html": "我们实践过程中发现生成的效果和输入图片本身、想要的效果、模型、参数、prompt都有关系，对普通用户太不友好了。因此从用户体验出发，我们做点了产品流程的设计，预先设计一批不同参数的模板，用户可以根据需求选择合适的模板，一键生成需要的图片。这么做一定程度上损失了不少自由度，但效果的可控性会好很多。以下是我们一些模板的示例："
       },
       {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-33.webp",
+        "alt": "面向产品化流程沉淀的模板示例。",
+        "width": 1315,
+        "height": 293,
+        "caption": "面向产品化流程沉淀的模板示例（1）。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-34.webp",
+        "alt": "面向产品化流程沉淀的模板示例。",
+        "width": 1354,
+        "height": 312,
+        "caption": "面向产品化流程沉淀的模板示例（2）。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-35.webp",
+        "alt": "面向产品化流程沉淀的模板示例。",
+        "width": 1440,
+        "height": 958,
+        "caption": "面向产品化流程沉淀的模板示例（3）。"
+      },
+      {
         "type": "p",
         "html": "下面是我们Demo实际run的一些case："
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-36.webp",
+        "alt": "早期 Demo 实际运行案例。",
+        "width": 1440,
+        "height": 1270,
+        "caption": "早期 Demo 实际运行案例（1）。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-ai-models-37.webp",
+        "alt": "早期 Demo 实际运行案例。",
+        "width": 1365,
+        "height": 1259,
+        "caption": "早期 Demo 实际运行案例（2）。"
       },
       {
         "type": "h2",
@@ -394,8 +970,64 @@ export const zhihuBlogPosts = [
         "html": "A recommendation system is not just trying to predict the next click. It is shaping a sequence of user experiences. A short-term click may reduce long-term satisfaction; repeated similar content may raise immediate engagement while damaging exploration; and the value of one item often depends on what else appears around it. These are exactly the kinds of problems that make reinforcement learning attractive."
       },
       {
+        "type": "image",
+        "src": "/images/blog/rl-recommender-02.webp",
+        "alt": "Reinforcement learning recommender-system challenge slide",
+        "width": 1032,
+        "height": 350,
+        "caption": "Challenges of applying reinforcement learning to recommender systems."
+      },
+      {
         "type": "p",
         "html": "But recommendation is also a hard RL environment. The action space is enormous, the reward is delayed and noisy, online exploration is expensive, and most teams only have logs generated by an old behavior policy. You cannot simply take a textbook RL algorithm and plug it into a production recommender."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/rl-recommender-03.webp",
+        "alt": "Off-policy correction formula from the YouTube RL recommender paper",
+        "width": 1032,
+        "height": 350,
+        "caption": "Off-policy correction figure 1 from the original answer."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/rl-recommender-04.webp",
+        "alt": "Off-policy correction formula from the YouTube RL recommender paper",
+        "width": 1012,
+        "height": 140,
+        "caption": "Off-policy correction figure 2 from the original answer."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/rl-recommender-05.webp",
+        "alt": "Off-policy correction formula from the YouTube RL recommender paper",
+        "width": 754,
+        "height": 140,
+        "caption": "Off-policy correction figure 3 from the original answer."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/rl-recommender-06.webp",
+        "alt": "Off-policy correction formula from the YouTube RL recommender paper",
+        "width": 796,
+        "height": 258,
+        "caption": "Off-policy correction figure 4 from the original answer."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/rl-recommender-07.webp",
+        "alt": "Off-policy correction formula from the YouTube RL recommender paper",
+        "width": 978,
+        "height": 162,
+        "caption": "Off-policy correction figure 5 from the original answer."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/rl-recommender-08.webp",
+        "alt": "Off-policy correction formula from the YouTube RL recommender paper",
+        "width": 932,
+        "height": 304,
+        "caption": "Off-policy correction figure 6 from the original answer."
       },
       {
         "type": "h2",
@@ -420,6 +1052,30 @@ export const zhihuBlogPosts = [
       {
         "type": "p",
         "html": "The paper proposes a tractable way to reason about slate-level reward without enumerating the impossible number of all possible slates. That is important because the combinatorial action space is one of the main reasons recommender-system RL looks elegant in theory and painful in practice."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/rl-recommender-09.webp",
+        "alt": "Slate recommendation formula from the YouTube RL recommender paper",
+        "width": 1016,
+        "height": 908,
+        "caption": "Slate recommendation figure 1 from the original answer."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/rl-recommender-10.webp",
+        "alt": "Slate recommendation formula from the YouTube RL recommender paper",
+        "width": 1200,
+        "height": 294,
+        "caption": "Slate recommendation figure 2 from the original answer."
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/rl-recommender-11.webp",
+        "alt": "Slate recommendation formula from the YouTube RL recommender paper",
+        "width": 784,
+        "height": 144,
+        "caption": "Slate recommendation figure 3 from the original answer."
       },
       {
         "type": "h2",
@@ -490,6 +1146,14 @@ export const zhihuBlogPosts = [
       {
         "type": "p",
         "html": "看slide"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/rl-recommender-02.webp",
+        "alt": "RL 在推荐场景中的挑战。",
+        "width": 1032,
+        "height": 350,
+        "caption": "RL 在推荐场景中的挑战。"
       },
       {
         "type": "p",
@@ -564,6 +1228,14 @@ export const zhihuBlogPosts = [
         "html": "常见的是引入importance weighting来解决。看下公式"
       },
       {
+        "type": "image",
+        "src": "/images/blog/rl-recommender-03.webp",
+        "alt": "Off-policy correction 相关公式。",
+        "width": 1032,
+        "height": 350,
+        "caption": "Off-policy correction 相关公式。"
+      },
+      {
         "type": "p",
         "html": "从公式看，和标准的objective比，多了一个因子，因为这个因子是连乘和rnn的问题类似，梯度容易爆炸或消失。论文中用了一个近似解，并有人证明了是ok的。"
       },
@@ -596,12 +1268,36 @@ export const zhihuBlogPosts = [
         "html": "看下公式，注意它包含了时间，有助于理解。"
       },
       {
+        "type": "image",
+        "src": "/images/blog/rl-recommender-04.webp",
+        "alt": "RL objective 公式。",
+        "width": 1012,
+        "height": 140,
+        "caption": "RL objective 公式。"
+      },
+      {
         "type": "p",
         "html": "在论文[2]中，有更多关于bellman在loss中推导的细节。由于论文[1]采用的policy-gradient的优化策略，我们需要得到loss的梯度："
       },
       {
+        "type": "image",
+        "src": "/images/blog/rl-recommender-05.webp",
+        "alt": "Policy-gradient 梯度公式。",
+        "width": 754,
+        "height": 140,
+        "caption": "Policy-gradient 梯度公式。"
+      },
+      {
         "type": "p",
         "html": "加入importance weighting和一些correction后，"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/rl-recommender-06.webp",
+        "alt": "加入 importance weighting 和 correction 后的形式。",
+        "width": 796,
+        "height": 258,
+        "caption": "加入 importance weighting 和 correction 后的形式。"
       },
       {
         "type": "p",
@@ -632,6 +1328,14 @@ export const zhihuBlogPosts = [
         "html": "π的训练是比较常规的，有意思的是β的学习。用户的behavior是很难建模的，我们还是用nn的方式去学一个出来，这里有一个单独的分支去预估β，和π是一个网络，但是它的梯度不回传，如下图："
       },
       {
+        "type": "image",
+        "src": "/images/blog/rl-recommender-07.webp",
+        "alt": "β 和 π 的网络结构示意。",
+        "width": 978,
+        "height": 162,
+        "caption": "β 和 π 的网络结构示意。"
+      },
+      {
         "type": "p",
         "html": "这样就不会干扰π。二者的区别如下："
       },
@@ -644,6 +1348,14 @@ export const zhihuBlogPosts = [
         "html": "为何要把evaluation拿出来讲呢？通常，我们线下看AUC，线上直接看abtest的效果。本来我比较期待论文中关于长期目标的设计，不过论文[1]作者的方式还是比较简单，可借鉴的不多："
       },
       {
+        "type": "image",
+        "src": "/images/blog/rl-recommender-08.webp",
+        "alt": "论文中的 reward 设计说明。",
+        "width": 932,
+        "height": 304,
+        "caption": "论文中的 reward 设计说明。"
+      },
+      {
         "type": "p",
         "html": "The immediate reward r is designed to reflect different user activities; videos that are recommended but not clicked receive zero reward. The long term reward R is aggregated over a time horizon of 4–10 hours."
       },
@@ -654,6 +1366,14 @@ export const zhihuBlogPosts = [
       {
         "type": "p",
         "html": "两篇论文中还有很大的篇幅来讲Simulation下的结果，[1]的目的是为了证明作者提出的correction和topK的作用，做解释性分析挺好的，[2]做了下算法对比，并且验证了对user choice model鲁棒，但我觉得对实践帮助不大。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/rl-recommender-09.webp",
+        "alt": "论文中的 simulation 结果示意。",
+        "width": 1016,
+        "height": 908,
+        "caption": "论文中的 simulation 结果示意。"
       },
       {
         "type": "h2",
@@ -684,6 +1404,14 @@ export const zhihuBlogPosts = [
         "html": "pointwise的方法只考虑单个item的概率，论文中提出的itemwise，虽然也是认为最后的reward只和每个被选中的item有关，且item直接不互相影响，但它有对user choice做假设。比如论文[2]还做了更详细的假设，将目标函数的优化变成一个多项式内可解的问题："
       },
       {
+        "type": "image",
+        "src": "/images/blog/rl-recommender-10.webp",
+        "alt": "Slate 推荐中的 user choice 假设。",
+        "width": 1200,
+        "height": 294,
+        "caption": "Slate 推荐中的 user choice 假设。"
+      },
+      {
         "type": "p",
         "html": "这两个假设也蛮合理的，SC是指用户一次指选择一个item，RTDS是指reward只和当前选择的item有关。"
       },
@@ -694,6 +1422,14 @@ export const zhihuBlogPosts = [
       {
         "type": "p",
         "html": "论文[1]中最后的objective中有一个因子，表达了user choice的假设："
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/rl-recommender-11.webp",
+        "alt": "Top-K off-policy correction 中的 user choice 因子。",
+        "width": 784,
+        "height": 144,
+        "caption": "Top-K off-policy correction 中的 user choice 因子。"
       },
       {
         "type": "p",
