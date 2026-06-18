@@ -1,0 +1,1216 @@
+[
+  {
+    "slug": "weshop-aigc-product-reflections",
+    "titleZh": "谈谈做 WeShop 过程中对 AIGC 产品的一些思考",
+    "date": "2023-05-31",
+    "source": "Zhihu column",
+    "sourceUrl": "https://zhuanlan.zhihu.com/p/633513013",
+    "excerptZh": "写在 WeShop 正式版上线时的一组产品化思考：技术还不够成熟时如何定义产品，算力成本、模型评估和真实客户反馈为什么决定 AIGC 应用能不能成立。",
+    "blocksZh": [
+      {
+        "type": "p",
+        "html": "自从我们WeShop的Beta版本5月10号开放注册来，增长和用户反馈都远超我们团队的预期，有一种回到10年移动互联网刚开始的阶段，只要做好产品功能，自然就会有口碑传播，有自来水的媒体为你宣传。"
+      },
+      {
+        "type": "p",
+        "html": "今天我们发布了正式版，其中最重要的是确定了WeShop是提供AI算力服务的收费模式。不熟悉WeShop背景的朋友可以参考下面两篇文章，也可以去我们官网体验下产品：www.weshop.com"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-aigc-product-reflections-01.png",
+        "alt": "谈谈做 WeShop 过程中对 AIGC 产品的一些思考",
+        "width": 1472,
+        "height": 580,
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-aigc-product-reflections-02.jpg",
+        "alt": "谈谈做 WeShop 过程中对 AIGC 产品的一些思考",
+        "width": 2442,
+        "height": 3200,
+        "caption": ""
+      },
+      {
+        "type": "p",
+        "html": "大家现在讨论AI，偏哲学层面的多，偏落地的少。正好我们有一些切身的实践经验，在这里分享一些我们遇到的问题，和大家探讨探讨。"
+      },
+      {
+        "type": "p",
+        "html": "整个行业都处于非常早期的阶段，我们的经验也只是一种探索。过一段时间回顾，可能讲的全是错的，大家包涵。"
+      },
+      {
+        "type": "h2",
+        "html": "首当其冲是如何在技术不够好的时候定义产品方案"
+      },
+      {
+        "type": "p",
+        "html": "我们做产品时，永远面对一个问题，如果一个技术成熟了，就没你啥机会了，比如现在的移动互联网。如果一个技术不成熟，做出来的产品有可能还不如传统方案好，成先烈了。"
+      },
+      {
+        "type": "p",
+        "html": "因此，我依旧认为在AI时代做应用，最灵魂的角色还是产品经理，只是这个产品经理的要求更高了。比如WeShop切入的赛道，在过去无论是学术界还是工业界，被投入资源最多的都是virtual try on，大家都希望能够给一个产品图，自由任意的穿到各式各样的模特身上。蘑菇街自从有图像算法团队开始，就一直在这件事情上做尝试，到今天我的看法依旧是技术还不够到2B产品化的最低标准，而在2C端的尝试可能更容易落地。"
+      },
+      {
+        "type": "p",
+        "html": "选一个有潜力的技术路线【技术品味，需要长期积累】，去解决一个长期困扰你的业务问题【业务sense，需要长期积累】，可能是最佳的实践路线。"
+      },
+      {
+        "type": "p",
+        "html": "一个有潜力的技术路线加上不错的产品交互，你的用户会比你更有想象力，给大家看一个我们客户的真实案例："
+      },
+      {
+        "type": "p",
+        "html": "我们产品上线后，客户在使用我们人台图场景时，经常上传没有脑袋没有四肢的人台图片，比如："
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-aigc-product-reflections-03.jpg",
+        "alt": "谈谈做 WeShop 过程中对 AIGC 产品的一些思考",
+        "width": 1118,
+        "height": 750,
+        "caption": ""
+      },
+      {
+        "type": "p",
+        "html": "这种人台在行业里面非常常见，也是我们已知问题，如果直接用WeShop，大概率是这样的："
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-aigc-product-reflections-04.jpg",
+        "alt": "谈谈做 WeShop 过程中对 AIGC 产品的一些思考",
+        "width": 1149,
+        "height": 1107,
+        "caption": ""
+      },
+      {
+        "type": "p",
+        "html": "我们花了很多时间去研究如何在这种人台上生产比较自然的模特图。我们有个客户自己找了个办法，增加了点涂鸦"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-aigc-product-reflections-05.jpg",
+        "alt": "谈谈做 WeShop 过程中对 AIGC 产品的一些思考",
+        "width": 769,
+        "height": 1023,
+        "caption": ""
+      },
+      {
+        "type": "p",
+        "html": "再用Weshop生成，效果就好很多很多。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-aigc-product-reflections-06.jpg",
+        "alt": "谈谈做 WeShop 过程中对 AIGC 产品的一些思考",
+        "width": 1148,
+        "height": 759,
+        "caption": ""
+      },
+      {
+        "type": "p",
+        "html": "其他客户看到后很快有进一步发展了这个玩法，相当于变相解决了这个问题。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-aigc-product-reflections-07.jpg",
+        "alt": "谈谈做 WeShop 过程中对 AIGC 产品的一些思考",
+        "width": 1080,
+        "height": 1439,
+        "caption": ""
+      },
+      {
+        "type": "h2",
+        "html": "算力成本问题"
+      },
+      {
+        "type": "p",
+        "html": "WeShop是我职业生涯中第一次在这个用户规模下就要考虑算力和成本的项目。GPU资源除了贵之外，还不好买到，由于对增长的预估不足，我们经常要机器要的很急，感谢腾讯云的团队在背后大力的支持，到处帮我们调资源。"
+      },
+      {
+        "type": "p",
+        "html": "我们目前遇到几个明确的问题："
+      },
+      {
+        "type": "ol",
+        "items": [
+          "WeShop的业务模式需要很多不同特点的底模、lora、controlnet以及一些传统的CV模型做整合，而且是在用户发起任务请求的时候才知道合理的配置方案，但这些模型一般都很大，且每次任务的GPU使用率都是100%，没有办法在用户可接受的延时内从离线到线上，只能按经验来事先配好不同的资源方案，对我们的算力造成了不少浪费，而且不可避免的会发生不可预估的客户请求排队，但集群有余量。",
+          "我们生成的效果，需要不停的按客户需求去调参，离线训练的需求很大，但又受限于成本约束，目前线上和线下是混合部署，线上资源和离线资源的之间的切换管理还不够智能，又造成了一部分的资源浪费。",
+          "算力资源中有不同型号的卡，且在不同的机房，进一步加剧了我们整个算力管理的难度。"
+        ]
+      },
+      {
+        "type": "p",
+        "html": "对比其他创业公司，可能我们的财力已经算好的了，但在AIGC时代，成本项依旧很突出，算力的成本基本就是业务生命线了，相信未来这方面会有更多成熟的方案出现。"
+      },
+      {
+        "type": "h2",
+        "html": "模型评估问题"
+      },
+      {
+        "type": "p",
+        "html": "控制Diffusion模型到商用级别是个很难的问题，比如下面那张图，左1原图，左2是原底模，左3是针对性迭代的底模，可以看出来左手袖子边缘好了很多。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-aigc-product-reflections-08.jpg",
+        "alt": "谈谈做 WeShop 过程中对 AIGC 产品的一些思考",
+        "width": 1440,
+        "height": 684,
+        "caption": ""
+      },
+      {
+        "type": "p",
+        "html": "但是我们很快就发现，这个模型过拟合了，在一些场景上有很致命的问题，如下图所示，左1原图，左2生成图，会有一层雾蒙蒙的感觉贴在图片上，极大的影响了图片的质感。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/weshop-aigc-product-reflections-09.jpg",
+        "alt": "谈谈做 WeShop 过程中对 AIGC 产品的一些思考",
+        "width": 1440,
+        "height": 960,
+        "caption": ""
+      },
+      {
+        "type": "p",
+        "html": "类似的的情况，在各个场景都有发生，如底模和lora的训练，不同模板参数的选择。我们团队中已经有在海外社区中相对有影响力的开发者，但针对这个问题，如果有效的评估我们这次改进是不是更好，应该说目前还没有特别明确的最佳实践。"
+      },
+      {
+        "type": "p",
+        "html": "如何在不确定的体验中与客户一起进步，将是为了所有做AIGC团队要面临的问题，而这也正是尽快获取到真实的客户需求的重要性。"
+      },
+      {
+        "type": "h2",
+        "html": "招人"
+      },
+      {
+        "type": "p",
+        "html": "WeShop是蘑菇街旗下的AI产品，WeShop。我们是一个小而充满自驱精神的团队，人员分布全球多地，资金自有且充足，目前正在积极招聘ing~~~"
+      },
+      {
+        "type": "p",
+        "html": "目前开放前端、后端、算法的开发岗位，我们未来依旧希望能保持一个小团队的状态。前端的挑战在于如何和实现AI base的交互问题，后端目前的技术栈是Golang和python，目前需求集中在算力管理的问题。算法需要对SD、LLM的各项工作比较熟悉，特别是能有较强的代码能力，有传统CV和NLP背景的同学加分。"
+      },
+      {
+        "type": "p",
+        "html": "希望有志于投入到AIGC浪潮的同学可以看下我们的作品，感兴趣的请联系我们：wujia@weshop.com 或 rongrong@mogu.com"
+      },
+      {
+        "type": "h2",
+        "html": "最后"
+      },
+      {
+        "type": "p",
+        "html": "特别感谢大家的支持和认可，这个月好多朋友过来谈合作，比如需要API、需要私有定制、需要接入生态等，实在是资源有限，我们现阶段只能先把需求放在队列里面。我们现在是一个非常小的团队，在未来也会努力追求一个小团队，所以很多事情只能有取舍。其中特别感谢阿里的朋友，愿意迁就我们目前的产品现状，找了各种办法让我们能灵活的接入淘宝的应用生态。"
+      },
+      {
+        "type": "p",
+        "html": "WeShop会努力做好产品，服务好我们的客户，感谢大家。"
+      }
+    ]
+  },
+  {
+    "slug": "record-yourself-often",
+    "titleZh": "为什么一定要频繁记录自己？",
+    "date": "2026-03-14",
+    "source": "Zhihu answer",
+    "sourceUrl": "https://www.zhihu.com/question/1925936172162605365/answer/2016262442049634843",
+    "excerptZh": "面向更广泛读者解释 Memex 的产品原点：AI 时代为什么要记录自己，为什么碎片、私人上下文和开源信任重新变重要。",
+    "blocksZh": [
+      {
+        "type": "p",
+        "html": "我们正处在一个奇怪的历史节点。"
+      },
+      {
+        "type": "p",
+        "html": "AI 以前所未有的速度改写规则——它写作、绘画、编程、分析，几乎每天都在逼近人类曾经引以为傲的能力边界。很多人感到焦虑：我该学什么？我的价值在哪里？"
+      },
+      {
+        "type": "p",
+        "html": "但也正是在这样的时代，有一件事变得比任何时候都更重要：记录你自己活过的痕迹。"
+      },
+      {
+        "type": "p",
+        "html": "不是因为记录&quot;有用&quot;，也不是为了效率，更不是为了打造一个自律人设。"
+      },
+      {
+        "type": "p",
+        "html": "而是因为——当越来越多的外部能力被 AI 接管之后，那些只属于你的情绪、瞬间、困惑和心颤，反而成为最不可替代的东西。"
+      },
+      {
+        "type": "h2",
+        "html": "说回记录这件事本身"
+      },
+      {
+        "type": "p",
+        "html": "最近，越来越多的博主在劝人写日记。这话有道理，但问题出在&quot;日记&quot;本身。"
+      },
+      {
+        "type": "p",
+        "html": "写日记意味着：你先活过一天，然后在某个时刻坐下来，回忆、筛选、整理、总结，无论是写还是说，最后形成一段完整的话。"
+      },
+      {
+        "type": "p",
+        "html": "这是一种压缩。"
+      },
+      {
+        "type": "p",
+        "html": "它留下的是你整理过的版本，不是生活本身。"
+      },
+      {
+        "type": "p",
+        "html": "但真实的生活，往往不是由总结构成的。它更像是无数个细小、零散、难以解释的瞬间："
+      },
+      {
+        "type": "ul",
+        "items": [
+          "一张随手拍下的照片",
+          "一句突然想写下的话",
+          "一段说不清为什么的情绪波动",
+          "一个深夜突然袭来的难过"
+        ]
+      },
+      {
+        "type": "p",
+        "html": "这些碎片看起来很轻，但它们往往比任何&quot;总结&quot;都更接近真实的你。"
+      },
+      {
+        "type": "p",
+        "html": "传统日记太重了。它把记录变成了一门功课。"
+      },
+      {
+        "type": "h2",
+        "html": "记录真正缺少的，从来不是输入工具"
+      },
+      {
+        "type": "p",
+        "html": "过去的记录类产品之所以难以坚持，不是因为&quot;输入不方便&quot;。"
+      },
+      {
+        "type": "p",
+        "html": "而是因为——记录之后，什么都没有发生。"
+      },
+      {
+        "type": "p",
+        "html": "你写了一段话，拍了一张图，保存了一个念头，然后它被放进时间轴，消失了。没有回应，没有连接，也没有任何&quot;被理解&quot;的感觉。"
+      },
+      {
+        "type": "p",
+        "html": "久而久之，记录会变成一件很孤单的事。"
+      },
+      {
+        "type": "p",
+        "html": "AI 第一次改变了这一点。"
+      },
+      {
+        "type": "p",
+        "html": "记录完成之后，系统可以回应你。不需要很复杂，也不需要每次都做深度解读——很多时候，用户需要的只是一个轻一点、自然一点、能接住当下的反馈。"
+      },
+      {
+        "type": "p",
+        "html": "而在长期使用之后，那些零散的记录之间会开始出现关联。某些你原本不会注意到的模式，会慢慢浮现出来。"
+      },
+      {
+        "type": "p",
+        "html": "这时候，记录就不再只是&quot;我留下了一些东西&quot;，而变成了："
+      },
+      {
+        "type": "p",
+        "html": "我正在通过这些碎片，慢慢理解自己是谁。"
+      },
+      {
+        "type": "h2",
+        "html": "这就是 Memex 想做的事"
+      },
+      {
+        "type": "p",
+        "html": "Memex 不是传统意义上的日记 App，也不是单纯提供情绪陪伴的 AI 产品。"
+      },
+      {
+        "type": "p",
+        "html": "它想做的是一种新的个人记录方式：不是帮你把生活存下来，而是帮你从生活里看见自己。"
+      },
+      {
+        "type": "p",
+        "html": "具体来说："
+      },
+      {
+        "type": "p",
+        "html": "记录要&quot;无感&quot;。 Memex 不要求你改变原有的生活习惯，不强迫你每天写长篇日记。一句话、一张照片、一段语音——你原本怎么记，就怎么记。"
+      },
+      {
+        "type": "p",
+        "html": "AI 在背后工作。 多 Agent 协作完成整理、卡片生成、洞察提取和记忆关联——这些工作由系统完成，不由你来做。"
+      },
+      {
+        "type": "p",
+        "html": "回应要真实。 不把洞察变成报告，不把陪伴变成营销。Memex 的目标，是让你在某一天回头看时，真正感到：哦，原来我是这样的人。"
+      },
+      {
+        "type": "h2",
+        "html": "为什么我们选择开源"
+      },
+      {
+        "type": "p",
+        "html": "Memex 触动了每一位参与开发的人。但我们也清楚地看到：在商业公司的框架里，维持这样一个&quot;以人为本&quot;的产品极其困难。"
+      },
+      {
+        "type": "p",
+        "html": "模型成本高。运营成本高。在流量和利润的压力下，我们无法确信这个理念能否一直走下去。"
+      },
+      {
+        "type": "p",
+        "html": "此外，由于手机本地大模型能力还不足，Memex 目前还无法做到完全的零数据上传——它仍需要调用云端大模型。我们不想假装这个问题已经被解决。"
+      },
+      {
+        "type": "p",
+        "html": "所以我们决定将它开源。"
+      },
+      {
+        "type": "p",
+        "html": "最敏感的数据，必须对应最高等级的信任。 一个会接触你情绪、关系、脆弱和人生困惑的系统，不应该只靠一家公司的承诺来保障。它应该是透明的，可审查的，可以被社区共同守护的。"
+      },
+      {
+        "type": "p",
+        "html": "希望Memex能给这个方向留下一些有价值的东西，欢迎每一个认同这个方向的人，一起来建设它。附上Github地址："
+      },
+      {
+        "type": "p",
+        "html": "一个简单的DEMO演示："
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/record-yourself-often-01.jpg",
+        "alt": "为什么一定要频繁记录自己？",
+        "width": 894,
+        "height": 1920,
+        "caption": ""
+      },
+      {
+        "type": "h2",
+        "html": "一些有趣的产品测试截图"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/record-yourself-often-02.jpg",
+        "alt": "为什么一定要频繁记录自己？",
+        "width": 1080,
+        "height": 2346,
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/record-yourself-often-03.jpg",
+        "alt": "为什么一定要频繁记录自己？",
+        "width": 1080,
+        "height": 2400,
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/record-yourself-often-04.jpg",
+        "alt": "为什么一定要频繁记录自己？",
+        "width": 1179,
+        "height": 2556,
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/record-yourself-often-05.jpg",
+        "alt": "为什么一定要频繁记录自己？",
+        "width": 1179,
+        "height": 2556,
+        "caption": ""
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/record-yourself-often-06.jpg",
+        "alt": "为什么一定要频繁记录自己？",
+        "width": 1080,
+        "height": 2346,
+        "caption": ""
+      }
+    ]
+  },
+  {
+    "slug": "chatgpt-application-technology",
+    "titleZh": "应用视角下 ChatGPT 背后的关键技术讨论",
+    "date": "2023-02-26",
+    "source": "Zhihu column",
+    "sourceUrl": "https://zhuanlan.zhihu.com/p/609624863",
+    "excerptZh": "从应用构建者视角讨论 ChatGPT 背后的关键技术：涌现、alignment、prompt、in-context learning、事实性、多模态和应用创新。",
+    "blocksZh": [
+      {
+        "type": "p",
+        "html": "上周，我应邀和同事去参加一个交流会。在活动场地，我发现给提供场地的公司，正好是当初在学校里经常听到的一批工程师，他们曾在青芝坞创业做游戏引擎。如今，这家公司已经有了数百人的规模。当时，我还碰巧遇到了知乎上的一位网友，我们聊了很多有关大语言模型的想法，感到大家的反馈都很热情。于是，我趁着周末整理了一下这段时间以来的观点，并将它们更系统地写出来。"
+      },
+      {
+        "type": "p",
+        "html": "大语言模型并不是凭空出现的。要理解它背后的技术原理，需要一步步梳理近10年来深度学习特别是自然语言处理领域的关键技术发展。虽然有不少文章已经涉及到这一部分，但我强烈推荐一篇优质的中文综述，它可以帮助您更系统地理解这一过程。"
+      },
+      {
+        "type": "p",
+        "html": "通向AGI之路：大型语言模型（LLM）技术精要"
+      },
+      {
+        "type": "p",
+        "html": "作为一个涉猎深度学习、工程开发和互联网产品的从业者，本文旨在从更偏应用的角度探讨ChatGPT背后的大型语言模型LLM中的关键技术。"
+      },
+      {
+        "type": "h3",
+        "html": "让我们从一个神奇的现象开始：涌现能力"
+      },
+      {
+        "type": "p",
+        "html": "深度学习在理论上的孱弱一直被诟病，但科学史上存在大量先有应用再有理论的事例，而其中不能解释的重大实验现象往往预示着理论创新的契机。我们首先从现象出发，来看下LLM中最神秘的emergent ability，如图"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/chatgpt-application-technology-01.jpg",
+        "alt": "应用视角下 ChatGPT 背后的关键技术讨论",
+        "width": 1013,
+        "height": 487,
+        "caption": ""
+      },
+      {
+        "type": "p",
+        "html": "上图中x、y轴分别表示模型规模和模型效果。研究员们至今无法给出令人信服的解释，为什么主流的大型模型在规模超过10^22级别后，效果会突然大幅提升。这个问题非常重要，有可能搞清楚这个问题，就能终结追求AGI路上的统计和符号的路线之争。"
+      },
+      {
+        "type": "p",
+        "html": "最近LeCun批评了很多人认为ChatGPT可以带来AGI的观点，在Twitter上被骂惨了。其背后的观点是，基于统计的方法论不应该能够实现AGI，但这种 emergent ability（涌现能力）就像一朵乌云一样漂浮在人类智能的上空。"
+      },
+      {
+        "type": "p",
+        "html": "近年来，一些工作也在尝试使用大型模型在计算机视觉领域进行实验，观察是否有涌现现象。好在虽然谷歌最近将ViT推向了22B，但仍然没有观察到明显的涌现现象。如果在图像或多模态领域也出现了类似的成果，从小的方面看只是各个竞争赛道的消亡和商业逻辑的改变，但从大的方面来看，我们人类引以为豪的智能可能真的只是统计规律。"
+      },
+      {
+        "type": "p",
+        "html": "以下是一些比较有意思的解释："
+      },
+      {
+        "type": "ol",
+        "items": [
+          "模型效果评估方法并不够平滑，实际上在中间阶段就已经开始有效果了，只是指标上还没有表现出来。",
+          "一些难以理解的知识、概念和推理能力等，会在一开始就学习错误，导致效果更差，需要进一步学习才能更好。因此模型需要足够大。例如下图显示，LLM模型在scale增大的过程中会出现先下降再上升的U形曲线效果图。"
+        ]
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/chatgpt-application-technology-02.jpg",
+        "alt": "应用视角下 ChatGPT 背后的关键技术讨论",
+        "width": 1440,
+        "height": 733,
+        "caption": ""
+      },
+      {
+        "type": "ol",
+        "items": [
+          "量变引起质变。在学习模型知识分布时，模型类似于贝叶斯网络，在足够复杂的连接之后，量变引起质变，表现出了类似智能的能力。"
+        ]
+      },
+      {
+        "type": "h3",
+        "html": "AI技术产品化的关键技术：Alignment"
+      },
+      {
+        "type": "p",
+        "html": "AI的巨大进步，在算力、数据、算法等方面已经有很多讨论，然而，在产品化过程中，Alignment发挥了关键作用，这可能是OpenAI在认知上领先整个行业的关键部分。Alignment没有标准的定义，本文只是我个人观点中的aligment，如果有错误，请指出。"
+      },
+      {
+        "type": "h3",
+        "html": "AI时代的UIUX：Prompt engineer"
+      },
+      {
+        "type": "p",
+        "html": "很多人都认同把prompt比喻成新时代的UIUX，它在NLP领域取得了巨大成功，当初知乎上就有不少同学讨论该项技术对研究领域的重要性。"
+      },
+      {
+        "type": "p",
+        "html": "如何看待NLP领域最近比较火的prompt，能否借鉴到CV领域？ - 知乎"
+      },
+      {
+        "type": "p",
+        "html": "在&quot;文本转图像&quot;普及的时代，Prompt技术也同样大放异彩。可以说，Prompt是我们尝试与深度学习模型的能力对齐的一个重要尝试。当我们再次阅读GPT3的论文时，我们会惊讶于In-Context Learning理念的重要性，对Prompt的理解也不再局限于只是为了将下游任务的任务形式与预训练对齐、替代finetune等方面。"
+      },
+      {
+        "type": "h3",
+        "html": "In Context Learning"
+      },
+      {
+        "type": "p",
+        "html": "初看In Context Learning似乎是为了区分zero-shot、meta learning而新造的词汇，但随着后续基于它展开的工作，比如这篇："
+      },
+      {
+        "type": "p",
+        "html": "How does in-context learning work? A framework for understanding the differences from traditional supervised learning"
+      },
+      {
+        "type": "p",
+        "html": "大家发现就算给model输入是有错误的示例，也不会影响模型的实际效果，而如果输入的事例和需求侧任务的分布差异较大，则效果会明显下降。当然也不能不提CoT的神奇效果，LLM模型在逻辑和推理上一直比较差，然而简单的在输入中加入Let's thingk step by step，效果就会明显的提升。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/chatgpt-application-technology-03.jpg",
+        "alt": "应用视角下 ChatGPT 背后的关键技术讨论",
+        "width": 1440,
+        "height": 713,
+        "caption": ""
+      },
+      {
+        "type": "p",
+        "html": "种种现象表明，LLM其实已经学到了大量的知识，只是我们还没有找特别好的方法来开启它的能力，就好像今天的AI研究员就像古时候的炼金术师，在没有在原理层面突破之前，只能在一遍遍的实践中尝试不同的咒语去召回魔法。今天，ChatGPT好像找到了更好开启LLM能力的对齐方式，RLHF加GPT3.5，让AI产品化的能力提升了一截，但并不能说我们已经把LLM的能力完全发挥出来了。"
+      },
+      {
+        "type": "p",
+        "html": "因此，alignment的创新不会停止。Prompt、In Context Learning、Chain of Thoughts、Reinforcement Learning Human feedback，是整个行业多年来孜孜不倦努力下的阶段性产出。然而由于交互创新如此重要，我们不会停下创新的脚步。"
+      },
+      {
+        "type": "h3",
+        "html": "LLM的创新是搜索引擎式的范畴还是AWS式的范畴"
+      },
+      {
+        "type": "p",
+        "html": "这个问题背后是关心大模型未来是类似Google一样的巨头垄断模式，还是会像AWS一样，出现多家提供大模型服务的公司。个人是倾向于LLM很难出现一家独大的情况，更像AWS的云计算的模式，给行业提供优质的计算服务，虽然会有一家公司比较领先，但是依旧会有别的公司保持强有力的竞争。"
+      },
+      {
+        "type": "p",
+        "html": "LLM和搜索推荐系统的不同，在搜索推荐系统时代，model并没有理解内容，而是基于用户投票做出的数据挖掘，比如字节掌控了强大的内容供给侧，再依靠推荐的高效分发，才形成了今天如此高壁垒的抖音。但LLM时代，model开始理解了内容本身，进而能创造内容，那么内容供给侧的垄断是否就不再存在。同时基于model在内容和需求侧的理解，天然可以做好分发。"
+      },
+      {
+        "type": "p",
+        "html": "虽然ChatGPT是目前最好的，也收集到了很多优质的用户反馈，在未来会保持一定的领先，但是LLM技术本身并没有被垄断在OpenAI，且用户的feedback在LLM领域，也不确定会对用户体验带来多大的护城河，毕竟Google、Meta都不缺用户。相信在不久的未来，其他巨头也能推出效果不错的竞品。"
+      },
+      {
+        "type": "h3",
+        "html": "胡编乱造的问题"
+      },
+      {
+        "type": "p",
+        "html": "以ChatGPT为例，该模型可能会出现一些事实性错误。同时，由于模型训练的时效性，实际生产环境中也可能会存在一些问题。因此，ChatGPT目前只能扩展您的个人专业能力并扩大边界，无法替代专业人才。虽然我们团队在使用ChatGPT的过程中发现它的输出可靠性和解决问题的能力远超预期，但是仍需谨慎使用，以免提供误导性的结果。或许由于网络上存在大量高质量的IT技术相关数据集，该模型在这个方面表现出了更强大的能力。"
+      },
+      {
+        "type": "p",
+        "html": "在GPT-3之后，出现了大量的工作来研究模型如何记忆这些知识，以及如何修改和更正它们。其中一些工作研究了Transformer中占三分之二参数的FFN，认为它实际上起到了类似Key-Value Memory的作用。此外，不同层的FFN存储的知识抽象程度也不同。还有一些工作通过对优化目标加约束来实现特定知识的更新，并证明确实可以更正某些知识而不会明显影响原先记忆的其他知识。"
+      },
+      {
+        "type": "p",
+        "html": "从能耗的角度出发，我认为LLM未来应该更加注重知识的理解和推理，而不是仅仅记忆事实性的知识。为了实现这一目标，我们可以参考Augment Retrieval相关的工作，例如DeepMind提出的Retro框架，该框架将外部知识库的embedding表达与LLM融合。还有最近开源的项目，如LangChain、GPTIndex等，这些工作都利用了外部数据库。例如，新必应的实践是使用搜索召回的结果作为输入，然后让LLM处理这些输入，最终给出答案。这些方法统称为&quot;external DB&quot;，我认为它们是比较实用和可行的应用方案。此外，这些方法还为一些进行向量数据库开发的公司带来了新的机会。"
+      },
+      {
+        "type": "h3",
+        "html": "多模态什么时候会来"
+      },
+      {
+        "type": "p",
+        "html": "我认为，多模态的大型模型是实现AGI的前提条件。我们人类自身是在四维世界中学习和理解世界的，而文本则是一个更为抽象的领域。视觉领域拥有更好的物理规律，这些规律可以作为锚点，帮助模型理解和学习到真正更基本的概念。然而，目前还没有出现特别出色的工作，例如Clip虽然使用起来很好，但它更像是NLP中的Bert，而不是像GPT3这样的模型。虽然ViT为我们带来了一些希望，但是像Transformer这样能够同时考虑局部和全局信息的序列结构，在某种程度上需要token是离散的。在NLP中，每个token本身都具有一定的概念意义，其分割也有实际意义。但是在CV领域中，不同组patch的方式所代表的物理意义是天然不同的。当Transformer应用于CV时，它可以与NLP保持一致，使用MAE的方式进行自监督训练，从而解决了训练数据的问题。但是就像Diffusion Model在图像生成方面非常有效，但在离散的文本场景中能力受到很大限制一样，因此Transformer在CV领域中并不一定合适。"
+      },
+      {
+        "type": "p",
+        "html": "另一个猜测是多模态的大型模型应该是稀疏的。从人类大脑神经突触的角度看（大概在100万亿的规模），GPT-3的参数估计还需要增加大约一千倍。因此，只有当模型是稀疏的时，才有可能进一步扩大模型规模，同时降低推理成本。这样的巨大挑战为整个行业注入了巨大的创新机会。举个不太恰当的比喻，谁会成为新时代的Parameter Server，是谷歌的Pathway吗？"
+      },
+      {
+        "type": "p",
+        "html": "因此，即使不考虑计算力、难以训练和模态融合等关键问题，多模态的大型模型的实现可能比预期更为困难。因此，我们应该更加务实地关注图像领域的大型模型，如果能够出现具有新兴能力的预训练模型，则会更为理想。"
+      },
+      {
+        "type": "h3",
+        "html": "应用创新的新时代"
+      },
+      {
+        "type": "p",
+        "html": "许多媒体都会问哪些行业和岗位会受到AI的影响。相反，我们应该反过来问，哪些行业不容易受到影响。尽管我对AGI的前景并不那么乐观，但在ChatGPT和Diffusion展示的能力方面，很少有行业不会受到影响。我们应该尽可能地拥抱AI。在我们的文明史上，人类发明了工具，而工具又反过来塑造了新的人类。"
+      },
+      {
+        "type": "p",
+        "html": "这轮AI技术突破具有改变人机交互的能力，未来将会出现一批基于人类自然语言作为交互手段的应用，这将是一个新时代的开端。"
+      },
+      {
+        "type": "p",
+        "html": "在科技史上，技术变革引起人机交互创新，从而演化出新的商业生态的例子比比皆是。ChatGPT只是其中的一个典型应用，它展示了基于人类自然语言和机器的交互体验有多么惊人。这是历史上第一次，机器对人类的需求理解如此细致，人类可以反复多轮地表达需求，每一次都是独特的体验。"
+      },
+      {
+        "type": "p",
+        "html": "交互方式的改变将会重新定义许多应用。回想一下Office、Photoshop、视频编辑等生产力工具的学习经历，一定不是那么愉悦的。这些生产力工具本质上要求您学习一种图形化的编程语言，以便将您的需求告诉计算机执行。如果我们可以直接用自然语言描述我们的需求，那么大范围的预测是，所有的软件都可以重新制作。"
+      },
+      {
+        "type": "p",
+        "html": "当然，这并不是说基于AI的应用都会成功，每种技术都有其边界，只是我们现在还不知道它们在哪里。此外，现在的AI仍不是AGI，更像是iPhone或AWS的第一次出现。大部分围绕AI做的应用，大家都是在OpenAI的API包一层做应用，并无核心技术壁垒。更多的创新在自然语言交互下的产品动线、需求对齐上的创新，未来都是大概率都是先烈。"
+      },
+      {
+        "type": "p",
+        "html": "类比于iPhone，今天的AI与iPhone 1相似，都处于不稳定的创新状态。在AI的发展中，我们无法确定新的技术范式何时出现，或者会在何处出现，例如多模态技术，新的对齐方式是否能够让大型模型直接服务客户等问题。此外，应用的时间窗口，以及是否会出现护城河等问题，也是未知的。因此，在进行应用创新时，我们需要做好心理准备，追求自身能够存活到下一个成熟周期。"
+      },
+      {
+        "type": "h3",
+        "html": "其他"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "许多人谈论数据质量，但在简单交流后，发现大多数人仍然认为AI模型需要大量标注数据才能训练。实际上，NLP领域是在Masked Language Model的训练方式后，才得以扩展到如此规模，并衍生出一系列后续发展。MLM最大的特点是自监督，不需要真正的人工标注。其思想非常简洁，就是在现有的文本训练语料中，随机地遮盖掉一些词（准确来说是token），让模型来预测这些被遮盖掉的词。由于这些词事先是已知的，因此可以算作自监督学习。这种方法的好处是，可以大幅提升可用于训练的数据规模。对于理解语言模型来说，这一部分非常重要。如果感兴趣，可以进一步搜索相关资料进行学习。因此，所谓数据质量是指数据本身的优质程度，例如，Wikipedia的数据天然比reddit的要好一些。",
+          "算力的摩尔定律。很多年前，大家已经在说摩尔定律遇到了物理瓶颈，除非基础科学的突破，否则我们很快就无法在提升计算机的性能。但这几年我们看到GPU的发展很快，算力增长迅速。GPU和CPU一样，同样遇到了物理瓶颈，但GPU的场景天然是并行的，可以通过堆更多晶体管来缓解问题。这个领域涉略不深，在大模型时代，算力的需求侧不在存疑，算力的供给是否真的像大家预期的一样，成本快速下降，希望有更资深的人来解答算力这部分的问题。PS：最近看到一篇有意思的工作，Looped Transformer as Programmable Computers，在探讨是否有可能用Transformer做一个通用的计算机。前几年已经有人去证明transformer是图灵完备。",
+          "新的优化算法，随机梯度下降的优化算法和模型结构，更偏圈内人员关注，比如Hinton老爷子就一直不相信SGD-based的优化算法是人工智能的未来，类比于人脑不存在有反向传播这样的东西。在前几年Router的基础上，他最新的工作FF，还是focus在这块。"
+        ]
+      },
+      {
+        "type": "p",
+        "html": "最后，附一张网上流传很广的图作为结尾，祝大家周末快乐！"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/chatgpt-application-technology-04.jpg",
+        "alt": "应用视角下 ChatGPT 背后的关键技术讨论",
+        "width": 964,
+        "height": 1440,
+        "caption": ""
+      }
+    ]
+  },
+  {
+    "slug": "agent-extra-code",
+    "titleZh": "Agent 核心就几十行代码，那剩下的几万行到底在解决什么问题？",
+    "date": "2026-03-31",
+    "source": "Zhihu answer",
+    "sourceUrl": "https://www.zhihu.com/question/1994057559171167995/answer/2021164259149714484",
+    "excerptZh": "从 Claude Code 泄露代码和 Memex 手机端 Agent 实践出发，解释生产级 Agent 的工程量为什么远远超过核心循环。",
+    "blocksZh": [
+      {
+        "type": "p",
+        "html": "今天Claude code代码被泄露了，我用cloc跑了下，有40w行代码，我让cc看了下代码："
+      },
+      {
+        "type": "quote",
+        "html": "从源码看，它其实是一个完整的产品级应用，塞了非常多东西：<br>40+ 个工具实现，每个都有自己的输入校验、权限模型、进度追踪、错误处理，光这些就很重了<br>140+ 个 Ink/React 终端 UI 组件，做了完整的交互式终端界面，不是简单的 console.log<br>IDE 桥接层（VS Code、JetBrains 双向通信），这本身就是个小型 RPC 系统<br>OAuth 2.0 完整流程、JWT、macOS Keychain 集成、组织级策略限制<br>多 Agent 协调系统、团队协作、Agent Swarms<br>插件系统、技能系统、持久化记忆系统<br>50+ 个斜杠命令，很多都有自己的完整 UI 界面<br>会话管理、恢复、分享、远程模式<br>语音输入、Vim 模式、主题系统<br>GrowthBook 特性开关、OpenTelemetry 遥测、分析系统<br>另外代码膨胀还有一些工程层面的原因：TypeScript 类型定义本身就占不少行数；Tool.ts 一个文件就 29K 行，大量是类型声明；权限系统在每个工具上都有独立的逻辑分支；还有大量的条件编译代码（内部版本 vs 公开版本通过 feature() 和 USER_TYPE 区分）。"
+      },
+      {
+        "type": "p",
+        "html": "一堆人在线打卡："
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/agent-extra-code-01.jpg",
+        "alt": "Agent 核心就几十行代码，那剩下的几万行到底在解决什么问题？",
+        "width": 1440,
+        "height": 890,
+        "caption": ""
+      },
+      {
+        "type": "p",
+        "html": "估计这也是为什么一方面claude code人说claude code是大家用claude写的，一方面又在大肆招聘工程师"
+      },
+      {
+        "type": "p",
+        "html": "这是一个很好的问题，虽然 Agent 的核心逻辑确实是一个基于 ReAct 思想的简单循环（Loop），就像其他答友回答的，依旧需要大量的工程工作来让系统work。看到大家回答集中在coding agent，我来提供一个最近我们开源的个人生活记录Agent的开发实践。它是一个Agent逻辑完全实现在手机本地的产品，目前代码量已经达到快8万行。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/agent-extra-code-02.jpg",
+        "alt": "Agent 核心就几十行代码，那剩下的几万行到底在解决什么问题？",
+        "width": 1122,
+        "height": 618,
+        "caption": ""
+      },
+      {
+        "type": "h3",
+        "html": "统一接入多种大模型供应商 (LLM Providers)"
+      },
+      {
+        "type": "p",
+        "html": "虽然 OpenAI 的格式是行业标准，但并不是所有模型厂商或云服务商都完全兼容。"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "适配工作： 为了接入不同的 LLM Provider，需要写大量的封装代码来处理流式输出、Token 统计和错误捕获。",
+          "自研底座： 由于移动端（Dart/Flutter 体系）缺乏成熟的框架，我们开源了 dart_agent_core 来统一这些接口。https://github.com/memex-lab/dart_agent_core<br>这里也有7千的代码量"
+        ]
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/agent-extra-code-03.jpg",
+        "alt": "Agent 核心就几十行代码，那剩下的几万行到底在解决什么问题？",
+        "width": 1120,
+        "height": 316,
+        "caption": ""
+      },
+      {
+        "type": "h3",
+        "html": "2. 在移动端重建“工具箱”"
+      },
+      {
+        "type": "p",
+        "html": "主流的 Coding Agent（如 Devin）依赖 Linux 的 Bash 环境，可以使用各种成熟的命令行工具。但手机系统没有这些环境。"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "工具定义： 我们必须在手机本地手动实现一套类似 Grep、Find、Edit 的工具逻辑。",
+          "异构数据处理： 用户输入包含图片、语音和文字，Agent 需要将这些碎片信息统一结构化为 Markdown 文本进行管理。",
+          "我们没有提供网络搜索、HTTP 请求等对外工具。这种选择是为了让 Memex 成为一个专注于个人记录、注重内在逻辑的智能体，而不是变成一个像 OpenDevin 那样无所不包的通用型工具。这种深度挖掘本地数据价值的逻辑，远比调用一个搜索接口要复杂得多。"
+        ]
+      },
+      {
+        "type": "h3",
+        "html": "3. 非 RAG 的知识管理逻辑"
+      },
+      {
+        "type": "p",
+        "html": "Coding Agent 强大是因为代码本身具有高度的结构化。个人记录的数据非常杂乱，简单的 RAG（检索增强生成）往往效果不佳。"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "整理工作： 我们编写了大量的代码和Prompt让 Agent 扮演“文件管理员”的角色，对用户的本地文件进行分类、索引和整理。",
+          "粒度约束： 针对知识库的文件和目录，我们设定了严格的读写粒度限制，防止 Agent 一次性操作过大的数据导致上下文溢出或逻辑混乱。",
+          "对抗性审查： 在 Agent 进行知识整理时，我们会引入一套“审查逻辑”与其对抗。例如，Agent 提出一种知识库结构，我们会通过预设的代码逻辑去校验该结构的合理性，如果不符合规范则打回重做。"
+        ]
+      },
+      {
+        "type": "h3",
+        "html": "4. 权限检查与安全边界"
+      },
+      {
+        "type": "p",
+        "html": "Agent 能够调用工具和读取内存，这带来了巨大的安全风险。"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "校验机制： 每一项工具调用都需要独立的权限检查逻辑。",
+          "记忆隔离： 必须明确定义哪些数据是 Agent 可见的，以及如何进行自我校验，防止 Agent 误操作。"
+        ]
+      },
+      {
+        "type": "h3",
+        "html": "5. 生成式 UI（Generative UI）的工程化"
+      },
+      {
+        "type": "p",
+        "html": "为了提升体验，我们没有只输出文本，而是实践了生成式 UI。"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "模板系统： 预先实现了一套主流 App 的 UI 模板库。",
+          "动态渲染： Agent 会优先匹配预设模板；如果无法匹配，则动态生成 HTML 并通过 WebView 渲染。这套调度逻辑占用了不少代码量。"
+        ]
+      },
+      {
+        "type": "h3",
+        "html": "6. 移动端的进程调度与状态恢复"
+      },
+      {
+        "type": "p",
+        "html": "手机系统的内存管理非常严格，App 进程随时可能被系统中止。"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "状态保持： 为了防止 Agent 的任务执行到一半被杀掉，需要编写大量的逻辑来保存运行进度，并在用户重新打开 App 时瞬间恢复状态。"
+        ]
+      },
+      {
+        "type": "h3",
+        "html": "7. 模型调用的可观测性 (Observability)"
+      },
+      {
+        "type": "p",
+        "html": "Agent 运行过程中会产生大量的模型调用。为了让系统透明且可控，我们构建了一整套可观测性设施："
+      },
+      {
+        "type": "ul",
+        "items": [
+          "成本与频次监控： 详细记录 Agent 在完成一个任务时调用了多少次接口，消耗了多少 Token，折算成具体的费用。",
+          "错误追踪： 当 Agent 陷入死循环或输出格式错误时，需要有完整的日志记录和自动拦截机制，防止产生无效的 API 支出。"
+        ]
+      },
+      {
+        "type": "p",
+        "html": "还有很多很多各种各样的feature需要实现，今天开源的Memex依旧只是一个雏形，诚邀对这个方向感兴趣的同学一起来参与这个项目：<br><br>Github：https://github.com/memex-lab/memex"
+      }
+    ]
+  },
+  {
+    "slug": "diffusion-models-guide",
+    "titleZh": "Diffusion Models 导读",
+    "date": "2023-01-09",
+    "source": "Original blog / Zhihu column",
+    "sourceUrl": "https://zhuanlan.zhihu.com/p/591720296",
+    "excerptZh": "面向图像生成入门读者的 Diffusion Models 技术导读，从 VAE、ELBO、前向加噪和反向去噪出发，建立理解 DDPM 的基本路径。",
+    "blocksZh": [
+      {
+        "type": "h2",
+        "html": "背景"
+      },
+      {
+        "type": "p",
+        "html": "很多从深度学习开始接触算法的同学，一开始对Diffusion model的论文会有点不适应。和我们常见的深度学习论文不同，Diffusion model用了不少数学工具，而这几年数学工具用的比较多的深度学习工作的出圈度都不高。"
+      },
+      {
+        "type": "p",
+        "html": "如果你对数学公式不反感，个人建议从<a href=\"https://arxiv.org/abs/2208.11970\">Understanding Diffusion Models: A Unified Perspective</a> 开始读。这篇相对于其他资料，作者对读者的背景要求最少，全篇读下来很少需要再找额外资料辅助。然后可以读<a href=\"https://lilianweng.github.io/posts/2021-07-11-diffusion-models/\">What are Diffusion Models?</a> 和 <a href=\"https://yang-song.net/blog/2021/score/#the-score-function-score-based-models-and-score-matching\">Generative Modeling by Estimating Gradients of the Data Distribution</a>，这两篇文章写的很好，大部分学习资料也都在引用它们，相对于前面一篇，写的比较简洁，对读者背景要求高一些。接着可以找点代码实现看下，推荐下huggingface的<a href=\"https://huggingface.co/blog/annotated-diffusion\">The Annotated Diffusion Model</a>，基于Pytorch的demo实现，感受一波细节。最后，必须推荐知乎上的讨论：<a href=\"https://www.zhihu.com/question/536012286\">diffusion model最近在图像生成领域大红大紫，如何看待它的风头开始超过GAN？</a>其中特别推荐我想唱high c的答案，但不建议一开始毫无了解的时候去研究这些回答，对读者背景知识假设有点多。当然，如果相对于数学公式，你更熟悉代码，也可以先从huggingface的那篇开始，它的基本介绍写的即简洁又易懂。"
+      },
+      {
+        "type": "p",
+        "html": "本文不是捷径，只是个搬运工，希望能减少一些同学在学习过程中的产生的不适感，帮助更多的同学了解Diffusion model。"
+      },
+      {
+        "type": "h2",
+        "html": "基本概念"
+      },
+      {
+        "type": "p",
+        "html": "我们先看下Generative Model核心要干什么，引用下Song在blog里面的一段话："
+      },
+      {
+        "type": "quote",
+        "html": "Suppose we are given a dataset ${x_1,x_2,...,x_N}$, where each point is drawn independently from an underlying data distribution $p(x)$. Given this dataset, the goal of generative modeling is to fit a model to the data distribution such that we can synthesize new data points at will by sampling from the distribution.&lt;br&gt;"
+      },
+      {
+        "type": "p",
+        "html": "更通俗一点的描述，我们看到的现实世界中的各种图片，都可以理解成已经观察到的数据，也就是上文中的dataset，理论上必然存在一个分布$p(x)$可以描述它们，如果我们能够建立一个模型，找到合适的参数去学习到这个分布的具体形式，我们就能够再从这个分布中采样出我们想要的数据，也就是生成式（Generative）模型核心的想法。"
+      },
+      {
+        "type": "p",
+        "html": "但现实世界中这个分布$p(x)$一般很复杂，我们很难真的完全建模出来。学术界在生成式模型耕耘多年，在我个人学习的体验出发，从VAE出发切入去理解Diffusion最容易。在讨论VAE之前，我们先借鉴下<a href=\"https://arxiv.org/abs/2208.11970\">Understanding Diffusion Models: A Unified Perspective</a>中提到的一个寓言故事。"
+      },
+      {
+        "type": "h3",
+        "html": "Allegory of the cave"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/diffusion-models-01.png",
+        "width": 740,
+        "height": 312,
+        "alt": "Diffusion Models 导读",
+        "caption": ""
+      },
+      {
+        "type": "p",
+        "html": "这个寓言故事大致在描述，把一群人如图所示的关起来，永远只能看岩壁上的二维画面，这个二维画面的影像是外部三维世界的物体经过一个固定的火把后在岩壁上的投影。岩壁上二维的画面显然是由外部三维实体决定的。进一步拓展思路，很有可能我们在现实世界中观察到的很多现象（数据）是从更高维度投影过来。"
+      },
+      {
+        "type": "p",
+        "html": "换一句话说，这个寓言故事表达了，我们观察到的数据分布有可能是被另一个分布所决定。更加严谨的描述：存在隐变量z，决定了我们观测到的数据x的分布，如图所示："
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/diffusion-models-02.png",
+        "width": 526,
+        "height": 326,
+        "alt": "Diffusion Models 导读",
+        "caption": ""
+      },
+      {
+        "type": "p",
+        "html": "考虑到高维分布过于复杂，一般情况，$z$的维度会比$x$小。"
+      },
+      {
+        "type": "h3",
+        "html": "VAE的基本思路"
+      },
+      {
+        "type": "p",
+        "html": "在VAE的架构中，设计两个网络，一个网络做Encoder，将观察的数据$x$映射到隐变量$z$上，另一个网络做Decoder，从采样的$z$中解码回$x$。从实践的角度，VAE需要训练两套参数$\\theta$和$\\phi$，即$p_\\theta(x|z)$和$q_\\phi(z|x)$分别对应encoder和decoder，对应上图的中的真实分布$q$和$p$。本文不准备讲非常详细的数学公式推导，网上已经有足够多的资料，而且知乎输入公式很累。只针对关键点做提醒，再补充一些背景知识。"
+      },
+      {
+        "type": "p",
+        "html": "VAE的目标函数采用的是最大似然（likelihood-based）的路线，即对观察到的数据$x$计算最大$p(x)$，借助数学工具ELBO（Evidence Lower Bound），可以得到最大似然分布的一个下界。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/diffusion-models-03.png",
+        "width": 386,
+        "height": 82,
+        "alt": "Diffusion Models 导读",
+        "caption": ""
+      },
+      {
+        "type": "p",
+        "html": "再经过简单的变换，可以得到目标函数的具体实现方式。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/diffusion-models-04.png",
+        "width": 1180,
+        "height": 229,
+        "alt": "Diffusion Models 导读",
+        "caption": ""
+      },
+      {
+        "type": "p",
+        "html": "这个目标函数的两项都有很直观的解释，第一项代表Decoder的时候尽量接近原图，第二项代表Encoder的分布要接近真实分布$p(z)$。"
+      },
+      {
+        "type": "p",
+        "html": "讲到这里好像VAE很完美，问题都解决了，但我们知道在生成领域，前几年效果比较好的都是GAN，VAE并不出彩。问题在于这个ELBO，它只是个下界，离真实分布很远的下界也是下界。必须把这个下界抬的足够高才能得到一个好的效果，因此它的$q_\\phi$和$p(z)$的分布选择很关键。但由于需要用深度学习网络来建模近似分布$q_\\phi$，而深度学习的优化算法是基于后向传播算法（Back Propagation），但VAE需要从分布$q_\\phi$中去采样出x，采样这个操作会打断梯度传递。"
+      },
+      {
+        "type": "p",
+        "html": "幸运的是，如果我们选择近似分布的时候基于高斯家族分布，可以用参数重整化（reparameterization trick）的技巧来绕过该问题，即从一个高斯分布$x \\sim N(x;\\mu, \\sigma^2)$中采样，可以被写成下面的公式，即可以求梯度了。"
+      },
+      {
+        "type": "p",
+        "html": "$$ x= \\mu + \\sigma * \\epsilon $$"
+      },
+      {
+        "type": "p",
+        "html": "另外，在计算两个分布是否接近，我们常用KL divergence，如果是高斯分布的比较，它直接有解析解。我们上学学概率论的时候，发现大家都很喜欢用高斯分布去建模，它不合理但架不住高斯分布实在有太多好用的特性。但反过来，又限制了VAE的分布选择。当然有很多工作在尝试解决这个问题。"
+      },
+      {
+        "type": "p",
+        "html": "小总结下，VAE算法在实现的时候增加了多个假设，有些牵强，反过来限制了它能力的上限。"
+      },
+      {
+        "type": "h3",
+        "html": "Diffusion Model的基本概念"
+      },
+      {
+        "type": "p",
+        "html": "业界针对VAE的问题做了很多尝试，DM可以算作是其中一种比较成功的尝试。以图片生成举例，VAE想一步到位，同时训练Encoder和Decoder，能够将原始图片映射到隐变量中，又能解码回来，想想都很难。有没有什么办法可以降低问题的难度？一个常见的思路是将困难的问题分而治之，即能不能只训练Encoder或Decoder？能不能把问题分解成一个个子问题？"
+      },
+      {
+        "type": "p",
+        "html": "DM它很大胆的直接去掉了encoder部分的学习。我们知道，如果给一张图片一步步不停的加高斯噪音，经过足够多步，这张图一定会变成纯高斯噪音，类似下图的效果。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/diffusion-models-05.png",
+        "width": 724,
+        "height": 128,
+        "alt": "Diffusion Models 导读",
+        "caption": ""
+      },
+      {
+        "type": "p",
+        "html": "可以理解成，对比VAE，DM的Encoder过程是固定的，事先写好，不需要建模和学习。DM只关心如何学好Decoder，即逆向过程中如何重建数据。"
+      },
+      {
+        "type": "p",
+        "html": "由于Encoder过程是一步步做的，反之DM的Decoder也可以是一步步做，即Decoder不需要一下子就将整张图片生成出来，而是一步步的去恢复图片，逆向整个Encoder的过程，大大降低了问题的难度。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/diffusion-models-06.png",
+        "width": 678,
+        "height": 139,
+        "alt": "Diffusion Models 导读",
+        "caption": ""
+      },
+      {
+        "type": "p",
+        "html": "如上图所示，由于Encoder的时候用的高斯噪音分布，即每个$q(x_t|x_{t-1})$都是高斯分布，如果每步足够小，那么Decoder时候每一步的分布即$q(x_{t-1}|x_t)$也是高斯。那么原先VAE使用的reparameterization trick、KL divergence等技巧用起来就合理，理论上ELBO的下界能比VAE学的更好。"
+      },
+      {
+        "type": "h2",
+        "html": "结合深度学习角度去理解"
+      },
+      {
+        "type": "p",
+        "html": "简单总结下，DM的基本流程是："
+      },
+      {
+        "type": "ol",
+        "items": [
+          "先做前向处理（Forward diffusion process），输入一张原始图片，经过T步迭代，将原始图片转换为纯高斯分布的噪音图，其中每一步给原图加的噪音都是事先定好的。定一个这个分布为q。",
+          "逆向这个过程（Reverse diffusion process），训练一个神经网络来学习分布$p_\\theta$来逐步的将噪音图恢复到原图。"
+        ]
+      },
+      {
+        "type": "p",
+        "html": "经过一系列的推导，DM的ELBO如下："
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/diffusion-models-07.png",
+        "width": 2244,
+        "height": 1924,
+        "alt": "Diffusion Models 导读",
+        "caption": ""
+      },
+      {
+        "type": "p",
+        "html": "上述的目标函数还太麻烦，再经过一些列的推导和简化，最终的object function长这样："
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/diffusion-models-08.png",
+        "width": 980,
+        "height": 482,
+        "alt": "Diffusion Models 导读",
+        "caption": ""
+      },
+      {
+        "type": "p",
+        "html": "即每一步最小化模型预测的噪音分布和高斯噪音之间的距离。这部分在下文看代码的时候可以更直观的理解。"
+      },
+      {
+        "type": "p",
+        "html": "再次强调，需要注意在前项处理（forward process）的时候，没有参数要学习，每一步都是增加事先设计好的高斯分布的噪音。这和VAE很不一样，可以理解成encoder部分是不需要用网络去学习和训练。"
+      },
+      {
+        "type": "p",
+        "html": "DM的目标函数咋一看挺麻烦的，但是经过应用一系列的数学工具后，模型的loss变的非常简洁，且不需要直接去建模输入图片的真实分布，而是去建模每次增加的噪音分布。如下图中的公式，其中$\\epsilon_\\theta$是模型要学习的部分。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/diffusion-models-09.png",
+        "width": 568,
+        "height": 60,
+        "alt": "Diffusion Models 导读",
+        "caption": ""
+      },
+      {
+        "type": "p",
+        "html": "网络结构目前主流都选择Unet，据说Unet结构对DM很重要，但这部分还没有深究，不展开。DM在代码层面的实现相对简单，代码量不大，大家可以多找几个实现看看。本文主要参考huggingface的分享，结合DDPM论文中train和sample（即predict）的伪代码，简单梳理下："
+      },
+      {
+        "type": "h3",
+        "html": "训练过程"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/diffusion-models-10.png",
+        "width": 438,
+        "height": 215,
+        "alt": "Diffusion Models 导读",
+        "caption": ""
+      },
+      {
+        "type": "ol",
+        "items": [
+          "输入$x_0$，即训练数据集中的原始图片",
+          "t这一步可以先不深究，必须依靠更多的数学工具才能理解。这里简单来讲，应用了数学工具后，发现不需要按forward过程中描述的，一步步的从0加到t。因此for循环加sample一部分t在train的时候是更有效率的。",
+          "$\\epsilon$：从高斯分布中采样的噪音；",
+          "将$x_0$，$\\epsilon$，$t$输入到我们的深度学习模型中，计算loss的梯度，其中$\\bar{\\alpha}$是预设好的参数；模型输入是$x_0$，$\\epsilon$，$t$，loss是计算模型预测的噪音分布和高斯噪音的差值（huber、l2都可以）"
+        ]
+      },
+      {
+        "type": "p",
+        "html": "稍微解释下t的采样问题，在forward过程中，从$x_0$加noise到$x_T$，其每一步的增加的高斯噪音如下，其中$\\beta$是事先定好的策略："
+      },
+      {
+        "type": "p",
+        "html": "$$ q(x_t|x_{t-1}) = N(x_t;\\sqrt{1-\\beta} x_{t-1}, \\beta_t I) $$"
+      },
+      {
+        "type": "p",
+        "html": "这个公式算起来还有点麻烦，每次要先把t-1算出来，我们可以用gaussian的reparameterization的技巧，让$x_t$的计算更简单；"
+      },
+      {
+        "type": "p",
+        "html": "$$ x_t = \\sqrt{\\bar{a}_t}x_0 + \\sqrt{1-\\bar{a}_t}\\epsilon $$"
+      },
+      {
+        "type": "p",
+        "html": "这里$\\epsilon$是高斯参数化技巧的一部分，这里可以重写$q(x_t|x_0)$，即每次计算$x_t$只和$x_0$相关，而Diffusion的loss是一个累加的L，则训练时就可以采样任意的t去计算，效率更高。"
+      },
+      {
+        "type": "p",
+        "html": "$$ q(x_t | x_0) = N(x_t; \\sqrt{\\bar{a}_t}x_0, (1-\\bar{a}_t)I) $$"
+      },
+      {
+        "type": "h3",
+        "html": "预测过程（从概率的角度即Sample过程）"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/diffusion-models-11.png",
+        "width": 436,
+        "height": 213,
+        "alt": "Diffusion Models 导读",
+        "caption": ""
+      },
+      {
+        "type": "p",
+        "html": "预测部分就很简单，从高斯噪音图开始，从T时刻到T0，依靠$x_t$、模型输出的$\\epsilon_\\theta$和高斯噪音恢复每一步的$x_{t-1}$。一步步的去噪。"
+      },
+      {
+        "type": "h2",
+        "html": "总结"
+      },
+      {
+        "type": "p",
+        "html": "写到这里文章已经很长，但只梳理了最基本的DM概念，一些最新的发展和DM本身的问题都没有涉及，从下图中可以看出DM领域近期非常火热，网上有大量的相关工作，感兴趣的同学可以慢慢去探索。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/diffusion-models-12.png",
+        "width": 1467,
+        "height": 488,
+        "alt": "Diffusion Models 导读",
+        "caption": ""
+      },
+      {
+        "type": "p",
+        "html": "本文从导读的角度梳理下近期学习Diffusion model的一些心得，希望能帮大家建立一些基本概念，减轻学习时候的不适感。再次推荐下这篇文档，感受下它的目录结构，非常详细且循序渐进。"
+      },
+      {
+        "type": "image",
+        "src": "/images/blog/diffusion-models-13.png",
+        "width": 2438,
+        "height": 1596,
+        "alt": "Diffusion Models 导读",
+        "caption": ""
+      },
+      {
+        "type": "h2",
+        "html": "参考资料"
+      },
+      {
+        "type": "p",
+        "html": "<a href=\"https://arxiv.org/abs/2208.11970\">Understanding Diffusion Models: A Unified Perspective</a>"
+      },
+      {
+        "type": "p",
+        "html": "<a href=\"https://lilianweng.github.io/posts/2021-07-11-diffusion-models/\">What are Diffusion Models?</a>"
+      },
+      {
+        "type": "p",
+        "html": "<a href=\"https://yang-song.net/blog/2021/score/#the-score-function-score-based-models-and-score-matching\">Generative Modeling by Estimating Gradients of the Data Distribution</a>"
+      },
+      {
+        "type": "p",
+        "html": "<a href=\"https://huggingface.co/blog/annotated-diffusion\">The Annotated Diffusion Model</a>"
+      },
+      {
+        "type": "p",
+        "html": "<a href=\"https://www.zhihu.com/question/536012286\">diffusion model最近在图像生成领域大红大紫，如何看待它的风头开始超过GAN？</a>"
+      },
+      {
+        "type": "p",
+        "html": "<a href=\"https://arxiv.org/pdf/2006.11239.pdf\">https://arxiv.org/pdf/2006.11239.pdf</a>"
+      },
+      {
+        "type": "p",
+        "html": "<a href=\"https://arxiv.org/pdf/1503.03585.pdf\">https://arxiv.org/pdf/1503.03585.pdf</a>"
+      },
+      {
+        "type": "p",
+        "html": "<a href=\"https://arxiv.org/pdf/2209.02646.pdf\">https://arxiv.org/pdf/2209.02646.pdf</a>"
+      },
+      {
+        "type": "p",
+        "html": "<a href=\"https://arxiv.org/pdf/2210.09292.pdf\">https://arxiv.org/pdf/2210.09292.pdf</a>"
+      },
+      {
+        "type": "p",
+        "html": "<a href=\"https://arxiv.org/pdf/2209.00796v9.pdf\">https://arxiv.org/pdf/2209.00796v9.pdf</a>"
+      },
+      {
+        "type": "p",
+        "html": "<a href=\"https://github.com/YangLing0818/Diffusion-Models-Papers-Survey-Taxonomy\">https://github.com/YangLing0818/Diffusion-Models-Papers-Survey-Taxonomy</a>"
+      },
+      {
+        "type": "p",
+        "html": "<a href=\"https://www.youtube.com/watch?v=HoKDTa5jHvg\">https://www.youtube.com/watch?v=HoKDTa5jHvg</a>"
+      },
+      {
+        "type": "p",
+        "html": "<a href=\"https://www.youtube.com/watch?v=fbLgFrlTnGU\">https://www.youtube.com/watch?v=fbLgFrlTnGU</a>"
+      }
+    ]
+  }
+]

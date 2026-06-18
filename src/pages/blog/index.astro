@@ -32,8 +32,8 @@ import { profile, writingByArea } from "../../data/profile";
             <span data-lang-content="zh">按工作范围整理。</span>
           </h2>
         </div>
-        <p class="section-lead" data-lang-content="en">Each area keeps only a few representative pieces. Site essays maintain separate English and Chinese versions; remaining external pieces keep source links with translated context.</p>
-        <p class="section-lead" data-lang-content="zh">每组只放少数代表作。站内文章会维护中文原文和英文版；少数还没迁入的内容先保留原始链接和上下文说明。</p>
+        <p class="section-lead" data-lang-content="en">Each area keeps only a few representative pieces. The selected essays now keep dedicated English and Chinese editions on this site, with original-source links preserved on the essay pages.</p>
+        <p class="section-lead" data-lang-content="zh">每组只放少数代表作。精选文章会在站内维护中英文两个版本，原始链接保留在文章页里。</p>
       </div>
 
       {writingByArea.map((group) => (
@@ -52,10 +52,6 @@ import { profile, writingByArea } from "../../data/profile";
 
                   return (
                     <>
-                <div class="event-meta">
-                  <span data-lang-content="en">{item.type}</span>
-                  <span data-lang-content="zh">{item.typeZh}</span>
-                </div>
                 <h4>
                   <span data-lang-content="en">{item.titleEn}</span>
                   <span data-lang-content="zh">{item.title}</span>

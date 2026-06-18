@@ -505,13 +505,13 @@ export const writingByArea = [
         note: "一篇关于 WeShop 场景的高赞回答，解释 AI 模特、虚拟试衣、电商商拍约束、出海商品图和生成式 AI 的可用性边界。",
       },
       {
-        type: "Zhihu column",
-        typeZh: "知乎专栏",
+        type: "On this site",
+        typeZh: "站内双语全文",
         title: "谈谈做WeShop过程中对AIGC产品的一些思考",
-        titleEn: "Product reflections from building WeShop's AIGC product",
-        href: "https://zhuanlan.zhihu.com/p/633513013",
+        titleEn: "What Building WeShop Taught Me About Generative-AI Products",
+        href: "/blog/weshop-aigc-product-reflections/",
         noteEn:
-          "A core WeShop product essay on user feedback, product-market fit, quality problems, and why AIGC products need real customers early.",
+          "A core WeShop product essay on defining an AI product before the technology is mature, plus compute cost, model evaluation, and why real customers matter early.",
         note: "WeShop 早期最重要的产品思考之一，讨论用户反馈、PMF、质量问题和 AIGC 产品为什么要尽早接触真实客户。",
       },
       {
@@ -545,11 +545,11 @@ export const writingByArea = [
         note: "Memex 的产品原点：个人记录、私人上下文、长期记忆，以及 AI 时代为什么重新需要 local-first 信任。",
       },
       {
-        type: "Zhihu answer",
-        typeZh: "知乎回答",
+        type: "On this site",
+        typeZh: "站内双语全文",
         title: "为什么一定要频繁记录自己？",
-        titleEn: "Why record yourself so often?",
-        href: "https://www.zhihu.com/question/1925936172162605365/answer/2016262442049634843",
+        titleEn: "Why Record Yourself So Often?",
+        href: "/blog/record-yourself-often/",
         noteEn:
           "A public-facing explanation of personal records, AI anxiety, memory, agency, and why private context becomes useful again in the agent era.",
         note: "把 Memex 的产品理念讲给更广泛读者：个人记录、记忆、隐私、AI 焦虑和私人上下文。",
@@ -615,31 +615,31 @@ export const writingByArea = [
       "这一组是生成式 AI 早期转向时的技术和应用理解，也解释了为什么后来能进入 WeShop 这样的产品实践。",
     items: [
       {
-        type: "Zhihu column",
-        typeZh: "知乎专栏",
+        type: "On this site",
+        typeZh: "站内双语全文",
         title: "Diffusion Models 导读",
-        titleEn: "A guide to diffusion models",
-        href: "https://zhuanlan.zhihu.com/p/591720296",
+        titleEn: "A Practical Guide to Diffusion Models",
+        href: "/blog/diffusion-models-guide/",
         noteEn:
           "A technical primer for readers entering image generation, useful as a marker of the technical base behind later commercial AI image work.",
         note: "面向图像生成入门读者的 Diffusion Models 技术导读，也是理解后续 AI 商拍实践的技术背景。",
       },
       {
-        type: "Zhihu column",
-        typeZh: "知乎专栏",
+        type: "On this site",
+        typeZh: "站内双语全文",
         title: "应用视角下 ChatGPT 背后的关键技术讨论",
-        titleEn: "The core technologies behind ChatGPT from an application perspective",
-        href: "https://zhuanlan.zhihu.com/p/609624863",
+        titleEn: "ChatGPT's Core Technologies, Seen From the Application Layer",
+        href: "/blog/chatgpt-application-technology/",
         noteEn:
           "A technical-product discussion of ChatGPT from the perspective of application builders, not only model observers.",
         note: "从应用构建者视角讨论 ChatGPT 背后的关键技术，而不是只停留在模型观察。",
       },
       {
-        type: "Zhihu answer",
-        typeZh: "知乎回答",
+        type: "On this site",
+        typeZh: "站内双语全文",
         title: "在研究编程 Agent，Agent 核心就几十行代码，那剩下的几万行到底在解决什么问题？",
-        titleEn: "If an agent core is only a few dozen lines, what are the other tens of thousands of lines for?",
-        href: "https://www.zhihu.com/question/1994057559171167995/answer/2021164259149714484",
+        titleEn: "If the Agent Loop Is Tiny, What Are the Other Tens of Thousands of Lines For?",
+        href: "/blog/agent-extra-code/",
         noteEn:
           "A production-engineering answer on why real agents need tools, permissions, context, validation, UI, logs, recovery, and product structure.",
         note: "从工程角度解释生产级 Agent 为什么不只是几十行循环，还需要工具、权限、上下文、校验、UI、日志和恢复机制。",
